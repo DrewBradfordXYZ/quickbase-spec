@@ -23,6 +23,8 @@
     "validate": "tsx tools/cli.ts validate",
     "split": "tsx tools/cli.ts split",
     "build": "tsx tools/cli.ts build",
+    "health": "tsx tools/cli.ts health",
+    "check": "tsx tools/cli.ts health",
     "prepublishOnly": "npm run build"
   },
   "keywords": [

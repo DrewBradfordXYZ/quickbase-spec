@@ -53,6 +53,16 @@ async function main(): Promise<void> {
         break;
       }
 
+      case 'health':
+      case 'check': {
+        const { healthCheck } = await import('./health-check.js');
+        const result = await healthCheck();
+        if (!result.valid) {
+          process.exit(1);
+        }
+        break;
+      }
+
       case 'build': {
         // Run full pipeline
         log('info', 'Running full build pipeline...\n');
@@ -109,11 +119,12 @@ Commands:
   validate [input]  Validate spec structure and references
   split [input]     Split spec by tag for easier editing
   build [input]     Run full pipeline (convert -> patch -> validate)
+  health            Validate fixtures against spec (alias: check)
 
 Examples:
   npx tsx tools/cli.ts build
   npx tsx tools/cli.ts validate ./my-spec.json
-  npx tsx tools/cli.ts split
+  npx tsx tools/cli.ts health
 `);
 }
 
