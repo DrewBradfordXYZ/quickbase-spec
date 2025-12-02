@@ -142,12 +142,10 @@ console.log(fixture.body);          // Response body
 ### Go
 
 ```go
-// Embed fixtures directly
-//go:embed fixtures/apps/get-app/response.200.json
-var getAppFixture []byte
+// Use oapi-codegen with the spec for type generation
+//go:generate oapi-codegen -package api spec/output/quickbase-patched.json
 
-// Or use oapi-codegen with the spec
-//go:generate oapi-codegen -package api output/quickbase-patched.json
+// Go SDKs typically use inline struct literals for tests (see "Should Your SDK Use Fixtures?")
 ```
 
 ### Other Languages
@@ -250,34 +248,19 @@ http.get('https://api.quickbase.com/v1/apps/:appId', () => {
 });
 ```
 
-**Go (with go:embed and httptest):**
+**Go (preferred approach - inline structs):**
 
 ```go
-import (
-    _ "embed"
-    "encoding/json"
-    "net/http"
-    "net/http/httptest"
-)
-
-//go:embed fixtures/apps/get-app/response.200.simple-application.json
-var getAppFixture []byte
-
-type Fixture struct {
-    Meta struct {
-        Status int `json:"status"`
-    } `json:"_meta"`
-    Body json.RawMessage `json:"body"`
-}
-
 func TestGetApp(t *testing.T) {
-    var fixture Fixture
-    json.Unmarshal(getAppFixture, &fixture)
+    // Go prefers inline struct literals for compile-time type safety
+    want := App{
+        ID:   "bpqe82s1",
+        Name: "Test App",
+    }
 
     server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Content-Type", "application/json")
-        w.WriteHeader(fixture.Meta.Status)
-        w.Write(fixture.Body)
+        json.NewEncoder(w).Encode(want)
     }))
     defer server.Close()
 
