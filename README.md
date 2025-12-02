@@ -158,6 +158,22 @@ The output files are plain JSON—use your language's JSON parser to read them:
 
 ## Fixtures
 
+### Should Your SDK Use Fixtures?
+
+Fixtures are most valuable for dynamically-typed languages where JSON is native. Statically-typed languages often benefit more from inline test data with compile-time type checking.
+
+| Language | Use Fixtures? | Reason |
+|----------|---------------|--------|
+| **TypeScript/JavaScript** | Yes | JSON is native, duck typing, mocking libraries expect JSON |
+| **Python** | Yes | Dynamic typing, dicts work naturally with JSON |
+| **Ruby** | Yes | Dynamic typing, hashes map directly to JSON |
+| **Go** | No | Table-driven tests with struct literals preferred, compile-time type safety |
+| **Rust** | No | Strong typing, serde requires explicit types anyway |
+| **Java/Kotlin** | Maybe | Depends on testing style; frameworks like WireMock can use JSON files |
+| **C#** | Maybe | Similar to Java; depends on mocking approach |
+
+**All languages** should use `output/quickbase-patched.json` for type/client generation.
+
 ### Generated vs Manual
 
 Fixtures in the root directories (`apps/`, `records/`, etc.) are **generated** from examples in the OpenAPI spec using `npm run generate`. These can be safely deleted and regenerated.
