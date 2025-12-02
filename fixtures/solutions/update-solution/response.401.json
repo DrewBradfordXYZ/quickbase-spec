@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+    "status": 401,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "message": "Forbidden",
+    "description": ""
+  }
+}

@@ -4,13 +4,14 @@
  *
  * Checks:
  * 1. Fixture response bodies match spec schemas
- * 2. Required fields are present
- * 3. Field types are correct
- * 4. All operations have fixture coverage
+ * 2. Fixture request bodies match spec schemas
+ * 3. Required fields are present
+ * 4. Field types are correct
+ * 5. All operations have fixture coverage
  */
 
 import { readFileSync, readdirSync, existsSync } from 'fs';
-import { join, basename, dirname } from 'path';
+import { join, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -26,6 +27,7 @@ interface ValidationResult {
     covered: number;
     missing: string[];
   };
+  validated: number;
 }
 
 interface Schema {
@@ -40,13 +42,19 @@ interface Schema {
   allOf?: Schema[];
 }
 
+interface Operation {
+  operationId: string;
+  tags?: string[];
+  requestBody?: {
+    content?: Record<string, { schema?: Schema }>;
+  };
+  responses?: Record<string, {
+    content?: Record<string, { schema?: Schema }>;
+  }>;
+}
+
 interface OpenAPISpec {
-  paths: Record<string, Record<string, {
-    operationId: string;
-    responses?: Record<string, {
-      content?: Record<string, { schema?: Schema }>;
-    }>;
-  }>>;
+  paths: Record<string, Record<string, Operation>>;
   components?: {
     schemas?: Record<string, Schema>;
   };
@@ -55,57 +63,44 @@ interface OpenAPISpec {
 interface Fixture {
   _meta: {
     description: string;
-    status: number;
+    status?: number;
     headers?: Record<string, string>;
   };
   body: unknown;
 }
 
-// Map operation IDs to fixture paths
-const OPERATION_TO_FIXTURE: Record<string, string> = {
-  getApp: 'apps/get-app',
-  createApp: 'apps/create-app',
-  updateApp: 'apps/update-app',
-  deleteApp: 'apps/delete-app',
-  copyApp: 'apps/copy-app',
-  getAppTables: 'apps/get-app-tables',
-  getAppEvents: 'apps/get-app-events',
-  getTable: 'tables/get-table',
-  createTable: 'tables/create-table',
-  updateTable: 'tables/update-table',
-  deleteTable: 'tables/delete-table',
-  getFields: 'fields/get-fields',
-  getField: 'fields/get-field',
-  createField: 'fields/create-field',
-  updateField: 'fields/update-field',
-  deleteFields: 'fields/delete-fields',
-  runQuery: 'records/run-query',
-  upsert: 'records/upsert',
-  deleteRecords: 'records/delete-records',
-  getReport: 'reports/get-report',
-  getTableReports: 'reports/get-table-reports',
-  runReport: 'reports/run-report',
-  getUsers: 'users/get-users',
-  denyUsers: 'users/deny-users',
-  undenyUsers: 'users/undeny-users',
-  getTempTokenDBID: 'auth/get-temp-token',
-  exchangeSsoToken: 'auth/exchange-sso-token',
-};
-
-function loadSpec(): OpenAPISpec {
-  const content = readFileSync(SPEC_PATH, 'utf-8');
-  return JSON.parse(content);
+/**
+ * Convert operationId to kebab-case (matches generator logic)
+ */
+function toKebabCase(str: string): string {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
+    .toLowerCase();
 }
 
-function loadFixture(path: string): Fixture | null {
-  const fullPath = join(FIXTURES_DIR, path);
-  if (!existsSync(fullPath)) {
-    return null;
+/**
+ * Build a map of operationId -> { tag, operation } from the spec
+ */
+function buildOperationMap(spec: OpenAPISpec): Map<string, { tag: string; operation: Operation }> {
+  const map = new Map<string, { tag: string; operation: Operation }>();
+
+  for (const [, methods] of Object.entries(spec.paths)) {
+    for (const [method, operation] of Object.entries(methods)) {
+      if (method === 'parameters') continue; // Skip path-level parameters
+      if (operation?.operationId) {
+        const tag = operation.tags?.[0] || 'misc';
+        map.set(operation.operationId, { tag, operation });
+      }
+    }
   }
-  const content = readFileSync(fullPath, 'utf-8');
-  return JSON.parse(content);
+
+  return map;
 }
 
+/**
+ * Find all fixture files recursively
+ */
 function findFixtureFiles(dir: string): string[] {
   const files: string[] = [];
 
@@ -119,12 +114,90 @@ function findFixtureFiles(dir: string): string[] {
     const fullPath = join(dir, entry.name);
     if (entry.isDirectory()) {
       files.push(...findFixtureFiles(fullPath));
-    } else if (entry.name.endsWith('.json') && !entry.name.startsWith('_')) {
+    } else if (entry.name.endsWith('.json') && entry.name !== '_meta.json') {
       files.push(fullPath);
     }
   }
 
   return files;
+}
+
+/**
+ * Parse fixture path to extract operation info
+ * e.g., "apps/get-app/response.200.json" -> { tag: "apps", operationFolder: "get-app", type: "response", status: 200 }
+ */
+function parseFixturePath(fixturePath: string): {
+  tag: string;
+  operationFolder: string;
+  type: 'request' | 'response';
+  status?: number;
+  isManual: boolean;
+} | null {
+  const rel = relative(FIXTURES_DIR, fixturePath);
+  const parts = rel.split('/');
+
+  if (parts.length < 3) return null;
+
+  const isManual = parts[0] === '_manual';
+  const tagIndex = isManual ? 1 : 0;
+  const opIndex = isManual ? 2 : 1;
+  const fileIndex = isManual ? 3 : 2;
+
+  if (parts.length < fileIndex + 1) return null;
+
+  const tag = parts[tagIndex];
+  const operationFolder = parts[opIndex];
+  const fileName = parts[fileIndex];
+
+  // Parse filename
+  if (fileName.startsWith('request')) {
+    return { tag, operationFolder, type: 'request', isManual };
+  } else if (fileName.startsWith('response.')) {
+    const match = fileName.match(/^response\.(\d+)/);
+    const status = match ? parseInt(match[1], 10) : undefined;
+    return { tag, operationFolder, type: 'response', status, isManual };
+  }
+
+  return null;
+}
+
+/**
+ * Find operation by matching tag and kebab-case operationId
+ */
+function findOperation(
+  tag: string,
+  operationFolder: string,
+  operationMap: Map<string, { tag: string; operation: Operation }>
+): { operationId: string; operation: Operation } | null {
+  for (const [opId, { tag: opTag, operation }] of operationMap) {
+    const expectedFolder = toKebabCase(opId);
+    if (opTag.toLowerCase() === tag.toLowerCase() && expectedFolder === operationFolder) {
+      return { operationId: opId, operation };
+    }
+  }
+
+  // Try matching just by operationFolder (for _manual/errors or cross-tag fixtures)
+  for (const [opId, { operation }] of operationMap) {
+    const expectedFolder = toKebabCase(opId);
+    if (expectedFolder === operationFolder) {
+      return { operationId: opId, operation };
+    }
+  }
+
+  return null;
+}
+
+function loadSpec(): OpenAPISpec {
+  const content = readFileSync(SPEC_PATH, 'utf-8');
+  return JSON.parse(content);
+}
+
+function loadFixture(path: string): Fixture | null {
+  if (!existsSync(path)) {
+    return null;
+  }
+  const content = readFileSync(path, 'utf-8');
+  return JSON.parse(content);
 }
 
 function resolveRef(ref: string, spec: OpenAPISpec): Schema | null {
@@ -244,81 +317,80 @@ function validateValueAgainstSchema(
 
 function validateFixture(
   fixturePath: string,
+  operation: Operation,
   operationId: string,
+  fixtureInfo: ReturnType<typeof parseFixturePath>,
   spec: OpenAPISpec,
   errors: string[],
   warnings: string[]
-): void {
+): boolean {
   const fixture = loadFixture(fixturePath);
   if (!fixture) {
-    return;
+    return false;
   }
 
-  // Skip validation for error responses (non-2xx) - QuickBase uses different schema for errors
-  if (fixture._meta.status >= 300) {
-    return;
-  }
+  const relativePath = relative(FIXTURES_DIR, fixturePath);
 
-  // Find the operation in the spec
-  let responseSchema: Schema | undefined;
-
-  for (const [, methods] of Object.entries(spec.paths)) {
-    for (const [, operation] of Object.entries(methods)) {
-      if (operation.operationId === operationId) {
-        const statusCode = String(fixture._meta.status);
-        const response = operation.responses?.[statusCode] || operation.responses?.['200'];
-        responseSchema = response?.content?.['application/json']?.schema;
-        break;
-      }
+  if (fixtureInfo?.type === 'request') {
+    // Validate request body
+    const requestSchema = operation.requestBody?.content?.['application/json']?.schema;
+    if (!requestSchema) {
+      warnings.push(`${relativePath}: no request schema found for '${operationId}'`);
+      return true;
     }
+
+    validateValueAgainstSchema(
+      fixture.body,
+      requestSchema,
+      spec,
+      relativePath,
+      errors,
+      warnings
+    );
+  } else if (fixtureInfo?.type === 'response') {
+    // Skip validation for error responses (4xx/5xx) - QuickBase uses different schema
+    if (fixtureInfo.status && fixtureInfo.status >= 400) {
+      return true;
+    }
+
+    const statusCode = String(fixtureInfo?.status || fixture._meta.status || 200);
+    const response = operation.responses?.[statusCode] || operation.responses?.['200'];
+    const responseSchema = response?.content?.['application/json']?.schema;
+
+    if (!responseSchema) {
+      warnings.push(`${relativePath}: no response schema found for '${operationId}' status ${statusCode}`);
+      return true;
+    }
+
+    validateValueAgainstSchema(
+      fixture.body,
+      responseSchema,
+      spec,
+      relativePath,
+      errors,
+      warnings
+    );
   }
 
-  if (!responseSchema) {
-    warnings.push(`${fixturePath}: no schema found for operation '${operationId}'`);
-    return;
-  }
-
-  validateValueAgainstSchema(
-    fixture.body,
-    responseSchema,
-    spec,
-    `${basename(fixturePath)}`,
-    errors,
-    warnings
-  );
+  return true;
 }
 
-function checkCoverage(spec: OpenAPISpec): { total: number; covered: number; missing: string[] } {
-  const allOperations: string[] = [];
-
-  for (const [, methods] of Object.entries(spec.paths)) {
-    for (const [, operation] of Object.entries(methods)) {
-      if (operation.operationId) {
-        allOperations.push(operation.operationId);
-      }
-    }
-  }
-
+function checkCoverage(
+  operationMap: Map<string, { tag: string; operation: Operation }>,
+  coveredOperations: Set<string>
+): { total: number; covered: number; missing: string[] } {
   const missing: string[] = [];
-  let covered = 0;
 
-  for (const opId of allOperations) {
-    const fixturePath = OPERATION_TO_FIXTURE[opId];
-    if (fixturePath) {
-      const fullPath = join(FIXTURES_DIR, fixturePath, 'response.200.json');
-      if (existsSync(fullPath)) {
-        covered++;
-      } else {
-        missing.push(`${opId} (expected at ${fixturePath}/response.200.json)`);
-      }
-    } else {
-      missing.push(`${opId} (no fixture mapping defined)`);
+  for (const [opId, { tag }] of operationMap) {
+    if (!coveredOperations.has(opId)) {
+      const expectedPath = `${tag.toLowerCase()}/${toKebabCase(opId)}`;
+      missing.push(`${opId} (expected at ${expectedPath}/response.200.json)`);
     }
   }
 
   return {
-    total: allOperations.length,
-    covered,
+    total: operationMap.size,
+    covered: coveredOperations.size,
     missing,
   };
 }
@@ -326,6 +398,8 @@ function checkCoverage(spec: OpenAPISpec): { total: number; covered: number; mis
 export async function healthCheck(): Promise<ValidationResult> {
   const errors: string[] = [];
   const warnings: string[] = [];
+  const coveredOperations = new Set<string>();
+  let validated = 0;
 
   console.log('\n🔍 QuickBase Spec Health Check\n');
   console.log('='.repeat(50));
@@ -333,32 +407,60 @@ export async function healthCheck(): Promise<ValidationResult> {
   // Load spec
   console.log('\n📋 Loading spec...');
   const spec = loadSpec();
+  const operationMap = buildOperationMap(spec);
+  console.log(`   Found ${operationMap.size} operations in spec`);
 
-  // Check coverage
-  console.log('\n📊 Checking fixture coverage...');
-  const coverage = checkCoverage(spec);
-  console.log(`   Operations: ${coverage.covered}/${coverage.total} covered (${Math.round(coverage.covered/coverage.total*100)}%)`);
+  // Find all fixtures
+  console.log('\n📁 Discovering fixtures...');
+  const allFixtures = findFixtureFiles(FIXTURES_DIR);
+  console.log(`   Found ${allFixtures.length} fixture files`);
 
   // Validate fixtures
   console.log('\n✅ Validating fixtures against schema...');
 
-  for (const [opId, fixturePath] of Object.entries(OPERATION_TO_FIXTURE)) {
-    const dir = join(FIXTURES_DIR, fixturePath);
-    if (!existsSync(dir)) continue;
+  for (const fixturePath of allFixtures) {
+    const fixtureInfo = parseFixturePath(fixturePath);
+    if (!fixtureInfo) {
+      // Skip files we can't parse (like _meta.json)
+      continue;
+    }
 
-    const files = readdirSync(dir).filter(f => f.startsWith('response.') && f.endsWith('.json'));
-    for (const file of files) {
-      const relativePath = join(fixturePath, file);
-      validateFixture(relativePath, opId, spec, errors, warnings);
+    // Skip _manual/errors - these are generic error fixtures, not operation-specific
+    if (fixtureInfo.isManual && fixtureInfo.tag === 'errors') {
+      validated++;
+      continue;
+    }
+
+    const match = findOperation(fixtureInfo.tag, fixtureInfo.operationFolder, operationMap);
+    if (!match) {
+      warnings.push(`${relative(FIXTURES_DIR, fixturePath)}: no matching operation found`);
+      continue;
+    }
+
+    const { operationId, operation } = match;
+    coveredOperations.add(operationId);
+
+    if (validateFixture(fixturePath, operation, operationId, fixtureInfo, spec, errors, warnings)) {
+      validated++;
     }
   }
+
+  // Check coverage
+  console.log('\n📊 Checking fixture coverage...');
+  const coverage = checkCoverage(operationMap, coveredOperations);
+  const coveragePercent = Math.round((coverage.covered / coverage.total) * 100);
+  console.log(`   Operations: ${coverage.covered}/${coverage.total} covered (${coveragePercent}%)`);
+  console.log(`   Fixtures validated: ${validated}`);
 
   // Print results
   console.log('\n' + '='.repeat(50));
 
   if (errors.length > 0) {
     console.log(`\n❌ Errors (${errors.length}):`);
-    errors.forEach(e => console.log(`   • ${e}`));
+    errors.slice(0, 20).forEach(e => console.log(`   • ${e}`));
+    if (errors.length > 20) {
+      console.log(`   ... and ${errors.length - 20} more`);
+    }
   }
 
   if (warnings.length > 0) {
@@ -385,6 +487,7 @@ export async function healthCheck(): Promise<ValidationResult> {
     errors,
     warnings,
     coverage,
+    validated,
   };
 }
 

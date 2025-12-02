@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failure": [
+      "423123.vc2d",
+      "78910.ba1s"
+    ],
+    "success": [
+      "123456.ab1s"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "description": "Request body for updateTable"
+  },
+  "body": {
+    "name": "My table",
+    "description": "my first table",
+    "singleRecordName": "record",
+    "pluralRecordName": "records"
+  }
+}

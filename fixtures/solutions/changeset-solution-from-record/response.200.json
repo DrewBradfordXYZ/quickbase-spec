@@ -1,0 +1,41 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "f53acd36-1e75-47ed-910c-0ca4fd165a84",
+    "changes": [
+      {
+        "logicalType": "Property",
+        "logicalId": "App::$App_MVP_App_234::Property::Name",
+        "action": "Update",
+        "path": [
+          "$App_MVP_App_234",
+          "Name"
+        ]
+      },
+      {
+        "logicalType": "Table",
+        "logicalId": "$Table_Parents",
+        "action": "Remove",
+        "path": [
+          "$App_MVP_App_234",
+          "$Table_Parents"
+        ]
+      },
+      {
+        "logicalType": "Table",
+        "logicalId": "$Table_Children",
+        "action": "Remove",
+        "path": [
+          "$App_MVP_App_234",
+          "$Table_Children"
+        ]
+      }
+    ]
+  }
+}

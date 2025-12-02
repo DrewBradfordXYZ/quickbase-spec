@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "description": "Request body for runQuery"
+  },
+  "body": {
+    "from": "bck7gp3q2",
+    "select": [
+      1,
+      2,
+      3
+    ],
+    "where": "{1.CT.'hello'}",
+    "sortBy": [
+      {
+        "fieldId": 4,
+        "order": "ASC"
+      },
+      {
+        "fieldId": 5,
+        "order": "ASC"
+      }
+    ],
+    "groupBy": [
+      {
+        "fieldId": 6,
+        "grouping": "equal-values"
+      }
+    ],
+    "options": {
+      "skip": 0,
+      "top": 0,
+      "compareWithAppLocalTime": false
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "description": "Response",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "active": true,
+    "apps": [
+      {
+        "id": "bpqe82s1",
+        "name": "My first app"
+      },
+      {
+        "id": "bpqe82s2",
+        "name": "My second app"
+      }
+    ],
+    "lastUsed": "2020-03-27T18:34:12.000Z",
+    "description": "Cloned user token",
+    "id": 5,
+    "name": "My cloned user token",
+    "token": "token"
+  }
+}

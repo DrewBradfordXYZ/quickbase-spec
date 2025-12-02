@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "description": "Query ran successfully and has returned the events for the given time period.",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "events": [
+      {
+        "firstname": "Jon",
+        "lastname": "Doe",
+        "email": "jdoe@quickbase.com",
+        "ipaddress": "65.219.241.162",
+        "application": "UI",
+        "resourceurl": "https://demo.quickbase.com/db/bpqe82s1",
+        "sessioninfo": "Session ID: 17245317",
+        "useragent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15",
+        "topic": "app_dashboard_access",
+        "description": "Jon Doe accessed the app dashboard in app Projects",
+        "id": "I3g8gm2cmh-1",
+        "time": "2020-04-21T14:41:51.886Z"
+      }
+    ],
+    "nextToken": "6a.f12x",
+    "queryId": "797c0726-f8f4-4df9-883f-c7e8cbdf2f77.ALtInpuyQeBoW+fWrAqLrjPGqDqPl++IMb3bOxlmoF4="
+  }
+}

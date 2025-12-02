@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "metadata": {
+      "numRelationships": 1,
+      "skip": 0,
+      "totalRelationships": 1
+    },
+    "relationships": [
+      {
+        "childTableId": "bqqjnwsuy",
+        "foreignKeyField": {
+          "id": 6,
+          "label": "Related record",
+          "type": "numeric"
+        },
+        "id": 6,
+        "isCrossApp": false,
+        "lookupFields": [
+          {
+            "id": 3,
+            "label": "Name",
+            "type": "text"
+          }
+        ],
+        "parentTableId": "bck7gp3q2",
+        "summaryFields": [
+          {
+            "id": 8,
+            "label": "my summary field",
+            "type": "numeric"
+          }
+        ]
+      }
+    ]
+  }
+}

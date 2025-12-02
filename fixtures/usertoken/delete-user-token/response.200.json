@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Response",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": 5
+  }
+}

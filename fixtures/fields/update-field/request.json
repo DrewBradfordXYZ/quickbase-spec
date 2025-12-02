@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "Request body for updateField"
+  },
+  "body": {
+    "label": "Field1",
+    "noWrap": false,
+    "bold": false,
+    "required": true,
+    "appearsByDefault": false,
+    "findEnabled": false,
+    "unique": true,
+    "fieldHelp": "field help",
+    "addToForms": true,
+    "properties": {
+      "numLines": 1,
+      "maxLength": 0,
+      "appendOnly": false,
+      "sortAsGiven": false
+    },
+    "permissions": [
+      {
+        "role": "Viewer",
+        "permissionType": "View",
+        "roleId": 10
+      },
+      {
+        "role": "Participant",
+        "permissionType": "None",
+        "roleId": 11
+      },
+      {
+        "role": "Administrator",
+        "permissionType": "Modify",
+        "roleId": 12
+      }
+    ]
+  }
+}

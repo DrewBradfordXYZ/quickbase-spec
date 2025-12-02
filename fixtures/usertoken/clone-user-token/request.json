@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "description": "Request body for cloneUserToken"
+  },
+  "body": {
+    "name": "My cloned user token",
+    "description": "Cloned from user token A"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Query still being processed. Pass the queryId back to the API to check for results.",
+    "status": 202,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "queryId": "797c0726-f8f4-4df9-883f-c7e8cbdf2f77.ALtInpuyQeBoW+fWrAqLrjPGqDqPl++IMb3bOxlmoF4="
+  }
+}

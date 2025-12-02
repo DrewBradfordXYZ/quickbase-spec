@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Request body for runFormula"
+  },
+  "body": {
+    "from": "bck7gp3q2",
+    "formula": "Sum([NumericField],20)",
+    "rid": 1
+  }
+}

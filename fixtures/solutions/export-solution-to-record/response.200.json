@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "record_id": 1,
+    "filename": "QBL-0.4-30d92a39-5940-49b6-9eb1-c2966f85a7c0.yaml"
+  }
+}

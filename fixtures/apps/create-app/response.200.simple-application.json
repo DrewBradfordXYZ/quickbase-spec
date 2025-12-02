@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "description": "Simple Application",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "created": "2020-03-27T18:34:12Z",
+    "dateFormat": "MM-DD-YYYY",
+    "description": "My testing app",
+    "hasEveryoneOnTheInternet": true,
+    "id": "bpqe82s1",
+    "memoryInfo": {
+      "estMemory": 1,
+      "estMemoryInclDependentApps": 2
+    },
+    "name": "Testing App",
+    "securityProperties": {
+      "allowClone": false,
+      "allowExport": false,
+      "enableAppTokens": false,
+      "hideFromPublic": false,
+      "mustBeRealmApproved": true,
+      "useIPFilter": true
+    },
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "updated": "2020-04-03T19:12:20Z",
+    "dataClassification": "Confidential"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Request body for transferUserToken"
+  },
+  "body": {
+    "id": 17658,
+    "from": "62341.tr3s",
+    "to": "123456.ab1s"
+  }
+}

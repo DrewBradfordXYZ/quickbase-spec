@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "fileName": "Document.pdf",
+    "data": "data",
+    "contentType": "application/pdf"
+  }
+}

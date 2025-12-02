@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Summaries returned succesfully",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "date": "2022-01-01",
+    "reads": {
+      "integrations": {
+        "api": 456,
+        "eoti": 789,
+        "pipelines": 432
+      },
+      "user": 123
+    }
+  }
+}

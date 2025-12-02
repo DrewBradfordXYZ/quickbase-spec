@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Request body for updateRelationship"
+  },
+  "body": {
+    "lookupFieldIds": [
+      4,
+      5,
+      6
+    ],
+    "summaryFields": [
+      {
+        "summaryFid": 3,
+        "label": "my summary field",
+        "accumulationType": "COUNT",
+        "where": "{'3'.EX.1}"
+      }
+    ]
+  }
+}

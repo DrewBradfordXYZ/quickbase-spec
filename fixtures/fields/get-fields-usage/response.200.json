@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "field": {
+        "id": 6,
+        "name": "name",
+        "type": "Text"
+      },
+      "usage": {
+        "actions": {
+          "count": 0
+        },
+        "appHomePages": {
+          "count": 0
+        },
+        "dashboards": {
+          "count": 2
+        },
+        "defaultReports": {
+          "count": 1
+        },
+        "exactForms": {
+          "count": 0
+        },
+        "fields": {
+          "count": 0
+        },
+        "forms": {
+          "count": 1
+        },
+        "notifications": {
+          "count": 0
+        },
+        "personalReports": {
+          "count": 0
+        },
+        "pipelines": {
+          "count": 1
+        },
+        "relationships": {
+          "count": 0
+        },
+        "reminders": {
+          "count": 0
+        },
+        "reports": {
+          "count": 2
+        },
+        "roles": {
+          "count": 2
+        },
+        "tableImports": {
+          "count": 3
+        },
+        "tableRules": {
+          "count": 1
+        },
+        "webhooks": {
+          "count": 0
+        }
+      }
+    }
+  ]
+}

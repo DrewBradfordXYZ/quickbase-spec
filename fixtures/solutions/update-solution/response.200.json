@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "solutionId": "097aefef-113a-4fc1-9c78-3ecb1003b95c",
+    "alias": null,
+    "createdResources": {
+      "apps": {}
+    },
+    "warnings": []
+  }
+}

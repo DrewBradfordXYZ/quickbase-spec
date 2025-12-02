@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Successfully Deleted the File Attachment",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "versionNumber": 1,
+    "fileName": "file.pdf",
+    "uploaded": "2019-12-18T08:00:00Z",
+    "creator": {
+      "email": "jsmith@quickbase.com",
+      "id": "123456.ab1s",
+      "name": "Juliet Smith",
+      "userName": "jsmith"
+    }
+  }
+}

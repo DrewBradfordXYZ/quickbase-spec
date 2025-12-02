@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": "UXVpY2sgQmFzZSBJbmMu"
+}

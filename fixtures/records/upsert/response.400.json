@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Response",
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "message": "Bad request",
+    "description": "Data object cannot be empty."
+  }
+}

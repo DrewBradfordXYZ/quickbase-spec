@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Request body for updateApp"
+  },
+  "body": {
+    "name": "My App",
+    "description": "My first app",
+    "variables": [
+      {
+        "name": "Variable1",
+        "value": "Value1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "description": "Request body for exchangeSsoToken"
+  },
+  "body": {
+    "grant_type": "urn:ietf:params:oauth:grant-type:token-exchange",
+    "requested_token_type": "urn:quickbase:params:oauth:token-type:temp_ticket",
+    "subject_token": "PHNhbWxwOlJlc3BvbnNlDQogICAgeG1sbnM6c2FtbHA9bjp...",
+    "subject_token_type": "urn:ietf:params:oauth:token-type:saml2"
+  }
+}

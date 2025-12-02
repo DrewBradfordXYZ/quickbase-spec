@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "description": "Event summaries returned succesfully",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "accountId": "1234",
+    "start": "2023-12-01T05:00:00Z",
+    "end": "2023-12-31T05:00:00Z",
+    "groupBy": "user",
+    "where": [
+      {
+        "id": "58351651.xc1",
+        "type": "user"
+      },
+      {
+        "id": "bpqe82s1",
+        "type": "app"
+      }
+    ],
+    "results": [
+      {
+        "id": "58351651.xc1",
+        "name": "Jon Doe",
+        "eventTypes": [
+          {
+            "billingCategory": "integration",
+            "count": 794,
+            "eventType": "api"
+          },
+          {
+            "billingCategory": "integration",
+            "count": 0,
+            "eventType": "eoti"
+          },
+          {
+            "billingCategory": "integration",
+            "count": 203,
+            "eventType": "stepruns"
+          },
+          {
+            "billingCategory": "user",
+            "count": 0,
+            "eventType": "plugin"
+          },
+          {
+            "billingCategory": "user",
+            "count": 36,
+            "eventType": "appDashboard"
+          },
+          {
+            "billingCategory": "user",
+            "count": 0,
+            "eventType": "tableDashboard"
+          },
+          {
+            "billingCategory": "user",
+            "count": 419,
+            "eventType": "form"
+          },
+          {
+            "billingCategory": "user",
+            "count": 0,
+            "eventType": "report"
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "nextToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZzZXQiOjEwMCwiaWF0IjoxNzA2NzE1OTI3LCJleHAiOjE3MDY4MDIzMjd9.aWGZCv5vJIai0Dw6sVcQ9FT70PHcqWcqP9sGdKBJeco"
+    },
+    "totals": {
+      "all": 1452,
+      "integration": 997,
+      "user": 455
+    }
+  }
+}

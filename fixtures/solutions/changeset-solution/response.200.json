@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "f53acd36-1e75-47ed-910c-0ca4fd165a84",
+    "changes": [
+      {
+        "logicalType": "App",
+        "logicalId": "$App_Example_app",
+        "action": "Add",
+        "path": [
+          "$App_Example_app"
+        ]
+      },
+      {
+        "logicalType": "App",
+        "logicalId": "$App_Simple_Project_Manager",
+        "action": "Remove",
+        "path": [
+          "$App_Simple_Project_Manager"
+        ]
+      }
+    ]
+  }
+}

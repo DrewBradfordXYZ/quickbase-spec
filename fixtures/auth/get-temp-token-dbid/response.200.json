@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "This token is used in the authorization header value (similar to the QB-USER-TOKEN), except it uses the QB-TEMP-TOKEN prefix header['Authorization'] = 'QB-TEMP-TOKEN {token}'",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "temporaryAuthorization": "token"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Solution does not exist. The supplied solution ID was not found.",
+    "status": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "message": "Not found.",
+    "description": ""
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Request body for deleteFields"
+  },
+  "body": {
+    "fieldIds": [
+      6,
+      7,
+      8
+    ]
+  }
+}

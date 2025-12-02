@@ -1,0 +1,8 @@
+{
+  "_meta": {
+    "description": "Request body for deleteApp"
+  },
+  "body": {
+    "name": "Name of an application to delete"
+  }
+}

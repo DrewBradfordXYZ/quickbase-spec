@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "description": "Request body for createRelationship"
+  },
+  "body": {
+    "parentTableId": "bck7gp3q2",
+    "foreignKeyField": {
+      "label": "my relationship field"
+    },
+    "lookupFieldIds": [
+      1,
+      2,
+      3
+    ],
+    "summaryFields": [
+      {
+        "summaryFid": 3,
+        "label": "my first summary field",
+        "accumulationType": "AVG",
+        "where": "{'3'.EX.1}"
+      },
+      {
+        "summaryFid": 4,
+        "label": "my second summary field",
+        "accumulationType": "SUM"
+      }
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "description": "Request body for platformAnalyticEventSummaries"
+  },
+  "body": {
+    "start": "2023-12-01T12:00:00.000-05:00",
+    "end": "2023-12-31T12:00:00.000-05:00",
+    "groupBy": "user",
+    "nextToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZzZXQiOjEwMCwiaWF0IjoxNzA2NzE1OTI3LCJleHAiOjE3MDY4MDIzMjd9.aWGZCv5vJIai0Dw6sVcQ9FT70PHcqWcqP9sGdKBJeco",
+    "where": [
+      {
+        "id": "58351651.xc1",
+        "type": "user"
+      },
+      {
+        "id": "bpqe82s1",
+        "type": "app"
+      }
+    ]
+  }
+}

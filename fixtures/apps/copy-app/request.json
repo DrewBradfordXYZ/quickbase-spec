@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Request body for copyApp"
+  },
+  "body": {
+    "name": "my copied app",
+    "description": "copied from my original app",
+    "properties": {
+      "keepData": false,
+      "excludeFiles": true,
+      "usersAndRoles": false,
+      "assignUserToken": true
+    }
+  }
+}

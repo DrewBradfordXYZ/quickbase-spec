@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Response",
+    "status": 207,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "data": [],
+    "metadata": {
+      "createdRecordIds": [
+        11,
+        12
+      ],
+      "lineErrors": {
+        "2": [
+          "Incompatible value for field with ID \"6\"."
+        ]
+      },
+      "totalNumberOfRecordsProcessed": 3,
+      "unchangedRecordIds": [],
+      "updatedRecordIds": []
+    }
+  }
+}

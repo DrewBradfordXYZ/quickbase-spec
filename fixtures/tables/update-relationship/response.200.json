@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": 6,
+    "foreignKeyField": {
+      "id": 6,
+      "label": "Related record",
+      "type": "numeric"
+    },
+    "lookupFields": [
+      {
+        "id": 7,
+        "label": "record - text field",
+        "type": "text"
+      }
+    ],
+    "isCrossApp": false,
+    "parentTableId": "bck7gp3q2",
+    "childTableId": "bck7gp3q3",
+    "summaryFields": [
+      {
+        "id": 8,
+        "label": "Summary of Record ID#2",
+        "type": "numeric"
+      }
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "_meta": {
+    "description": "All results example",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "users": [
+      {
+        "userName": "jdoe",
+        "firstName": "Jon",
+        "lastName": "Doe",
+        "emailAddress": "jdoe@domain.com",
+        "hashId": "58351651.xc1"
+      },
+      {
+        "userName": "swilson",
+        "firstName": "Simone",
+        "lastName": "Wilson",
+        "emailAddress": "jswilson@domain.com",
+        "hashId": "58351648.xc1"
+      },
+      {
+        "userName": "sjackson",
+        "firstName": "Samuel",
+        "lastName": "Jackson",
+        "emailAddress": "sjackson@domain.com",
+        "hashId": "58351643.xc1"
+      }
+    ],
+    "metadata": {
+      "nextPageToken": ""
+    }
+  }
+}

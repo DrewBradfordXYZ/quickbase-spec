@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "name": "Example Table #0",
+      "created": "2020-03-27T18:34:40Z",
+      "updated": "2020-04-03T19:12:40Z",
+      "alias": "_dbid_example_table_#0",
+      "description": "Table zero as an example.",
+      "id": "bpqe82s1",
+      "nextRecordId": 1,
+      "nextFieldId": 1,
+      "defaultSortFieldId": 2,
+      "defaultSortOrder": "ASC",
+      "keyFieldId": 3,
+      "singleRecordName": "Example Record",
+      "pluralRecordName": "Example Records",
+      "sizeLimit": "150 MB",
+      "spaceUsed": "17 MB",
+      "spaceRemaining": "133 MB"
+    },
+    {
+      "name": "Example Table #2",
+      "created": "2020-03-27T18:34:40Z",
+      "updated": "2020-04-03T19:12:40Z",
+      "alias": "_dbid_example_table_#2",
+      "description": "Table two as an example.",
+      "id": "bpqe82z1",
+      "nextRecordId": 10,
+      "nextFieldId": 111,
+      "defaultSortFieldId": 12,
+      "defaultSortOrder": "DESC",
+      "keyFieldId": 33,
+      "singleRecordName": "Another Record",
+      "pluralRecordName": "More Records",
+      "sizeLimit": "150 MB",
+      "spaceUsed": "22 MB",
+      "spaceRemaining": "128 MB"
+    }
+  ]
+}

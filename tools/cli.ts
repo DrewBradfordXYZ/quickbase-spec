@@ -53,6 +53,12 @@ async function main(): Promise<void> {
         break;
       }
 
+      case 'generate': {
+        const { generate } = await import('./generate.js');
+        await generate(args[1]);
+        break;
+      }
+
       case 'health':
       case 'check': {
         const { healthCheck } = await import('./health-check.js');
@@ -118,11 +124,13 @@ Commands:
   patch [input]     Apply fixes and overrides to spec
   validate [input]  Validate spec structure and references
   split [input]     Split spec by tag for easier editing
+  generate [input]  Generate fixtures from spec examples
   build [input]     Run full pipeline (convert -> patch -> validate)
   health            Validate fixtures against spec (alias: check)
 
 Examples:
   npx tsx tools/cli.ts build
+  npx tsx tools/cli.ts generate
   npx tsx tools/cli.ts validate ./my-spec.json
   npx tsx tools/cli.ts health
 `);

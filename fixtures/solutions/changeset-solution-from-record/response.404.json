@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "A resource is missing. For example: The supplied solution, field or record does not exist.",
+    "status": 404,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "message": "Not found.",
+    "description": ""
+  }
+}

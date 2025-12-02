@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Request body for undenyUsers"
+  },
+  "body": [
+    "123456.ab1s",
+    "423123.vc2d",
+    "78910.ba1s"
+  ]
+}
