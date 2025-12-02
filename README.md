@@ -63,6 +63,14 @@ This approach:
 - Allows pinning to specific spec commits
 - Works with any language (Go, TypeScript, Python, etc.)
 
+### Why Not npm?
+
+This package is not published to npm because:
+- **Language agnostic** - Used by Go, TypeScript, Python SDKs; npm is JS-specific
+- **Static files only** - Just JSON files, no executable code to distribute
+- **Git versioning is sufficient** - Pin to commits or tags; no need for semver on a package registry
+- **Submodules are simpler** - No dependency resolution, lockfiles, or registry auth needed
+
 ## Updating the Spec in Your SDK
 
 When quickbase-spec is updated, SDK authors should:
