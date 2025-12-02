@@ -42,8 +42,75 @@ tools/                        # Build scripts (convert, patch, validate, etc.)
 
 ## Installation
 
+### For SDK Development (Recommended)
+
+Use a git submodule to keep the spec in sync across SDK repositories:
+
+```bash
+# Add as a submodule
+git submodule add https://github.com/DrewBradfordXYZ/quickbase-spec.git spec
+
+# Clone a repo with submodules
+git clone --recurse-submodules <your-sdk-repo>
+
+# Update to latest spec
+git submodule update --remote spec
+```
+
+This approach:
+- Keeps spec versioned with your SDK
+- Makes fixture paths relative (`spec/fixtures/...`)
+- Allows pinning to specific spec commits
+- Works with any language (Go, TypeScript, Python, etc.)
+
+### As an npm Package
+
 ```bash
 npm install quickbase-spec
+```
+
+## Updating the Spec in Your SDK
+
+When quickbase-spec is updated, SDK authors should:
+
+**1. Update the submodule:**
+```bash
+git submodule update --remote spec
+git add spec
+```
+
+**2. Check for breaking changes:**
+
+Fixture paths may change between versions:
+- Generated fixtures may gain variant suffixes (e.g., `response.200.json` → `response.200.simple-application.json`)
+- Manual fixtures live in `_manual/` (e.g., `_manual/errors/`, `_manual/records/run-query/`)
+- Operation folders use kebab-case operationId (e.g., `getApp` → `get-app`)
+
+**3. Update fixture loading code if needed:**
+
+```typescript
+// Before: assumed single fixture per status
+loadFixture(`${domain}/${op}/response.${status}.json`)
+
+// After: may need to handle variants or _manual paths
+loadFixture(`${domain}/${op}/response.${status}.${variant}.json`)
+loadFixture(`_manual/${domain}/${op}/response.${status}.${variant}.json`)
+```
+
+**4. Regenerate types** (if using codegen):
+```bash
+# Go (oapi-codegen)
+oapi-codegen -package api spec/output/quickbase-patched.json > api/types.gen.go
+
+# TypeScript (openapi-typescript)
+npx openapi-typescript spec/output/quickbase-patched.json -o src/types.gen.ts
+```
+
+**5. Run tests and commit:**
+```bash
+npm test  # or go test ./...
+git add spec
+git commit -m "chore: update quickbase-spec submodule"
 ```
 
 ## Usage
