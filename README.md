@@ -121,6 +121,104 @@ All fixtures follow a consistent format:
 }
 ```
 
+### File Naming Convention
+
+```
+fixtures/{tag}/{operationId}/response.{status}.json      # Response fixtures
+fixtures/{tag}/{operationId}/response.{status}.{variant}.json  # Multiple examples
+fixtures/{tag}/{operationId}/request.json                # Request body fixtures
+fixtures/_manual/errors/response.{status}.json           # Common errors
+fixtures/_manual/{tag}/{operationId}/                    # Edge cases
+```
+
+### Testing with Fixtures
+
+Use fixtures to mock API responses in your SDK tests.
+
+**TypeScript (with msw or nock):**
+
+```typescript
+import { readFileSync } from 'fs';
+import { http, HttpResponse } from 'msw';
+
+// Helper to load fixtures
+function loadFixture(path: string) {
+  return JSON.parse(readFileSync(`node_modules/quickbase-spec/fixtures/${path}`, 'utf-8'));
+}
+
+// Mock a successful response
+const getAppFixture = loadFixture('apps/get-app/response.200.simple-application.json');
+
+const handlers = [
+  http.get('https://api.quickbase.com/v1/apps/:appId', () => {
+    return HttpResponse.json(getAppFixture.body, {
+      status: getAppFixture._meta.status,
+    });
+  }),
+];
+
+// Mock an error response
+const errorFixture = loadFixture('_manual/errors/response.401.json');
+
+http.get('https://api.quickbase.com/v1/apps/:appId', () => {
+  return HttpResponse.json(errorFixture.body, {
+    status: errorFixture._meta.status,
+  });
+});
+```
+
+**Go (with go:embed and httptest):**
+
+```go
+import (
+    _ "embed"
+    "encoding/json"
+    "net/http"
+    "net/http/httptest"
+)
+
+//go:embed fixtures/apps/get-app/response.200.simple-application.json
+var getAppFixture []byte
+
+type Fixture struct {
+    Meta struct {
+        Status int `json:"status"`
+    } `json:"_meta"`
+    Body json.RawMessage `json:"body"`
+}
+
+func TestGetApp(t *testing.T) {
+    var fixture Fixture
+    json.Unmarshal(getAppFixture, &fixture)
+
+    server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        w.Header().Set("Content-Type", "application/json")
+        w.WriteHeader(fixture.Meta.Status)
+        w.Write(fixture.Body)
+    }))
+    defer server.Close()
+
+    // Test your SDK against server.URL
+}
+```
+
+**Testing Pagination:**
+
+```typescript
+// Use _manual fixtures for pagination sequences
+const page1 = loadFixture('_manual/records/run-query/response.200.page1.json');
+const page2 = loadFixture('_manual/records/run-query/response.200.page2.json');
+const page3 = loadFixture('_manual/records/run-query/response.200.page3.json');
+
+// Mock sequential responses for pagination tests
+let callCount = 0;
+http.post('https://api.quickbase.com/v1/records/query', () => {
+  const fixtures = [page1, page2, page3];
+  const fixture = fixtures[callCount++];
+  return HttpResponse.json(fixture.body, { status: fixture._meta.status });
+});
+```
+
 ## Building the Spec
 
 The spec tools process the original QuickBase Swagger 2.0 specification:
