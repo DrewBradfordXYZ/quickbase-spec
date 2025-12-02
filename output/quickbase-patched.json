@@ -10357,7 +10357,7 @@
             "description": "The unique identifier (fid) of the field. It needs to be a file attachment field.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10472,7 +10472,7 @@
             "description": "The unique identifier (fid) of the field. It needs to be a file attachment field.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10481,7 +10481,7 @@
             "description": "The unique identifier of the record.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10603,7 +10603,7 @@
             "description": "The unique identifier (fid) of the field. It needs to be a file attachment field.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10612,7 +10612,7 @@
             "description": "The unique identifier of the record.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10859,7 +10859,7 @@
             "description": "The unique identifier (fid) of the field. It needs to be a file attachment field.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {
@@ -10868,7 +10868,7 @@
             "description": "The unique identifier of the record.",
             "required": true,
             "schema": {
-              "type": "int"
+              "type": "integer"
             }
           },
           {

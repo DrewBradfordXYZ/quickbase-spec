@@ -269,6 +269,29 @@ function addSortFieldSchema(spec: OpenAPISpec): void {
 }
 
 /**
+ * Fix invalid type values (e.g., "int" -> "integer")
+ * QuickBase's spec incorrectly uses "int" which is not valid JSON Schema
+ */
+function fixInvalidTypes(obj: unknown, path: string = ''): void {
+  if (!obj || typeof obj !== 'object') return;
+
+  const record = obj as Record<string, unknown>;
+
+  // Fix "type": "int" -> "type": "integer"
+  if (record.type === 'int') {
+    record.type = 'integer';
+    log('info', `Fixed type "int" -> "integer" at ${path}`);
+  }
+
+  // Recurse into nested objects
+  for (const [key, value] of Object.entries(record)) {
+    if (value && typeof value === 'object') {
+      fixInvalidTypes(value, path ? `${path}.${key}` : key);
+    }
+  }
+}
+
+/**
  * Recursively patch array schemas that are missing items
  */
 function patchArraySchemas(obj: unknown, path: string = ''): void {
@@ -498,6 +521,9 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Patch data arrays to use QuickbaseRecord
     patchRecordDataArrays(spec);
+
+    // Fix invalid type values ("int" -> "integer")
+    fixInvalidTypes(spec.paths, 'paths');
 
     // Patch other array schemas (select, sortBy, choicesLuid, etc.)
     patchArraySchemas(spec.paths, 'paths');
