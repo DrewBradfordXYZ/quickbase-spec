@@ -63,12 +63,6 @@ This approach:
 - Allows pinning to specific spec commits
 - Works with any language (Go, TypeScript, Python, etc.)
 
-### As an npm Package
-
-```bash
-npm install quickbase-spec
-```
-
 ## Updating the Spec in Your SDK
 
 When quickbase-spec is updated, SDK authors should:
@@ -118,21 +112,21 @@ git commit -m "chore: update quickbase-spec submodule"
 ### TypeScript/JavaScript
 
 ```typescript
-// Import the OpenAPI spec
-import spec from 'quickbase-spec';
-// or
-import spec from 'quickbase-spec/openapi.json';
+// Load the OpenAPI spec
+import { readFileSync } from 'fs';
 
-console.log(spec.info.title);  // "QuickBase JSON RESTful API"
+const spec = JSON.parse(
+  readFileSync('spec/output/quickbase-patched.json', 'utf-8')
+);
+
+console.log(spec.info.title);  // "Quick Base API"
 console.log(spec.paths);       // All API endpoints
 ```
 
 ```typescript
 // Load test fixtures
-import { readFileSync } from 'fs';
-
 const fixture = JSON.parse(
-  readFileSync('node_modules/quickbase-spec/fixtures/apps/get-app/response.200.json', 'utf-8')
+  readFileSync('spec/fixtures/apps/get-app/response.200.json', 'utf-8')
 );
 
 console.log(fixture._meta.status);  // 200
@@ -224,7 +218,7 @@ import { http, HttpResponse } from 'msw';
 
 // Helper to load fixtures
 function loadFixture(path: string) {
-  return JSON.parse(readFileSync(`node_modules/quickbase-spec/fixtures/${path}`, 'utf-8'));
+  return JSON.parse(readFileSync(`spec/fixtures/${path}`, 'utf-8'));
 }
 
 // Mock a successful response
