@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Create app request body"
+  },
+  "body": {
+    "name": "New Test App",
+    "description": "A test application",
+    "assignToken": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful deny users from app",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failures": []
+  }
+}

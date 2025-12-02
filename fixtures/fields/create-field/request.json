@@ -1,0 +1,18 @@
+{
+  "_meta": {
+    "description": "Create field request body"
+  },
+  "body": {
+    "label": "New Field",
+    "fieldType": "text",
+    "noWrap": false,
+    "bold": false,
+    "required": false,
+    "appearsByDefault": true,
+    "findEnabled": true,
+    "properties": {
+      "numLines": 1,
+      "maxLength": 200
+    }
+  }
+}

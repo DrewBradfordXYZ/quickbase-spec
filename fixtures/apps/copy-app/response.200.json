@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "description": "Successful app copy",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "bxyz99z2",
+    "name": "Copy of Test App",
+    "description": "A copied application",
+    "ancestorId": "bpqe82s1",
+    "created": "2024-01-17T09:15:00.000Z",
+    "updated": "2024-01-17T09:15:00.000Z",
+    "dateFormat": "MM-DD-YYYY",
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "hasEveryoneOnTheInternet": false,
+    "securityProperties": {
+      "allowClone": true,
+      "allowExport": true,
+      "enableAppTokens": true,
+      "hideFromPublic": false,
+      "mustBeRealmApproved": false,
+      "useIPFilter": false
+    },
+    "variables": []
+  }
+}

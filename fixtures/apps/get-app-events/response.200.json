@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "description": "Successful get app events (webhooks)",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "type": "webhook",
+      "owner": {
+        "email": "user@example.com",
+        "id": "123456789.abcd",
+        "name": "Test User",
+        "userName": "tuser"
+      },
+      "isActive": true,
+      "tableId": "byyy82s1",
+      "name": "New Task Webhook",
+      "url": "https://example.com/webhook",
+      "webhookId": "wh_abc123"
+    }
+  ]
+}

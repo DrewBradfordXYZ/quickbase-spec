@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful app deletion",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "deletedAppId": "bpqe82s1"
+  }
+}

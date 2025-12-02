@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful record deletion",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "numberDeleted": 5
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Successful field deletion (batch)",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "deletedFieldIds": [10, 11],
+    "errors": []
+  }
+}

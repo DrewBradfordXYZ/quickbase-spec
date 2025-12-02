@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful table deletion",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "deletedTableId": "byyy82s1"
+  }
+}

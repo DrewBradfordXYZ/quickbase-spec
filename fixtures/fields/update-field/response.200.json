@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "description": "Successful field update",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": 6,
+    "label": "Updated Task Name",
+    "fieldType": "text",
+    "noWrap": false,
+    "bold": true,
+    "required": true,
+    "appearsByDefault": true,
+    "findEnabled": true,
+    "unique": false,
+    "doesDataCopy": true,
+    "fieldHelp": "Updated help text",
+    "audited": true,
+    "properties": {
+      "primaryKey": false,
+      "foreignKey": false,
+      "numLines": 1,
+      "maxLength": 300,
+      "appendOnly": false,
+      "allowHTML": false
+    },
+    "permissions": []
+  }
+}

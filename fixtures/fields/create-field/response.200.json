@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "description": "Successful field creation",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": 10,
+    "label": "New Field",
+    "fieldType": "text",
+    "noWrap": false,
+    "bold": false,
+    "required": false,
+    "appearsByDefault": true,
+    "findEnabled": true,
+    "unique": false,
+    "doesDataCopy": true,
+    "fieldHelp": "",
+    "audited": false,
+    "properties": {
+      "primaryKey": false,
+      "foreignKey": false,
+      "numLines": 1,
+      "maxLength": 200,
+      "appendOnly": false,
+      "allowHTML": false
+    },
+    "permissions": []
+  }
+}

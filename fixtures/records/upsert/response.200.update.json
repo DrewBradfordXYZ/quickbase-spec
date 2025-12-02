@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Successful upsert - updates existing records",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "data": [
+      {
+        "3": { "value": 101 },
+        "6": { "value": "Updated Task 1" },
+        "7": { "value": 5 },
+        "8": { "value": "2024-02-01" },
+        "9": { "value": true }
+      }
+    ],
+    "metadata": {
+      "createdRecordIds": [],
+      "totalNumberOfRecordsProcessed": 1,
+      "unchangedRecordIds": [],
+      "updatedRecordIds": [101]
+    }
+  }
+}

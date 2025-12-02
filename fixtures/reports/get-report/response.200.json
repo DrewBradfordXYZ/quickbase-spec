@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "description": "Successful get report metadata",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "1",
+    "name": "All Tasks",
+    "type": "table",
+    "description": "Shows all tasks in the system",
+    "query": {
+      "tableId": "byyy82s1",
+      "filter": "",
+      "formulaFields": [],
+      "fields": [3, 6, 7, 8, 9],
+      "sorting": [
+        {
+          "fieldId": 8,
+          "order": "ASC"
+        }
+      ],
+      "grouping": []
+    },
+    "properties": {
+      "displayOnlyNewOrChangedRecords": false,
+      "columnProperties": []
+    },
+    "usedCount": 150,
+    "usedLast": "2024-01-15T16:00:00.000Z"
+  }
+}

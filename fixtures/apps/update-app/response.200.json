@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "description": "Successful app update",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "bpqe82s1",
+    "name": "Updated App Name",
+    "description": "Updated description",
+    "created": "2024-01-15T10:30:00.000Z",
+    "updated": "2024-01-16T14:22:00.000Z",
+    "dateFormat": "MM-DD-YYYY",
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "hasEveryoneOnTheInternet": false,
+    "securityProperties": {
+      "allowClone": true,
+      "allowExport": true,
+      "enableAppTokens": true,
+      "hideFromPublic": false,
+      "mustBeRealmApproved": false,
+      "useIPFilter": false
+    },
+    "variables": []
+  }
+}

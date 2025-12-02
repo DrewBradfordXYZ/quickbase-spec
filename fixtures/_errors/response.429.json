@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "description": "Rate limited - too many requests",
+    "status": 429,
+    "headers": {
+      "Content-Type": "application/json",
+      "Retry-After": "10",
+      "qb-api-ray": "abc123-ray-429",
+      "cf-ray": "cf-abc123-429"
+    }
+  },
+  "body": {
+    "message": "Too many requests",
+    "description": "You have exceeded the rate limit. Please wait before making more requests."
+  }
+}

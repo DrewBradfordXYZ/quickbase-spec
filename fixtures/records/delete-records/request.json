@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "description": "Delete records request body"
+  },
+  "body": {
+    "from": "byyy82s1",
+    "where": "{3.EX.101} OR {3.EX.102}"
+  }
+}

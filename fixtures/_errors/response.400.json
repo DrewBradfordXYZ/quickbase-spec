@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Bad request - validation error",
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "abc123-ray-400"
+    }
+  },
+  "body": {
+    "message": "Invalid request",
+    "description": "The request body contains invalid data",
+    "errors": [
+      {
+        "field": "select",
+        "message": "Field 999 does not exist in table byyy82s1"
+      }
+    ]
+  }
+}

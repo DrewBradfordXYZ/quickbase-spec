@@ -1,0 +1,47 @@
+{
+  "_meta": {
+    "description": "Successful run report with pagination",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "data": [
+      {
+        "3": { "value": 1 },
+        "6": { "value": "Complete project proposal" },
+        "7": { "value": 5 },
+        "8": { "value": "2024-01-20" },
+        "9": { "value": false }
+      },
+      {
+        "3": { "value": 2 },
+        "6": { "value": "Review budget estimates" },
+        "7": { "value": 4 },
+        "8": { "value": "2024-01-22" },
+        "9": { "value": false }
+      },
+      {
+        "3": { "value": 3 },
+        "6": { "value": "Schedule team meeting" },
+        "7": { "value": 3 },
+        "8": { "value": "2024-01-18" },
+        "9": { "value": true }
+      }
+    ],
+    "fields": [
+      { "id": 3, "label": "Record ID#", "type": "recordid" },
+      { "id": 6, "label": "Task Name", "type": "text" },
+      { "id": 7, "label": "Priority", "type": "numeric" },
+      { "id": 8, "label": "Due Date", "type": "date" },
+      { "id": 9, "label": "Completed", "type": "checkbox" }
+    ],
+    "metadata": {
+      "totalRecords": 50,
+      "numRecords": 3,
+      "numFields": 5,
+      "skip": 0
+    }
+  }
+}

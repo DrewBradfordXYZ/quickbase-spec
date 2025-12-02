@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Forbidden - insufficient permissions",
+    "status": 403,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "abc123-ray-403"
+    }
+  },
+  "body": {
+    "message": "Access denied",
+    "description": "You do not have permission to access this resource"
+  }
+}

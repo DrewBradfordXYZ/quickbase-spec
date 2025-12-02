@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Successful table update",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "byyy82s1",
+    "name": "Updated Tasks",
+    "alias": "_DBID_TASKS",
+    "description": "Updated task tracking table",
+    "created": "2024-01-15T10:31:00.000Z",
+    "updated": "2024-01-17T12:00:00.000Z",
+    "nextFieldId": 15,
+    "nextRecordId": 100,
+    "defaultSortFieldId": 3,
+    "defaultSortOrder": "DESC",
+    "keyFieldId": 3,
+    "singleRecordName": "Task",
+    "pluralRecordName": "Tasks",
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "dateFormat": "MM-DD-YYYY"
+  }
+}

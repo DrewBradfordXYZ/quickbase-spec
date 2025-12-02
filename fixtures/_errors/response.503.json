@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Service unavailable",
+    "status": 503,
+    "headers": {
+      "Content-Type": "application/json",
+      "Retry-After": "60",
+      "qb-api-ray": "abc123-ray-503"
+    }
+  },
+  "body": {
+    "message": "Service unavailable",
+    "description": "The service is temporarily unavailable. Please try again later."
+  }
+}

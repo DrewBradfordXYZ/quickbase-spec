@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "description": "Successful get single field",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": 6,
+    "label": "Task Name",
+    "fieldType": "text",
+    "noWrap": false,
+    "bold": true,
+    "required": true,
+    "appearsByDefault": true,
+    "findEnabled": true,
+    "unique": false,
+    "doesDataCopy": true,
+    "fieldHelp": "Enter the task name",
+    "audited": true,
+    "properties": {
+      "primaryKey": false,
+      "foreignKey": false,
+      "numLines": 1,
+      "maxLength": 200,
+      "appendOnly": false,
+      "allowHTML": false
+    },
+    "permissions": [
+      {
+        "permissionType": "View",
+        "role": "Viewer",
+        "roleId": 10
+      },
+      {
+        "permissionType": "Modify",
+        "role": "Administrator",
+        "roleId": 12
+      }
+    ]
+  }
+}

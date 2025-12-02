@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "description": "Successful get users with pagination",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "users": [
+      {
+        "id": "123456789.abcd",
+        "email": "admin@example.com",
+        "firstName": "Admin",
+        "lastName": "User",
+        "screenName": "admin_user",
+        "realmDomainId": "xyz12345",
+        "realmRole": "Administrator",
+        "status": "Active",
+        "accountType": "Basic User",
+        "lastAccess": "2024-01-15T14:30:00.000Z"
+      },
+      {
+        "id": "987654321.efgh",
+        "email": "viewer@example.com",
+        "firstName": "View",
+        "lastName": "Only",
+        "screenName": "view_only",
+        "realmDomainId": "xyz12345",
+        "realmRole": "None",
+        "status": "Active",
+        "accountType": "Basic User",
+        "lastAccess": "2024-01-14T09:15:00.000Z"
+      },
+      {
+        "id": "555555555.ijkl",
+        "email": "inactive@example.com",
+        "firstName": "Inactive",
+        "lastName": "User",
+        "screenName": "inactive_user",
+        "realmDomainId": "xyz12345",
+        "realmRole": "None",
+        "status": "Inactive",
+        "accountType": "Basic User",
+        "lastAccess": "2023-06-01T08:00:00.000Z"
+      }
+    ],
+    "metadata": {
+      "totalRecords": 25,
+      "numRecords": 3,
+      "skip": 0,
+      "nextPageToken": "eyJza2lwIjozfQ=="
+    }
+  }
+}

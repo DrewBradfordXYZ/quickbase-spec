@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful undeny users",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failures": []
+  }
+}

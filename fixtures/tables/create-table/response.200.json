@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Successful table creation",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "id": "bnew82s3",
+    "name": "New Table",
+    "alias": "_DBID_NEW_TABLE",
+    "description": "A newly created table",
+    "created": "2024-01-17T11:00:00.000Z",
+    "updated": "2024-01-17T11:00:00.000Z",
+    "nextFieldId": 7,
+    "nextRecordId": 1,
+    "defaultSortFieldId": 3,
+    "defaultSortOrder": "ASC",
+    "keyFieldId": 3,
+    "singleRecordName": "Record",
+    "pluralRecordName": "Records",
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "dateFormat": "MM-DD-YYYY"
+  }
+}

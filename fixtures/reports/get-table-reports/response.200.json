@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "description": "Successful get table reports",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "id": "1",
+      "name": "All Tasks",
+      "type": "table",
+      "description": "Shows all tasks",
+      "usedCount": 150,
+      "usedLast": "2024-01-15T16:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Open Tasks",
+      "type": "table",
+      "description": "Tasks that are not completed",
+      "usedCount": 89,
+      "usedLast": "2024-01-15T14:30:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Tasks by Priority",
+      "type": "summary",
+      "description": "Summary of tasks grouped by priority",
+      "usedCount": 45,
+      "usedLast": "2024-01-14T10:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "name": "Task Timeline",
+      "type": "calendar",
+      "description": "Calendar view of task due dates",
+      "usedCount": 20,
+      "usedLast": "2024-01-13T09:00:00.000Z"
+    }
+  ]
+}

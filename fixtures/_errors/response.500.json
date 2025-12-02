@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Internal server error",
+    "status": 500,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "abc123-ray-500"
+    }
+  },
+  "body": {
+    "message": "Internal server error",
+    "description": "An unexpected error occurred. Please try again later."
+  }
+}

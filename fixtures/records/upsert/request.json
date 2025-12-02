@@ -1,0 +1,23 @@
+{
+  "_meta": {
+    "description": "Upsert request body - create new records"
+  },
+  "body": {
+    "to": "byyy82s1",
+    "data": [
+      {
+        "6": { "value": "New Task 1" },
+        "7": { "value": 3 },
+        "8": { "value": "2024-02-01" },
+        "9": { "value": false }
+      },
+      {
+        "6": { "value": "New Task 2" },
+        "7": { "value": 1 },
+        "8": { "value": "2024-02-15" },
+        "9": { "value": false }
+      }
+    ],
+    "fieldsToReturn": [3, 6, 7, 8, 9]
+  }
+}

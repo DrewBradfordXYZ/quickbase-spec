@@ -1,0 +1,167 @@
+{
+  "_meta": {
+    "description": "Successful get fields - returns array of field definitions",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "id": 1,
+      "label": "Date Created",
+      "fieldType": "timestamp",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": false,
+      "findEnabled": false,
+      "unique": false,
+      "doesDataCopy": false,
+      "fieldHelp": "",
+      "audited": false,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 0
+      },
+      "permissions": [
+        {
+          "permissionType": "View",
+          "role": "Viewer",
+          "roleId": 10
+        },
+        {
+          "permissionType": "Modify",
+          "role": "Administrator",
+          "roleId": 12
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Date Modified",
+      "fieldType": "timestamp",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": false,
+      "findEnabled": false,
+      "unique": false,
+      "doesDataCopy": false,
+      "fieldHelp": "",
+      "audited": false,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 0
+      },
+      "permissions": []
+    },
+    {
+      "id": 3,
+      "label": "Record ID#",
+      "fieldType": "recordid",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": true,
+      "findEnabled": true,
+      "unique": true,
+      "doesDataCopy": false,
+      "fieldHelp": "",
+      "audited": false,
+      "properties": {
+        "primaryKey": true,
+        "foreignKey": false,
+        "numLines": 0
+      },
+      "permissions": []
+    },
+    {
+      "id": 6,
+      "label": "Task Name",
+      "fieldType": "text",
+      "noWrap": false,
+      "bold": true,
+      "required": true,
+      "appearsByDefault": true,
+      "findEnabled": true,
+      "unique": false,
+      "doesDataCopy": true,
+      "fieldHelp": "Enter the task name",
+      "audited": true,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 1,
+        "maxLength": 200,
+        "appendOnly": false,
+        "allowHTML": false
+      },
+      "permissions": []
+    },
+    {
+      "id": 7,
+      "label": "Priority",
+      "fieldType": "numeric",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": true,
+      "findEnabled": true,
+      "unique": false,
+      "doesDataCopy": true,
+      "fieldHelp": "Priority level 1-5",
+      "audited": false,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 0,
+        "decimalPlaces": 0,
+        "treatNullAsZero": false
+      },
+      "permissions": []
+    },
+    {
+      "id": 8,
+      "label": "Due Date",
+      "fieldType": "date",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": true,
+      "findEnabled": true,
+      "unique": false,
+      "doesDataCopy": true,
+      "fieldHelp": "",
+      "audited": false,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 0
+      },
+      "permissions": []
+    },
+    {
+      "id": 9,
+      "label": "Completed",
+      "fieldType": "checkbox",
+      "noWrap": false,
+      "bold": false,
+      "required": false,
+      "appearsByDefault": true,
+      "findEnabled": false,
+      "unique": false,
+      "doesDataCopy": true,
+      "fieldHelp": "",
+      "audited": false,
+      "properties": {
+        "primaryKey": false,
+        "foreignKey": false,
+        "numLines": 0
+      },
+      "permissions": []
+    }
+  ]
+}

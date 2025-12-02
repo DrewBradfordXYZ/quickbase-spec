@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Unauthorized - invalid or expired token",
+    "status": 401,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "abc123-ray-401"
+    }
+  },
+  "body": {
+    "message": "Access denied",
+    "description": "User token is invalid or expired"
+  }
+}

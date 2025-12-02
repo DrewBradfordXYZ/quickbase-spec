@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "description": "Successful get app tables",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "id": "byyy82s1",
+      "name": "Tasks",
+      "alias": "_DBID_TASKS",
+      "description": "Task tracking table",
+      "created": "2024-01-15T10:31:00.000Z",
+      "updated": "2024-01-16T08:00:00.000Z",
+      "nextFieldId": 15,
+      "nextRecordId": 100,
+      "defaultSortFieldId": 3,
+      "defaultSortOrder": "DESC",
+      "keyFieldId": 3,
+      "singleRecordName": "Task",
+      "pluralRecordName": "Tasks",
+      "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+      "dateFormat": "MM-DD-YYYY"
+    },
+    {
+      "id": "bzzz82s2",
+      "name": "Projects",
+      "alias": "_DBID_PROJECTS",
+      "description": "Project management table",
+      "created": "2024-01-15T10:32:00.000Z",
+      "updated": "2024-01-16T09:00:00.000Z",
+      "nextFieldId": 12,
+      "nextRecordId": 50,
+      "defaultSortFieldId": 3,
+      "defaultSortOrder": "ASC",
+      "keyFieldId": 3,
+      "singleRecordName": "Project",
+      "pluralRecordName": "Projects",
+      "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+      "dateFormat": "MM-DD-YYYY"
+    }
+  ]
+}

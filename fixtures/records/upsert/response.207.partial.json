@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "description": "Partial success - some records failed validation",
+    "status": 207,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "data": [
+      {
+        "3": { "value": 103 },
+        "6": { "value": "Valid Task" },
+        "7": { "value": 2 }
+      }
+    ],
+    "metadata": {
+      "createdRecordIds": [103],
+      "totalNumberOfRecordsProcessed": 2,
+      "unchangedRecordIds": [],
+      "updatedRecordIds": [],
+      "lineErrors": {
+        "1": ["Field 6 is required and cannot be empty"]
+      }
+    }
+  }
+}

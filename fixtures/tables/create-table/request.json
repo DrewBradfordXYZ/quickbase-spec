@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "description": "Create table request body"
+  },
+  "body": {
+    "name": "New Table",
+    "description": "A newly created table",
+    "singleRecordName": "Record",
+    "pluralRecordName": "Records"
+  }
+}

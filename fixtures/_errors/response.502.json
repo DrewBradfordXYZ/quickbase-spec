@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Bad gateway",
+    "status": 502,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "abc123-ray-502"
+    }
+  },
+  "body": {
+    "message": "Bad gateway",
+    "description": "The server received an invalid response from an upstream server."
+  }
+}

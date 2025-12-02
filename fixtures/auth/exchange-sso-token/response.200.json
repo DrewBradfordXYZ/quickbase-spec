@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "description": "Successful SSO token exchange",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "temporaryAuthorization": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkuYWJjZCIsInNzbyI6dHJ1ZSwiaWF0IjoxNzA1MzEyMDAwLCJleHAiOjE3MDUzMTIzMDB9.fake_sso_signature_for_testing"
+  }
+}
