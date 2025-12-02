@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "Successful response for getApp",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "test-ray-id-12345"
+    }
+  },
+  "body": {
+    "id": "bpqe82s1",
+    "name": "Test Application",
+    "description": "A test application for unit testing",
+    "created": "2024-01-15T10:30:00.000Z",
+    "updated": "2024-03-20T14:45:00.000Z",
+    "dateFormat": "MM-DD-YYYY",
+    "timeZone": "(UTC-08:00) Pacific Time (US & Canada)",
+    "hasEveryoneOnTheInternet": false,
+    "memoryInfo": {
+      "estMemory": 1,
+      "estMemoryInclDependentApps": 2
+    },
+    "securityProperties": {
+      "allowClone": false,
+      "allowExport": true,
+      "enableAppTokens": false,
+      "hideFromPublic": false,
+      "mustBeRealmApproved": false,
+      "useIPFilter": false
+    },
+    "variables": [
+      {
+        "name": "AppVersion",
+        "value": "1.0.0"
+      }
+    ],
+    "dataClassification": "None"
+  }
+}

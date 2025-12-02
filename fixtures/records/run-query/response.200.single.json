@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Single page runQuery result (no pagination needed)",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "test-ray-id-single"
+    }
+  },
+  "body": {
+    "data": [
+      { "3": { "value": 1 }, "6": { "value": "Record 1" } },
+      { "3": { "value": 2 }, "6": { "value": "Record 2" } }
+    ],
+    "fields": [
+      { "id": 3, "label": "Record ID#", "type": "recordid" },
+      { "id": 6, "label": "Name", "type": "text" }
+    ],
+    "metadata": {
+      "totalRecords": 2,
+      "numRecords": 2,
+      "numFields": 2,
+      "skip": 0
+    }
+  }
+}

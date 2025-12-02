@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "Authentication failure for getApp",
+    "status": 401,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "test-ray-id-auth-fail"
+    }
+  },
+  "body": {
+    "message": "Unauthorized",
+    "description": "The request requires user authentication. Please provide a valid user token or temporary token."
+  }
+}

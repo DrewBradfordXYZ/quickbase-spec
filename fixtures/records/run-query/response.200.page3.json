@@ -1,0 +1,26 @@
+{
+  "_meta": {
+    "description": "Third/final page of runQuery results (skip-based pagination)",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json",
+      "qb-api-ray": "test-ray-id-page3"
+    }
+  },
+  "body": {
+    "data": [
+      { "3": { "value": 7 }, "6": { "value": "Record 7" } }
+    ],
+    "fields": [
+      { "id": 3, "label": "Record ID#", "type": "recordid" },
+      { "id": 6, "label": "Name", "type": "text" }
+    ],
+    "metadata": {
+      "totalRecords": 7,
+      "numRecords": 1,
+      "numFields": 2,
+      "skip": 6,
+      "top": 3
+    }
+  }
+}

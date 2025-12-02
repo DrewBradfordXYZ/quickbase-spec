@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "description": "Test fixtures for QuickBase API client testing",
+  "usage": {
+    "request": "Contains the request parameters/body sent to the API",
+    "response.{status}": "Contains the response for a given HTTP status code",
+    "meta": "Contains metadata about the fixture (description, headers, etc.)"
+  },
+  "conventions": {
+    "files": "{domain}/{operation}/response.{status}.json",
+    "sequences": "_sequences/{scenario}.json for multi-request test scenarios"
+  }
+}

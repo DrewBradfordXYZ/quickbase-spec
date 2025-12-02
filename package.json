@@ -1,0 +1,55 @@
+{
+  "name": "quickbase-spec",
+  "version": "1.0.0",
+  "description": "OpenAPI specification and test fixtures for QuickBase API",
+  "type": "module",
+  "main": "output/openapi.json",
+  "exports": {
+    ".": "./output/openapi.json",
+    "./openapi": "./output/openapi.json",
+    "./openapi.json": "./output/openapi.json",
+    "./fixtures": "./fixtures/index.js",
+    "./fixtures/*": "./fixtures/*"
+  },
+  "files": [
+    "output",
+    "fixtures",
+    "overrides",
+    "README.md"
+  ],
+  "scripts": {
+    "convert": "tsx tools/cli.ts convert",
+    "patch": "tsx tools/cli.ts patch",
+    "validate": "tsx tools/cli.ts validate",
+    "split": "tsx tools/cli.ts split",
+    "build": "tsx tools/cli.ts build",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "quickbase",
+    "openapi",
+    "api",
+    "spec",
+    "specification",
+    "fixtures"
+  ],
+  "author": "Drew Bradford",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DrewBradfordXYZ/quickbase-spec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DrewBradfordXYZ/quickbase-spec/issues"
+  },
+  "homepage": "https://github.com/DrewBradfordXYZ/quickbase-spec#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.4.0",
+    "yaml": "^2.4.0"
+  }
+}

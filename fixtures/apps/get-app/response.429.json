@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "description": "Rate limited response for getApp",
+    "status": 429,
+    "headers": {
+      "Content-Type": "application/json",
+      "Retry-After": "5",
+      "qb-api-ray": "test-ray-id-rate-limit",
+      "cf-ray": "cloudflare-ray-12345"
+    }
+  },
+  "body": {
+    "message": "Too Many Requests",
+    "description": "You have exceeded the rate limit. Please wait before making additional requests."
+  }
+}
