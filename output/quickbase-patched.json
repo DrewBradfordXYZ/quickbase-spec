@@ -9991,7 +9991,6 @@
                         "required": [
                           "id",
                           "name",
-                          "totals",
                           "eventTypes"
                         ],
                         "type": "object"
