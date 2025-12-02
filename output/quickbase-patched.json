@@ -10095,6 +10095,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "Solution does not exist. The supplied solution ID was not found.",
             "content": {
@@ -10108,20 +10121,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10205,7 +10205,7 @@
               }
             }
           },
-          "401/403": {
+          "401": {
             "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
@@ -10218,7 +10218,7 @@
               }
             }
           },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10295,7 +10295,7 @@
               }
             }
           },
-          "401/403": {
+          "401": {
             "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
@@ -10308,7 +10308,7 @@
               }
             }
           },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10406,6 +10406,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "A resource is missing. For example: The supplied solution or field does not exist.",
             "content": {
@@ -10419,20 +10432,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10528,6 +10528,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "A resource is missing. For example: The supplied solution, field or record does not exist.",
             "content": {
@@ -10541,20 +10554,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10659,6 +10659,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "A resource is missing. For example: The supplied solution, field or record does not exist.",
             "content": {
@@ -10672,20 +10685,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10784,6 +10784,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "Solution does not exist. The supplied solution ID was not found.",
             "content": {
@@ -10797,20 +10810,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {
@@ -10936,6 +10936,19 @@
               }
             }
           },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
           "404": {
             "description": "A resource is missing. For example: The supplied solution, field or record does not exist.",
             "content": {
@@ -10949,20 +10962,7 @@
               }
             }
           },
-          "401/403": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "example": {
-                    "message": "Forbidden.",
-                    "description": ""
-                  }
-                }
-              }
-            }
-          },
-          "4xx/5xx": {
+          "default": {
             "description": "Non-common error, reach out to support if there’s lack of clarity.",
             "content": {
               "application/json": {

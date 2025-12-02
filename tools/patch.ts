@@ -133,10 +133,41 @@ function removeInternalHeaders(operation: Operation): void {
 }
 
 /**
+ * Normalize non-standard response codes to valid HTTP status codes
+ * QuickBase spec uses patterns like "401/403" and "4xx/5xx" which aren't valid
+ */
+function normalizeResponseCodes(operation: Operation): void {
+  if (!operation.responses) return;
+
+  const responses = operation.responses as Record<string, Response>;
+  const keysToRename: Array<{ old: string; new: string }> = [];
+
+  for (const code of Object.keys(responses)) {
+    // Handle "401/403" -> keep 401, discard 403 (they're usually the same error response)
+    if (code === '401/403') {
+      keysToRename.push({ old: code, new: '401' });
+    }
+    // Handle "4xx/5xx" -> use "default" for catch-all error responses
+    else if (code === '4xx/5xx' || code === '4xx' || code === '5xx') {
+      keysToRename.push({ old: code, new: 'default' });
+    }
+  }
+
+  for (const { old, new: newKey } of keysToRename) {
+    if (!responses[newKey]) {
+      responses[newKey] = responses[old];
+    }
+    delete responses[old];
+    log('info', `Normalized response code "${old}" -> "${newKey}" in ${operation.operationId}`);
+  }
+}
+
+/**
  * Apply patches to a single operation
  */
 function patchOperation(operation: Operation, path: string, method: string): void {
   removeInternalHeaders(operation);
+  normalizeResponseCodes(operation);
 
   // Ensure operationId is set
   if (!operation.operationId) {
