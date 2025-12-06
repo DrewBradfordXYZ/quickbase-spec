@@ -296,7 +296,23 @@ function addSortFieldSchema(spec: OpenAPISpec): void {
     required: ['fieldId', 'order'],
   };
 
-  log('info', 'Added SortField schema');
+  // Add SortByUnion schema - a union type that can be an array of SortField or false
+  // This is a component schema so oapi-codegen generates proper From*/As* helper methods
+  spec.components.schemas['SortByUnion'] = {
+    description: 'An array of field IDs and sort directions. Set to false to disable sorting for better performance.',
+    oneOf: [
+      {
+        type: 'array',
+        items: { $ref: '#/components/schemas/SortField' },
+      },
+      {
+        type: 'boolean',
+        enum: [false],
+      },
+    ],
+  };
+
+  log('info', 'Added SortField and SortByUnion schemas');
 }
 
 /**
@@ -349,20 +365,25 @@ function patchArraySchemas(obj: unknown, path: string = ''): void {
   }
 
   // Handle sortBy with x-amf-union (non-standard OpenAPI extension)
+  // Use a $ref to the SortByUnion component schema so oapi-codegen generates proper helper methods
   if (record['x-amf-union'] && path.endsWith('.sortBy')) {
-    // Replace x-amf-union with proper oneOf
     delete record['x-amf-union'];
-    record.oneOf = [
-      {
-        type: 'array',
-        items: { $ref: '#/components/schemas/SortField' },
-      },
-      {
-        type: 'boolean',
-        enum: [false],
-      },
-    ];
-    log('info', `Patched ${path} sortBy union type`);
+    // Keep description if present, but replace with $ref
+    const description = record.description;
+    // Clear all existing properties except description
+    for (const key of Object.keys(record)) {
+      if (key !== 'description') {
+        delete record[key];
+      }
+    }
+    record.$ref = '#/components/schemas/SortByUnion';
+    if (description) {
+      // Note: $ref with sibling properties is technically not valid in OpenAPI 3.0
+      // but oapi-codegen handles it. In 3.1 it's supported via allOf wrapper.
+      // For now we just use $ref and let the schema description carry through.
+      delete record.description;
+    }
+    log('info', `Patched ${path} sortBy to use SortByUnion $ref`);
   }
 
   // Handle lineErrors - should be Record<string, string[]>

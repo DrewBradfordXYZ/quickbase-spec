@@ -7584,21 +7584,7 @@
                     }
                   },
                   "sortBy": {
-                    "description": "An array of field IDs and sort directions. If this attribute is not set or set to false, queries will be unsorted to improve performance.",
-                    "oneOf": [
-                      {
-                        "type": "array",
-                        "items": {
-                          "$ref": "#/components/schemas/SortField"
-                        }
-                      },
-                      {
-                        "type": "boolean",
-                        "enum": [
-                          false
-                        ]
-                      }
-                    ]
+                    "$ref": "#/components/schemas/SortByUnion"
                   },
                   "select": {
                     "description": "An array of field ids for the fields that should be returned in the response. If empty, the default columns on the table will be returned.",
@@ -11221,6 +11207,23 @@
         "required": [
           "fieldId",
           "order"
+        ]
+      },
+      "SortByUnion": {
+        "description": "An array of field IDs and sort directions. Set to false to disable sorting for better performance.",
+        "oneOf": [
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SortField"
+            }
+          },
+          {
+            "type": "boolean",
+            "enum": [
+              false
+            ]
+          }
         ]
       }
     },
