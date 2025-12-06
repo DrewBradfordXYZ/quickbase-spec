@@ -1,0 +1,2460 @@
+{
+  "operations": [
+    {
+      "operationId": "addManagersToGroup",
+      "method": "POST",
+      "path": "/groups/{gid}/managers",
+      "summary": "Add managers",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "addMembersToGroup",
+      "method": "POST",
+      "path": "/groups/{gid}/members",
+      "summary": "Add members",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "addSubgroupsToGroup",
+      "method": "POST",
+      "path": "/groups/{gid}/subgroups",
+      "summary": "Add child groups",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "audit",
+      "method": "POST",
+      "path": "/audit",
+      "summary": "Get audit logs",
+      "tags": [
+        "Audit"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [
+        "nextToken",
+        "numRows",
+        "queryId",
+        "date",
+        "topics"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "changesetSolution",
+      "method": "PUT",
+      "path": "/solutions/{solutionId}/changeset",
+      "summary": "List solution changes",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "changesetSolutionFromRecord",
+      "method": "GET",
+      "path": "/solutions/{solutionId}/changeset/fromrecord",
+      "summary": "List solution changes from record",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [
+        "tableId",
+        "fieldId",
+        "recordId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "cloneUserToken",
+      "method": "POST",
+      "path": "/usertoken/clone",
+      "summary": "Clone a user token",
+      "tags": [
+        "UserToken"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [
+        "name",
+        "description"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "copyApp",
+      "method": "POST",
+      "path": "/apps/{appId}/copy",
+      "summary": "Copy an app",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [
+        "appId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "name"
+      ],
+      "optionalFields": [
+        "description",
+        "properties"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createApp",
+      "method": "POST",
+      "path": "/apps",
+      "summary": "Create an app",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "name"
+      ],
+      "optionalFields": [
+        "assignToken",
+        "variables",
+        "securityProperties",
+        "description"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createField",
+      "method": "POST",
+      "path": "/fields",
+      "summary": "Create a field",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "fieldType",
+        "label"
+      ],
+      "optionalFields": [
+        "audited",
+        "fieldHelp",
+        "bold",
+        "properties",
+        "appearsByDefault",
+        "permissions",
+        "addToForms",
+        "findEnabled",
+        "noWrap"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createRelationship",
+      "method": "POST",
+      "path": "/tables/{tableId}/relationship",
+      "summary": "Create a relationship",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "parentTableId"
+      ],
+      "optionalFields": [
+        "summaryFields",
+        "lookupFieldIds",
+        "foreignKeyField"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createSolution",
+      "method": "POST",
+      "path": "/solutions",
+      "summary": "Create a solution",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createSolutionFromRecord",
+      "method": "GET",
+      "path": "/solutions/fromrecord",
+      "summary": "Create solution from record",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId",
+        "fieldId",
+        "recordId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "createTable",
+      "method": "POST",
+      "path": "/tables",
+      "summary": "Create a table",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "appId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "name"
+      ],
+      "optionalFields": [
+        "pluralRecordName",
+        "singleRecordName",
+        "description"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deactivateUserToken",
+      "method": "POST",
+      "path": "/usertoken/deactivate",
+      "summary": "Deactivate a user token",
+      "tags": [
+        "UserToken"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteApp",
+      "method": "DELETE",
+      "path": "/apps/{appId}",
+      "summary": "Delete an app",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [
+        "appId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "name"
+      ],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteFields",
+      "method": "DELETE",
+      "path": "/fields",
+      "summary": "Delete field(s)",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "fieldIds"
+      ],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteFile",
+      "method": "DELETE",
+      "path": "/files/{tableId}/{recordId}/{fieldId}/{versionNumber}",
+      "summary": "Delete file",
+      "tags": [
+        "Files"
+      ],
+      "pathParams": [
+        "tableId",
+        "recordId",
+        "fieldId",
+        "versionNumber"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteRecords",
+      "method": "DELETE",
+      "path": "/records",
+      "summary": "Delete record(s)",
+      "tags": [
+        "Records"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "from",
+        "where"
+      ],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteRelationship",
+      "method": "DELETE",
+      "path": "/tables/{tableId}/relationship/{relationshipId}",
+      "summary": "Delete a relationship",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId",
+        "relationshipId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteTable",
+      "method": "DELETE",
+      "path": "/tables/{tableId}",
+      "summary": "Delete a table",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId"
+      ],
+      "queryParams": [
+        "appId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "deleteUserToken",
+      "method": "DELETE",
+      "path": "/usertoken",
+      "summary": "Delete a user token",
+      "tags": [
+        "UserToken"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "denyUsers",
+      "method": "PUT",
+      "path": "/users/deny",
+      "summary": "Deny users",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "denyUsersAndGroups",
+      "method": "PUT",
+      "path": "/users/deny/{shouldDeleteFromGroups}",
+      "summary": "Deny and remove users from groups",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "shouldDeleteFromGroups"
+      ],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "downloadFile",
+      "method": "GET",
+      "path": "/files/{tableId}/{recordId}/{fieldId}/{versionNumber}",
+      "summary": "Download file",
+      "tags": [
+        "Files"
+      ],
+      "pathParams": [
+        "tableId",
+        "recordId",
+        "fieldId",
+        "versionNumber"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "exchangeSsoToken",
+      "method": "POST",
+      "path": "/auth/oauth/token",
+      "summary": "Exchange an SSO token",
+      "tags": [
+        "Auth"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "grant_type",
+        "requested_token_type",
+        "subject_token",
+        "subject_token_type"
+      ],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "exportSolution",
+      "method": "GET",
+      "path": "/solutions/{solutionId}",
+      "summary": "Export a solution",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "exportSolutionToRecord",
+      "method": "GET",
+      "path": "/solutions/{solutionId}/torecord",
+      "summary": "Export solution to record",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [
+        "tableId",
+        "fieldId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "generateDocument",
+      "method": "GET",
+      "path": "/docTemplates/{templateId}/generate",
+      "summary": "Generate a document",
+      "tags": [
+        "Document Templates"
+      ],
+      "pathParams": [
+        "templateId"
+      ],
+      "queryParams": [
+        "tableId",
+        "recordId",
+        "filename",
+        "format",
+        "margin",
+        "unit",
+        "pageSize",
+        "orientation",
+        "realm"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getApp",
+      "method": "GET",
+      "path": "/apps/{appId}",
+      "summary": "Get an app",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [
+        "appId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getAppEvents",
+      "method": "GET",
+      "path": "/apps/{appId}/events",
+      "summary": "Get app events",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [
+        "appId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getAppTables",
+      "method": "GET",
+      "path": "/tables",
+      "summary": "Get tables for an app",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "appId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getField",
+      "method": "GET",
+      "path": "/fields/{fieldId}",
+      "summary": "Get field",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [
+        "fieldId"
+      ],
+      "queryParams": [
+        "tableId",
+        "includeFieldPerms"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getFields",
+      "method": "GET",
+      "path": "/fields",
+      "summary": "Get fields for a table",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId",
+        "includeFieldPerms"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getFieldsUsage",
+      "method": "GET",
+      "path": "/fields/usage",
+      "summary": "Get usage for all fields",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId",
+        "skip",
+        "top"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getFieldUsage",
+      "method": "GET",
+      "path": "/fields/usage/{fieldId}",
+      "summary": "Get usage for a field",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [
+        "fieldId"
+      ],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getRelationships",
+      "method": "GET",
+      "path": "/tables/{tableId}/relationships",
+      "summary": "Get all relationships",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId"
+      ],
+      "queryParams": [
+        "skip"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getReport",
+      "method": "GET",
+      "path": "/reports/{reportId}",
+      "summary": "Get a report",
+      "tags": [
+        "Reports"
+      ],
+      "pathParams": [
+        "reportId"
+      ],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getTable",
+      "method": "GET",
+      "path": "/tables/{tableId}",
+      "summary": "Get a table",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId"
+      ],
+      "queryParams": [
+        "appId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getTableReports",
+      "method": "GET",
+      "path": "/reports",
+      "summary": "Get reports for a table",
+      "tags": [
+        "Reports"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "[]object"
+    },
+    {
+      "operationId": "getTempTokenDBID",
+      "method": "GET",
+      "path": "/auth/temporary/{dbid}",
+      "summary": "Get a temporary token for a dbid",
+      "tags": [
+        "Auth"
+      ],
+      "pathParams": [
+        "dbid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "getUsers",
+      "method": "POST",
+      "path": "/users",
+      "summary": "Get users",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [
+        "emails",
+        "appIds",
+        "nextPageToken"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "platformAnalyticEventSummaries",
+      "method": "POST",
+      "path": "/analytics/events/summaries",
+      "summary": "Get event summaries",
+      "tags": [
+        "Platform Analytics"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [
+        "start",
+        "end",
+        "groupBy"
+      ],
+      "optionalFields": [
+        "nextToken",
+        "where"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "platformAnalyticReads",
+      "method": "GET",
+      "path": "/analytics/reads",
+      "summary": "Get read summaries",
+      "tags": [
+        "Platform Analytics"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "day"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "removeManagersFromGroup",
+      "method": "DELETE",
+      "path": "/groups/{gid}/managers",
+      "summary": "Remove managers",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "removeMembersFromGroup",
+      "method": "DELETE",
+      "path": "/groups/{gid}/members",
+      "summary": "Remove members",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "removeSubgroupsFromGroup",
+      "method": "DELETE",
+      "path": "/groups/{gid}/subgroups",
+      "summary": "Remove child groups",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "gid"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "runFormula",
+      "method": "POST",
+      "path": "/formula/run",
+      "summary": "Run a formula",
+      "tags": [
+        "Formulas"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "formula",
+        "from"
+      ],
+      "optionalFields": [
+        "rid"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "runQuery",
+      "method": "POST",
+      "path": "/records/query",
+      "summary": "Query for data",
+      "tags": [
+        "Records"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "from"
+      ],
+      "optionalFields": [
+        "options",
+        "where",
+        "groupBy",
+        "sortBy",
+        "select"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "runReport",
+      "method": "POST",
+      "path": "/reports/{reportId}/run",
+      "summary": "Run a report",
+      "tags": [
+        "Reports"
+      ],
+      "pathParams": [
+        "reportId"
+      ],
+      "queryParams": [
+        "tableId",
+        "skip",
+        "top"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "transferUserToken",
+      "method": "POST",
+      "path": "/usertoken/transfer",
+      "summary": "Transfer a user token",
+      "tags": [
+        "UserToken"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [
+        "id",
+        "from",
+        "to"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "undenyUsers",
+      "method": "PUT",
+      "path": "/users/undeny",
+      "summary": "Undeny users",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateApp",
+      "method": "POST",
+      "path": "/apps/{appId}",
+      "summary": "Update an app",
+      "tags": [
+        "Apps"
+      ],
+      "pathParams": [
+        "appId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [
+        "variables",
+        "name",
+        "securityProperties",
+        "description"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateField",
+      "method": "POST",
+      "path": "/fields/{fieldId}",
+      "summary": "Update a field",
+      "tags": [
+        "Fields"
+      ],
+      "pathParams": [
+        "fieldId"
+      ],
+      "queryParams": [
+        "tableId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [
+        "audited",
+        "fieldHelp",
+        "bold",
+        "required",
+        "properties",
+        "appearsByDefault",
+        "unique",
+        "permissions",
+        "addToForms",
+        "label",
+        "findEnabled",
+        "noWrap"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateRelationship",
+      "method": "POST",
+      "path": "/tables/{tableId}/relationship/{relationshipId}",
+      "summary": "Update a relationship",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId",
+        "relationshipId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [
+        "summaryFields",
+        "lookupFieldIds"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateSolution",
+      "method": "PUT",
+      "path": "/solutions/{solutionId}",
+      "summary": "Update a solution",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateSolutionToRecord",
+      "method": "GET",
+      "path": "/solutions/{solutionId}/fromrecord",
+      "summary": "Update solution from record",
+      "tags": [
+        "Solutions"
+      ],
+      "pathParams": [
+        "solutionId"
+      ],
+      "queryParams": [
+        "tableId",
+        "fieldId",
+        "recordId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object"
+    },
+    {
+      "operationId": "updateTable",
+      "method": "POST",
+      "path": "/tables/{tableId}",
+      "summary": "Update a table",
+      "tags": [
+        "Tables"
+      ],
+      "pathParams": [
+        "tableId"
+      ],
+      "queryParams": [
+        "appId"
+      ],
+      "hasRequestBody": true,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [
+        "name",
+        "pluralRecordName",
+        "singleRecordName",
+        "description"
+      ],
+      "responseType": "object"
+    },
+    {
+      "operationId": "upsert",
+      "method": "POST",
+      "path": "/records",
+      "summary": "Insert/Update record(s)",
+      "tags": [
+        "Records"
+      ],
+      "pathParams": [],
+      "queryParams": [],
+      "hasRequestBody": true,
+      "requestBodyRequired": true,
+      "requiredFields": [
+        "to"
+      ],
+      "optionalFields": [
+        "data",
+        "mergeFieldId",
+        "fieldsToReturn"
+      ],
+      "responseType": "object"
+    }
+  ],
+  "byTag": {
+    "Apps": [
+      {
+        "operationId": "copyApp",
+        "method": "POST",
+        "path": "/apps/{appId}/copy",
+        "summary": "Copy an app",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [
+          "appId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "name"
+        ],
+        "optionalFields": [
+          "description",
+          "properties"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "createApp",
+        "method": "POST",
+        "path": "/apps",
+        "summary": "Create an app",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "name"
+        ],
+        "optionalFields": [
+          "assignToken",
+          "variables",
+          "securityProperties",
+          "description"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deleteApp",
+        "method": "DELETE",
+        "path": "/apps/{appId}",
+        "summary": "Delete an app",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [
+          "appId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "name"
+        ],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getApp",
+        "method": "GET",
+        "path": "/apps/{appId}",
+        "summary": "Get an app",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [
+          "appId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getAppEvents",
+        "method": "GET",
+        "path": "/apps/{appId}/events",
+        "summary": "Get app events",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [
+          "appId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "updateApp",
+        "method": "POST",
+        "path": "/apps/{appId}",
+        "summary": "Update an app",
+        "tags": [
+          "Apps"
+        ],
+        "pathParams": [
+          "appId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [
+          "variables",
+          "name",
+          "securityProperties",
+          "description"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Audit": [
+      {
+        "operationId": "audit",
+        "method": "POST",
+        "path": "/audit",
+        "summary": "Get audit logs",
+        "tags": [
+          "Audit"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [
+          "nextToken",
+          "numRows",
+          "queryId",
+          "date",
+          "topics"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Auth": [
+      {
+        "operationId": "exchangeSsoToken",
+        "method": "POST",
+        "path": "/auth/oauth/token",
+        "summary": "Exchange an SSO token",
+        "tags": [
+          "Auth"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "grant_type",
+          "requested_token_type",
+          "subject_token",
+          "subject_token_type"
+        ],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getTempTokenDBID",
+        "method": "GET",
+        "path": "/auth/temporary/{dbid}",
+        "summary": "Get a temporary token for a dbid",
+        "tags": [
+          "Auth"
+        ],
+        "pathParams": [
+          "dbid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Document Templates": [
+      {
+        "operationId": "generateDocument",
+        "method": "GET",
+        "path": "/docTemplates/{templateId}/generate",
+        "summary": "Generate a document",
+        "tags": [
+          "Document Templates"
+        ],
+        "pathParams": [
+          "templateId"
+        ],
+        "queryParams": [
+          "tableId",
+          "recordId",
+          "filename",
+          "format",
+          "margin",
+          "unit",
+          "pageSize",
+          "orientation",
+          "realm"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Fields": [
+      {
+        "operationId": "createField",
+        "method": "POST",
+        "path": "/fields",
+        "summary": "Create a field",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "fieldType",
+          "label"
+        ],
+        "optionalFields": [
+          "audited",
+          "fieldHelp",
+          "bold",
+          "properties",
+          "appearsByDefault",
+          "permissions",
+          "addToForms",
+          "findEnabled",
+          "noWrap"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deleteFields",
+        "method": "DELETE",
+        "path": "/fields",
+        "summary": "Delete field(s)",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "fieldIds"
+        ],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getField",
+        "method": "GET",
+        "path": "/fields/{fieldId}",
+        "summary": "Get field",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [
+          "fieldId"
+        ],
+        "queryParams": [
+          "tableId",
+          "includeFieldPerms"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getFields",
+        "method": "GET",
+        "path": "/fields",
+        "summary": "Get fields for a table",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId",
+          "includeFieldPerms"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "getFieldsUsage",
+        "method": "GET",
+        "path": "/fields/usage",
+        "summary": "Get usage for all fields",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId",
+          "skip",
+          "top"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "getFieldUsage",
+        "method": "GET",
+        "path": "/fields/usage/{fieldId}",
+        "summary": "Get usage for a field",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [
+          "fieldId"
+        ],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "updateField",
+        "method": "POST",
+        "path": "/fields/{fieldId}",
+        "summary": "Update a field",
+        "tags": [
+          "Fields"
+        ],
+        "pathParams": [
+          "fieldId"
+        ],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [
+          "audited",
+          "fieldHelp",
+          "bold",
+          "required",
+          "properties",
+          "appearsByDefault",
+          "unique",
+          "permissions",
+          "addToForms",
+          "label",
+          "findEnabled",
+          "noWrap"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Files": [
+      {
+        "operationId": "deleteFile",
+        "method": "DELETE",
+        "path": "/files/{tableId}/{recordId}/{fieldId}/{versionNumber}",
+        "summary": "Delete file",
+        "tags": [
+          "Files"
+        ],
+        "pathParams": [
+          "tableId",
+          "recordId",
+          "fieldId",
+          "versionNumber"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "downloadFile",
+        "method": "GET",
+        "path": "/files/{tableId}/{recordId}/{fieldId}/{versionNumber}",
+        "summary": "Download file",
+        "tags": [
+          "Files"
+        ],
+        "pathParams": [
+          "tableId",
+          "recordId",
+          "fieldId",
+          "versionNumber"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Formulas": [
+      {
+        "operationId": "runFormula",
+        "method": "POST",
+        "path": "/formula/run",
+        "summary": "Run a formula",
+        "tags": [
+          "Formulas"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "formula",
+          "from"
+        ],
+        "optionalFields": [
+          "rid"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Platform Analytics": [
+      {
+        "operationId": "platformAnalyticEventSummaries",
+        "method": "POST",
+        "path": "/analytics/events/summaries",
+        "summary": "Get event summaries",
+        "tags": [
+          "Platform Analytics"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [
+          "start",
+          "end",
+          "groupBy"
+        ],
+        "optionalFields": [
+          "nextToken",
+          "where"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "platformAnalyticReads",
+        "method": "GET",
+        "path": "/analytics/reads",
+        "summary": "Get read summaries",
+        "tags": [
+          "Platform Analytics"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "day"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Records": [
+      {
+        "operationId": "deleteRecords",
+        "method": "DELETE",
+        "path": "/records",
+        "summary": "Delete record(s)",
+        "tags": [
+          "Records"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "from",
+          "where"
+        ],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "runQuery",
+        "method": "POST",
+        "path": "/records/query",
+        "summary": "Query for data",
+        "tags": [
+          "Records"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "from"
+        ],
+        "optionalFields": [
+          "options",
+          "where",
+          "groupBy",
+          "sortBy",
+          "select"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "upsert",
+        "method": "POST",
+        "path": "/records",
+        "summary": "Insert/Update record(s)",
+        "tags": [
+          "Records"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "to"
+        ],
+        "optionalFields": [
+          "data",
+          "mergeFieldId",
+          "fieldsToReturn"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Reports": [
+      {
+        "operationId": "getReport",
+        "method": "GET",
+        "path": "/reports/{reportId}",
+        "summary": "Get a report",
+        "tags": [
+          "Reports"
+        ],
+        "pathParams": [
+          "reportId"
+        ],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getTableReports",
+        "method": "GET",
+        "path": "/reports",
+        "summary": "Get reports for a table",
+        "tags": [
+          "Reports"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "runReport",
+        "method": "POST",
+        "path": "/reports/{reportId}/run",
+        "summary": "Run a report",
+        "tags": [
+          "Reports"
+        ],
+        "pathParams": [
+          "reportId"
+        ],
+        "queryParams": [
+          "tableId",
+          "skip",
+          "top"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Solutions": [
+      {
+        "operationId": "changesetSolution",
+        "method": "PUT",
+        "path": "/solutions/{solutionId}/changeset",
+        "summary": "List solution changes",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "changesetSolutionFromRecord",
+        "method": "GET",
+        "path": "/solutions/{solutionId}/changeset/fromrecord",
+        "summary": "List solution changes from record",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [
+          "tableId",
+          "fieldId",
+          "recordId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "createSolution",
+        "method": "POST",
+        "path": "/solutions",
+        "summary": "Create a solution",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "createSolutionFromRecord",
+        "method": "GET",
+        "path": "/solutions/fromrecord",
+        "summary": "Create solution from record",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "tableId",
+          "fieldId",
+          "recordId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "exportSolution",
+        "method": "GET",
+        "path": "/solutions/{solutionId}",
+        "summary": "Export a solution",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "exportSolutionToRecord",
+        "method": "GET",
+        "path": "/solutions/{solutionId}/torecord",
+        "summary": "Export solution to record",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [
+          "tableId",
+          "fieldId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "updateSolution",
+        "method": "PUT",
+        "path": "/solutions/{solutionId}",
+        "summary": "Update a solution",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "updateSolutionToRecord",
+        "method": "GET",
+        "path": "/solutions/{solutionId}/fromrecord",
+        "summary": "Update solution from record",
+        "tags": [
+          "Solutions"
+        ],
+        "pathParams": [
+          "solutionId"
+        ],
+        "queryParams": [
+          "tableId",
+          "fieldId",
+          "recordId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ],
+    "Tables": [
+      {
+        "operationId": "createRelationship",
+        "method": "POST",
+        "path": "/tables/{tableId}/relationship",
+        "summary": "Create a relationship",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "parentTableId"
+        ],
+        "optionalFields": [
+          "summaryFields",
+          "lookupFieldIds",
+          "foreignKeyField"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "createTable",
+        "method": "POST",
+        "path": "/tables",
+        "summary": "Create a table",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "appId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [
+          "name"
+        ],
+        "optionalFields": [
+          "pluralRecordName",
+          "singleRecordName",
+          "description"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deleteRelationship",
+        "method": "DELETE",
+        "path": "/tables/{tableId}/relationship/{relationshipId}",
+        "summary": "Delete a relationship",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId",
+          "relationshipId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deleteTable",
+        "method": "DELETE",
+        "path": "/tables/{tableId}",
+        "summary": "Delete a table",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId"
+        ],
+        "queryParams": [
+          "appId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getAppTables",
+        "method": "GET",
+        "path": "/tables",
+        "summary": "Get tables for an app",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "appId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "[]object"
+      },
+      {
+        "operationId": "getRelationships",
+        "method": "GET",
+        "path": "/tables/{tableId}/relationships",
+        "summary": "Get all relationships",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId"
+        ],
+        "queryParams": [
+          "skip"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getTable",
+        "method": "GET",
+        "path": "/tables/{tableId}",
+        "summary": "Get a table",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId"
+        ],
+        "queryParams": [
+          "appId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "updateRelationship",
+        "method": "POST",
+        "path": "/tables/{tableId}/relationship/{relationshipId}",
+        "summary": "Update a relationship",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId",
+          "relationshipId"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [
+          "summaryFields",
+          "lookupFieldIds"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "updateTable",
+        "method": "POST",
+        "path": "/tables/{tableId}",
+        "summary": "Update a table",
+        "tags": [
+          "Tables"
+        ],
+        "pathParams": [
+          "tableId"
+        ],
+        "queryParams": [
+          "appId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [
+          "name",
+          "pluralRecordName",
+          "singleRecordName",
+          "description"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "UserToken": [
+      {
+        "operationId": "cloneUserToken",
+        "method": "POST",
+        "path": "/usertoken/clone",
+        "summary": "Clone a user token",
+        "tags": [
+          "UserToken"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [
+          "name",
+          "description"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deactivateUserToken",
+        "method": "POST",
+        "path": "/usertoken/deactivate",
+        "summary": "Deactivate a user token",
+        "tags": [
+          "UserToken"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "deleteUserToken",
+        "method": "DELETE",
+        "path": "/usertoken",
+        "summary": "Delete a user token",
+        "tags": [
+          "UserToken"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "transferUserToken",
+        "method": "POST",
+        "path": "/usertoken/transfer",
+        "summary": "Transfer a user token",
+        "tags": [
+          "UserToken"
+        ],
+        "pathParams": [],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [
+          "id",
+          "from",
+          "to"
+        ],
+        "responseType": "object"
+      }
+    ],
+    "Users": [
+      {
+        "operationId": "addManagersToGroup",
+        "method": "POST",
+        "path": "/groups/{gid}/managers",
+        "summary": "Add managers",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "addMembersToGroup",
+        "method": "POST",
+        "path": "/groups/{gid}/members",
+        "summary": "Add members",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "addSubgroupsToGroup",
+        "method": "POST",
+        "path": "/groups/{gid}/subgroups",
+        "summary": "Add child groups",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "denyUsers",
+        "method": "PUT",
+        "path": "/users/deny",
+        "summary": "Deny users",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "denyUsersAndGroups",
+        "method": "PUT",
+        "path": "/users/deny/{shouldDeleteFromGroups}",
+        "summary": "Deny and remove users from groups",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "shouldDeleteFromGroups"
+        ],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "getUsers",
+        "method": "POST",
+        "path": "/users",
+        "summary": "Get users",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": false,
+        "requiredFields": [],
+        "optionalFields": [
+          "emails",
+          "appIds",
+          "nextPageToken"
+        ],
+        "responseType": "object"
+      },
+      {
+        "operationId": "removeManagersFromGroup",
+        "method": "DELETE",
+        "path": "/groups/{gid}/managers",
+        "summary": "Remove managers",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "removeMembersFromGroup",
+        "method": "DELETE",
+        "path": "/groups/{gid}/members",
+        "summary": "Remove members",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "removeSubgroupsFromGroup",
+        "method": "DELETE",
+        "path": "/groups/{gid}/subgroups",
+        "summary": "Remove child groups",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "gid"
+        ],
+        "queryParams": [],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      },
+      {
+        "operationId": "undenyUsers",
+        "method": "PUT",
+        "path": "/users/undeny",
+        "summary": "Undeny users",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": true,
+        "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object"
+      }
+    ]
+  }
+}

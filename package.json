@@ -23,7 +23,8 @@
     "validate": "tsx tools/cli.ts validate",
     "split": "tsx tools/cli.ts split",
     "generate": "tsx tools/cli.ts generate",
-    "build": "tsx tools/cli.ts build",
+    "summarize": "tsx tools/summarize.ts",
+    "build": "tsx tools/cli.ts build && npm run summarize",
     "health": "tsx tools/cli.ts health",
     "check": "tsx tools/cli.ts health",
     "prepublishOnly": "npm run build"
