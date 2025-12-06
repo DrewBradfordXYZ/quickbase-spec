@@ -4,7 +4,7 @@ OpenAPI 3.0 specification and test fixtures for the QuickBase JSON RESTful API.
 
 This package is the single source of truth for QuickBase API definitions, used by:
 - [quickbase-js](https://github.com/DrewBradfordXYZ/quickbase-js) - TypeScript/JavaScript SDK
-- [quickbase-go](https://github.com/DrewBradfordXYZ/quickbase-go) - Go SDK (planned)
+- [quickbase-go](https://github.com/DrewBradfordXYZ/quickbase-go) - Go SDK
 
 ## What's Included
 
