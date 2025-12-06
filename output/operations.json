@@ -16,7 +16,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "addMembersToGroup",
@@ -34,7 +47,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "addSubgroupsToGroup",
@@ -52,7 +78,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "audit",
@@ -74,7 +113,25 @@
         "date",
         "topics"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "queryId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "events",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "nextToken",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "changesetSolution",
@@ -92,7 +149,9 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "changesetSolutionFromRecord",
@@ -114,7 +173,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "cloneUserToken",
@@ -133,7 +194,45 @@
         "name",
         "description"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "apps",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "lastUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "token",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "copyApp",
@@ -156,7 +255,65 @@
         "description",
         "properties"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dateFormat",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasEveryoneOnTheInternet",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variables",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "ancestorId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dataClassification",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "createApp",
@@ -179,7 +336,70 @@
         "securityProperties",
         "description"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dateFormat",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "memoryInfo",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasEveryoneOnTheInternet",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variables",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "dataClassification",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "securityProperties",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "createField",
@@ -210,7 +430,85 @@
         "findEnabled",
         "noWrap"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "fieldType",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "noWrap",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bold",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "appearsByDefault",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "findEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "unique",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "doesDataCopy",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fieldHelp",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "audited",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "permissions",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "createRelationship",
@@ -234,7 +532,45 @@
         "lookupFieldIds",
         "foreignKeyField"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "parentTableId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "childTableId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "foreignKeyField",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "isCrossApp",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "lookupFields",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "summaryFields",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "createSolution",
@@ -250,7 +586,9 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "createSolutionFromRecord",
@@ -270,7 +608,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "createTable",
@@ -294,7 +634,90 @@
         "singleRecordName",
         "description"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextRecordId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "nextFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortOrder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "keyFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "singleRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "pluralRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sizeLimit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceRemaining",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deactivateUserToken",
@@ -310,7 +733,15 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deleteApp",
@@ -330,7 +761,15 @@
         "name"
       ],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "deletedAppId",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deleteFields",
@@ -350,7 +789,20 @@
         "fieldIds"
       ],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "deletedFieldIds",
+          "type": "[]integer",
+          "required": true
+        },
+        {
+          "name": "errors",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "deleteFile",
@@ -371,7 +823,30 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "versionNumber",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "fileName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "uploaded",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "creator",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deleteRecords",
@@ -390,7 +865,15 @@
         "where"
       ],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "numberDeleted",
+          "type": "integer",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deleteRelationship",
@@ -409,7 +892,15 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "relationshipId",
+          "type": "integer",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "deleteTable",
@@ -429,7 +920,15 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "deletedTableId",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "deleteUserToken",
@@ -445,7 +944,15 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "denyUsers",
@@ -463,7 +970,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "denyUsersAndGroups",
@@ -483,7 +1003,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "downloadFile",
@@ -504,7 +1037,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "exchangeSsoToken",
@@ -525,7 +1060,25 @@
         "subject_token_type"
       ],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "access_token",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "issued_token_type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "token_type",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "exportSolution",
@@ -543,7 +1096,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "exportSolutionToRecord",
@@ -564,7 +1119,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "generateDocument",
@@ -592,7 +1149,25 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "fileName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "contentType",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getApp",
@@ -610,7 +1185,75 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "ancestorId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dateFormat",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "memoryInfo",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasEveryoneOnTheInternet",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variables",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "dataClassification",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "securityProperties",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getAppEvents",
@@ -628,7 +1271,40 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "isActive",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "url",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "owner",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "tableId",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getAppTables",
@@ -646,7 +1322,90 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextRecordId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "nextFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortOrder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "keyFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "singleRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "pluralRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sizeLimit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceRemaining",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getField",
@@ -667,7 +1426,85 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "fieldType",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "noWrap",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bold",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "appearsByDefault",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "findEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "unique",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "doesDataCopy",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fieldHelp",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "audited",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "permissions",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getFields",
@@ -686,7 +1523,85 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "fieldType",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "noWrap",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bold",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "appearsByDefault",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "findEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "unique",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "doesDataCopy",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fieldHelp",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "audited",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "permissions",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getFieldsUsage",
@@ -706,7 +1621,20 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "field",
+          "type": "object",
+          "required": true
+        },
+        {
+          "name": "usage",
+          "type": "object",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "getFieldUsage",
@@ -726,7 +1654,20 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "field",
+          "type": "object",
+          "required": true
+        },
+        {
+          "name": "usage",
+          "type": "object",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "getRelationships",
@@ -746,7 +1687,20 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "relationships",
+          "type": "[]object",
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getReport",
@@ -766,7 +1720,55 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ownerId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "usedLast",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "usedCount",
+          "type": "integer",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getTable",
@@ -786,7 +1788,90 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextRecordId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "nextFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortOrder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "keyFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "singleRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "pluralRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sizeLimit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceRemaining",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getTableReports",
@@ -804,7 +1889,55 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object"
+      "responseType": "[]object",
+      "responseIsArray": true,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "ownerId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "query",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "usedLast",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "usedCount",
+          "type": "integer",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getTempTokenDBID",
@@ -822,7 +1955,15 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "temporaryAuthorization",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "getUsers",
@@ -844,7 +1985,20 @@
         "appIds",
         "nextPageToken"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "users",
+          "type": "[]object",
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "platformAnalyticEventSummaries",
@@ -869,7 +2023,50 @@
         "nextToken",
         "where"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "accountId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "start",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "end",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "groupBy",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "where",
+          "type": "[]object",
+          "required": true
+        },
+        {
+          "name": "results",
+          "type": "[]object",
+          "required": true
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "totals",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "platformAnalyticReads",
@@ -887,7 +2084,20 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "date",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "reads",
+          "type": "object",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "removeManagersFromGroup",
@@ -905,7 +2115,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "removeMembersFromGroup",
@@ -923,7 +2146,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "removeSubgroupsFromGroup",
@@ -941,7 +2177,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "runFormula",
@@ -962,7 +2211,15 @@
       "optionalFields": [
         "rid"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "result",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "runQuery",
@@ -986,7 +2243,25 @@
         "sortBy",
         "select"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "fields",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "[]QuickbaseRecord",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "runReport",
@@ -1008,7 +2283,25 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "fields",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "[]QuickbaseRecord",
+          "required": false
+        },
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "transferUserToken",
@@ -1028,7 +2321,40 @@
         "from",
         "to"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "apps",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "lastUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "undenyUsers",
@@ -1046,7 +2372,20 @@
       "requestBodyRequired": true,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "failure",
+          "type": "[]string",
+          "required": true
+        },
+        {
+          "name": "success",
+          "type": "[]string",
+          "required": true
+        }
+      ]
     },
     {
       "operationId": "updateApp",
@@ -1069,7 +2408,75 @@
         "securityProperties",
         "description"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "ancestorId",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "dateFormat",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "timeZone",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "memoryInfo",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "hasEveryoneOnTheInternet",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "variables",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "dataClassification",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "securityProperties",
+          "type": "object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "updateField",
@@ -1102,7 +2509,85 @@
         "findEnabled",
         "noWrap"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "fieldType",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "mode",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "noWrap",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "bold",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "appearsByDefault",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "findEnabled",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "unique",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "doesDataCopy",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "fieldHelp",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "audited",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "name": "properties",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "permissions",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "updateRelationship",
@@ -1124,7 +2609,45 @@
         "summaryFields",
         "lookupFieldIds"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "id",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "name": "parentTableId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "childTableId",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "foreignKeyField",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "isCrossApp",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "lookupFields",
+          "type": "[]object",
+          "required": false
+        },
+        {
+          "name": "summaryFields",
+          "type": "[]object",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "updateSolution",
@@ -1142,7 +2665,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "updateSolutionToRecord",
@@ -1164,7 +2689,9 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": []
     },
     {
       "operationId": "updateTable",
@@ -1189,7 +2716,90 @@
         "singleRecordName",
         "description"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "alias",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "created",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "updated",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "nextRecordId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "nextFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "defaultSortOrder",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "keyFieldId",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "name": "singleRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "pluralRecordName",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "sizeLimit",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceUsed",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "spaceRemaining",
+          "type": "string",
+          "required": false
+        }
+      ]
     },
     {
       "operationId": "upsert",
@@ -1211,7 +2821,20 @@
         "mergeFieldId",
         "fieldsToReturn"
       ],
-      "responseType": "object"
+      "responseType": "object",
+      "responseIsArray": false,
+      "responseFields": [
+        {
+          "name": "metadata",
+          "type": "object",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "[]QuickbaseRecord",
+          "required": false
+        }
+      ]
     }
   ],
   "byTag": {
@@ -1237,7 +2860,65 @@
           "description",
           "properties"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dateFormat",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "timeZone",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "hasEveryoneOnTheInternet",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "variables",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "ancestorId",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dataClassification",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "createApp",
@@ -1260,7 +2941,70 @@
           "securityProperties",
           "description"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dateFormat",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "timeZone",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "memoryInfo",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "hasEveryoneOnTheInternet",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "variables",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "dataClassification",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "securityProperties",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "deleteApp",
@@ -1280,7 +3024,15 @@
           "name"
         ],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "deletedAppId",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getApp",
@@ -1298,7 +3050,75 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "ancestorId",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dateFormat",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "timeZone",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "memoryInfo",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "hasEveryoneOnTheInternet",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "variables",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "dataClassification",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "securityProperties",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getAppEvents",
@@ -1316,7 +3136,40 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "isActive",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "owner",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "tableId",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "updateApp",
@@ -1339,7 +3192,75 @@
           "securityProperties",
           "description"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "ancestorId",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "dateFormat",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "timeZone",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "memoryInfo",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "hasEveryoneOnTheInternet",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "variables",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "dataClassification",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "securityProperties",
+            "type": "object",
+            "required": false
+          }
+        ]
       }
     ],
     "Audit": [
@@ -1363,7 +3284,25 @@
           "date",
           "topics"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "queryId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "events",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "nextToken",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "Auth": [
@@ -1386,7 +3325,25 @@
           "subject_token_type"
         ],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "access_token",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "issued_token_type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "token_type",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getTempTokenDBID",
@@ -1404,7 +3361,15 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "temporaryAuthorization",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "Document Templates": [
@@ -1434,7 +3399,25 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "fileName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "contentType",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "Fields": [
@@ -1467,7 +3450,85 @@
           "findEnabled",
           "noWrap"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "fieldType",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "noWrap",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "bold",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "appearsByDefault",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "findEnabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "unique",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "doesDataCopy",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "fieldHelp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "audited",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "permissions",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "deleteFields",
@@ -1487,7 +3548,20 @@
           "fieldIds"
         ],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "deletedFieldIds",
+            "type": "[]integer",
+            "required": true
+          },
+          {
+            "name": "errors",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "getField",
@@ -1508,7 +3582,85 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "fieldType",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "noWrap",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "bold",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "appearsByDefault",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "findEnabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "unique",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "doesDataCopy",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "fieldHelp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "audited",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "permissions",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getFields",
@@ -1527,7 +3679,85 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "fieldType",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "noWrap",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "bold",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "appearsByDefault",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "findEnabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "unique",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "doesDataCopy",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "fieldHelp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "audited",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "permissions",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getFieldsUsage",
@@ -1547,7 +3777,20 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "field",
+            "type": "object",
+            "required": true
+          },
+          {
+            "name": "usage",
+            "type": "object",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "getFieldUsage",
@@ -1567,7 +3810,20 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "field",
+            "type": "object",
+            "required": true
+          },
+          {
+            "name": "usage",
+            "type": "object",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "updateField",
@@ -1600,7 +3856,85 @@
           "findEnabled",
           "noWrap"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "fieldType",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "mode",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "label",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "noWrap",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "bold",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "appearsByDefault",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "findEnabled",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "unique",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "doesDataCopy",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "fieldHelp",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "audited",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "permissions",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       }
     ],
     "Files": [
@@ -1623,7 +3957,30 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "versionNumber",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "fileName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "uploaded",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "creator",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "downloadFile",
@@ -1644,7 +4001,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       }
     ],
     "Formulas": [
@@ -1667,7 +4026,15 @@
         "optionalFields": [
           "rid"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "result",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "Platform Analytics": [
@@ -1694,7 +4061,50 @@
           "nextToken",
           "where"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "accountId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "start",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "end",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "groupBy",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "where",
+            "type": "[]object",
+            "required": true
+          },
+          {
+            "name": "results",
+            "type": "[]object",
+            "required": true
+          },
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "totals",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "platformAnalyticReads",
@@ -1712,7 +4122,20 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "date",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "reads",
+            "type": "object",
+            "required": true
+          }
+        ]
       }
     ],
     "Records": [
@@ -1733,7 +4156,15 @@
           "where"
         ],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "numberDeleted",
+            "type": "integer",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "runQuery",
@@ -1757,7 +4188,25 @@
           "sortBy",
           "select"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "fields",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "[]QuickbaseRecord",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "upsert",
@@ -1779,7 +4228,20 @@
           "mergeFieldId",
           "fieldsToReturn"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "[]QuickbaseRecord",
+            "required": false
+          }
+        ]
       }
     ],
     "Reports": [
@@ -1801,7 +4263,55 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "ownerId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "query",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "usedLast",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "usedCount",
+            "type": "integer",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getTableReports",
@@ -1819,7 +4329,55 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "ownerId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "query",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "properties",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "usedLast",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "usedCount",
+            "type": "integer",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "runReport",
@@ -1841,7 +4399,25 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "fields",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "[]QuickbaseRecord",
+            "required": false
+          },
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": false
+          }
+        ]
       }
     ],
     "Solutions": [
@@ -1861,7 +4437,9 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "changesetSolutionFromRecord",
@@ -1883,7 +4461,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "createSolution",
@@ -1899,7 +4479,9 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "createSolutionFromRecord",
@@ -1919,7 +4501,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "exportSolution",
@@ -1937,7 +4521,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "exportSolutionToRecord",
@@ -1958,7 +4544,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "updateSolution",
@@ -1976,7 +4564,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       },
       {
         "operationId": "updateSolutionToRecord",
@@ -1998,7 +4588,9 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": []
       }
     ],
     "Tables": [
@@ -2024,7 +4616,45 @@
           "lookupFieldIds",
           "foreignKeyField"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "parentTableId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "childTableId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "foreignKeyField",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "isCrossApp",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "name": "lookupFields",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "summaryFields",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "createTable",
@@ -2048,7 +4678,90 @@
           "singleRecordName",
           "description"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "alias",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "nextRecordId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "nextFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortOrder",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "keyFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "singleRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "pluralRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "sizeLimit",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceRemaining",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "deleteRelationship",
@@ -2067,7 +4780,15 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "relationshipId",
+            "type": "integer",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "deleteTable",
@@ -2087,7 +4808,15 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "deletedTableId",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getAppTables",
@@ -2105,7 +4834,90 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object"
+        "responseType": "[]object",
+        "responseIsArray": true,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "alias",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "nextRecordId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "nextFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortOrder",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "keyFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "singleRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "pluralRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "sizeLimit",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceRemaining",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getRelationships",
@@ -2125,7 +4937,20 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "relationships",
+            "type": "[]object",
+            "required": true
+          },
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "getTable",
@@ -2145,7 +4970,90 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "alias",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "nextRecordId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "nextFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortOrder",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "keyFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "singleRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "pluralRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "sizeLimit",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceRemaining",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "updateRelationship",
@@ -2167,7 +5075,45 @@
           "summaryFields",
           "lookupFieldIds"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "parentTableId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "childTableId",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "foreignKeyField",
+            "type": "object",
+            "required": false
+          },
+          {
+            "name": "isCrossApp",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "name": "lookupFields",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "summaryFields",
+            "type": "[]object",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "updateTable",
@@ -2192,7 +5138,90 @@
           "singleRecordName",
           "description"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "alias",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "created",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "updated",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "nextRecordId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "nextFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "defaultSortOrder",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "keyFieldId",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "singleRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "pluralRecordName",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "sizeLimit",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "spaceRemaining",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "UserToken": [
@@ -2213,7 +5242,45 @@
           "name",
           "description"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "apps",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "lastUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "token",
+            "type": "string",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "deactivateUserToken",
@@ -2229,7 +5296,15 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "deleteUserToken",
@@ -2245,7 +5320,15 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "required": false
+          }
+        ]
       },
       {
         "operationId": "transferUserToken",
@@ -2265,7 +5348,40 @@
           "from",
           "to"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "active",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "apps",
+            "type": "[]object",
+            "required": false
+          },
+          {
+            "name": "lastUsed",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "id",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          }
+        ]
       }
     ],
     "Users": [
@@ -2285,7 +5401,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "addMembersToGroup",
@@ -2303,7 +5432,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "addSubgroupsToGroup",
@@ -2321,7 +5463,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "denyUsers",
@@ -2339,7 +5494,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "denyUsersAndGroups",
@@ -2359,7 +5527,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "getUsers",
@@ -2381,7 +5562,20 @@
           "appIds",
           "nextPageToken"
         ],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "users",
+            "type": "[]object",
+            "required": true
+          },
+          {
+            "name": "metadata",
+            "type": "object",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "removeManagersFromGroup",
@@ -2399,7 +5593,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "removeMembersFromGroup",
@@ -2417,7 +5624,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "removeSubgroupsFromGroup",
@@ -2435,7 +5655,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       },
       {
         "operationId": "undenyUsers",
@@ -2453,7 +5686,20 @@
         "requestBodyRequired": true,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "object"
+        "responseType": "object",
+        "responseIsArray": false,
+        "responseFields": [
+          {
+            "name": "failure",
+            "type": "[]string",
+            "required": true
+          },
+          {
+            "name": "success",
+            "type": "[]string",
+            "required": true
+          }
+        ]
       }
     ]
   }
