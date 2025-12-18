@@ -2714,8 +2714,7 @@
                         "type": "string"
                       },
                       "ownerId": {
-                        "description": "Optional, showed only for personal reports. The user ID of report owner.",
-                        "type": "integer"
+                        "$ref": "#/components/schemas/OwnerId"
                       },
                       "query": {
                         "description": "The query definition as configured in Quickbase that gets executed when the report is run.",
@@ -2907,8 +2906,7 @@
                       "type": "string"
                     },
                     "ownerId": {
-                      "description": "Optional, showed only for personal reports. The user ID of report owner.",
-                      "type": "integer"
+                      "$ref": "#/components/schemas/OwnerId"
                     },
                     "query": {
                       "description": "The query definition as configured in Quickbase that gets executed when the report is run.",
@@ -11225,6 +11223,9 @@
             ]
           }
         ]
+      },
+      "OwnerId": {
+        "description": "The user ID of the owner. May be returned as integer or string depending on context."
       }
     },
     "securitySchemes": {

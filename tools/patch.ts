@@ -404,6 +404,56 @@ function patchArraySchemas(obj: unknown, path: string = ''): void {
 }
 
 /**
+ * Add OwnerId schema component for properly typed owner IDs.
+ * QuickBase API sometimes returns ownerId as a string even though
+ * the spec says integer.
+ */
+function addOwnerIdSchema(spec: OpenAPISpec): void {
+  if (!spec.components.schemas) {
+    spec.components.schemas = {};
+  }
+
+  // Add OwnerId schema - an any type since QuickBase returns it as either integer or string
+  // Using empty schema {} generates interface{} in Go, which can handle both
+  spec.components.schemas['OwnerId'] = {
+    description: 'The user ID of the owner. May be returned as integer or string depending on context.',
+    // Empty schema = any type = interface{} in Go
+  };
+
+  log('info', 'Added OwnerId schema');
+}
+
+/**
+ * Recursively fix ownerId fields to use the OwnerId $ref.
+ * QuickBase API sometimes returns ownerId as a string even though
+ * the spec says integer.
+ */
+function fixOwnerIdType(obj: unknown, path: string = ''): void {
+  if (!obj || typeof obj !== 'object') return;
+
+  const record = obj as Record<string, unknown>;
+
+  // Check if this is an ownerId property definition with type: integer
+  if (record.type === 'integer' && path.endsWith('.ownerId')) {
+    // Replace with $ref to OwnerId component schema
+    // Clear all existing properties
+    for (const key of Object.keys(record)) {
+      delete record[key];
+    }
+    record.$ref = '#/components/schemas/OwnerId';
+    log('info', `Fixed ownerId type at ${path} to use OwnerId $ref`);
+    return;
+  }
+
+  // Recurse into nested objects
+  for (const [key, value] of Object.entries(record)) {
+    if (value && typeof value === 'object') {
+      fixOwnerIdType(value, path ? `${path}.${key}` : key);
+    }
+  }
+}
+
+/**
  * Fix known schema issues
  */
 function patchSchemas(spec: OpenAPISpec): void {
@@ -422,6 +472,12 @@ function patchSchemas(spec: OpenAPISpec): void {
       schema.description = `${name} object`;
     }
   }
+
+  // Fix ownerId fields in all paths (inline schemas in responses)
+  fixOwnerIdType(spec.paths, 'paths');
+
+  // Fix ownerId fields in component schemas
+  fixOwnerIdType(spec.components, 'components');
 }
 
 /**
@@ -584,6 +640,9 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Add SortField schema for sortBy
     addSortFieldSchema(spec);
+
+    // Add OwnerId schema for owner ID fields that can be string or int
+    addOwnerIdSchema(spec);
 
     // Patch data arrays to use QuickbaseRecord
     patchRecordDataArrays(spec);

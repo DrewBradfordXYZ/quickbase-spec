@@ -1745,7 +1745,7 @@
         },
         {
           "name": "ownerId",
-          "type": "integer",
+          "type": "OwnerId",
           "required": false
         },
         {
@@ -1914,7 +1914,7 @@
         },
         {
           "name": "ownerId",
-          "type": "integer",
+          "type": "OwnerId",
           "required": false
         },
         {
@@ -4288,7 +4288,7 @@
           },
           {
             "name": "ownerId",
-            "type": "integer",
+            "type": "OwnerId",
             "required": false
           },
           {
@@ -4354,7 +4354,7 @@
           },
           {
             "name": "ownerId",
-            "type": "integer",
+            "type": "OwnerId",
             "required": false
           },
           {
