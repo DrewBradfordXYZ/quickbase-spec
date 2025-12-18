@@ -356,6 +356,46 @@ npm run generate   # Generate fixtures from spec examples
 npm run health     # Validate fixtures against spec
 ```
 
+## Known API Inconsistencies
+
+The QuickBase API has some inconsistencies between the spec and actual responses. These are automatically patched during the build process via `tools/patch.ts`.
+
+### ownerId Type (Reports)
+
+**Issue**: The spec defines `ownerId` as `integer`, but the API returns it as a `string` for personal reports.
+
+**Fix**: The `OwnerId` component schema accepts any type (`interface{}` in Go, `unknown` in TypeScript).
+
+```json
+// API response for personal report
+{
+  "id": "123",
+  "name": "My Report",
+  "ownerId": "12345678"  // String, not integer!
+}
+
+// API response for shared report
+{
+  "id": "456",
+  "name": "Shared Report",
+  "ownerId": 12345678    // Integer
+}
+```
+
+**Affected endpoints**: `GET /reports`, `GET /reports/{reportId}`
+
+**SDK handling**:
+- Go: `ReportInfo.OwnerID` is `interface{}` - use type assertion
+- TypeScript: `ownerId` is `string | number` - check type before use
+
+### Other Patches
+
+See `tools/patch.ts` for the complete list of patches applied:
+- Response code normalization (`401/403` → `401`, `4xx/5xx` → `default`)
+- Invalid type fixes (`int` → `integer`)
+- Missing array item types
+- `sortBy` union type handling
+
 ## Override System
 
 Schema fixes live in `overrides/` as YAML files:
