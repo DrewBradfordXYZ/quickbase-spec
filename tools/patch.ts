@@ -386,6 +386,14 @@ function patchArraySchemas(obj: unknown, path: string = ''): void {
     log('info', `Patched ${path} sortBy to use SortByUnion $ref`);
   }
 
+  // Handle where with x-amf-union (can be query string OR array of record IDs)
+  if (record['x-amf-union'] && path.endsWith('.where')) {
+    const unionTypes = record['x-amf-union'] as Schema[];
+    delete record['x-amf-union'];
+    record.oneOf = unionTypes;
+    log('info', `Patched ${path} where union type`);
+  }
+
   // Handle lineErrors - should be Record<string, string[]>
   if (path.endsWith('.lineErrors') && record.type === 'object' && record.additionalProperties === true) {
     record.additionalProperties = {

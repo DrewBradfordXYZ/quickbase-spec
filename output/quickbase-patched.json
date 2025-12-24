@@ -7560,7 +7560,7 @@
                   },
                   "where": {
                     "description": "The filter to delete records. To delete all records specify a filter that will include all records, for example {3.GT.0} where 3 is the ID of the Record ID field. Or supply a JSON array of Record IDs.",
-                    "x-amf-union": [
+                    "oneOf": [
                       {
                         "type": "string",
                         "description": "The filter to delete records. To delete all records specify a filter that will include all records, for example {3.GT.0} where 3 is the ID of the Record ID field."
@@ -7680,7 +7680,7 @@
                   },
                   "where": {
                     "description": "The filter, using the Quickbase query language, which determines the records to return. Or supply a JSON array of Record IDs. If this parameter is omitted, the query will return all records.",
-                    "x-amf-union": [
+                    "oneOf": [
                       {
                         "description": "The filter, using the Quickbase query language, which determines the records to return. If this parameter is omitted, the query will return all records.",
                         "example": "{6.EX.'hello'}",
