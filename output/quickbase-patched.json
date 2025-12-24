@@ -214,11 +214,11 @@
                       "type": "string"
                     },
                     "dateFormat": {
-                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app’s date format.",
+                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/docs/how-to-localize-dates) to set the app's date format.",
                       "type": "string"
                     },
                     "timeZone": {
-                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application’s time zone.",
+                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/docs/set-the-time-zone-for-both-the-application-and-the-account) to set the application's time zone.",
                       "type": "string"
                     },
                     "memoryInfo": {
@@ -241,7 +241,7 @@
                       "type": "string"
                     },
                     "hasEveryoneOnTheInternet": {
-                      "description": "Indicates whether app includes Everyone On The Internet access. See [Sharing apps with Everyone on the Internet (EOTI).](https://help.quickbase.com/user-assistance/share_with_everyone_on_internet.html)",
+                      "description": "Indicates whether app includes Everyone On The Internet access. See [Sharing apps with Everyone on the Internet (EOTI).](https://help.quickbase.com/docs/sharing-apps-publicly)",
                       "type": "boolean"
                     },
                     "variables": {
@@ -419,11 +419,11 @@
                       "type": "string"
                     },
                     "dateFormat": {
-                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app’s date format.",
+                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app's date format.",
                       "type": "string"
                     },
                     "timeZone": {
-                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application’s time zone.",
+                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application's time zone.",
                       "type": "string"
                     },
                     "memoryInfo": {
@@ -450,7 +450,7 @@
                       "type": "boolean"
                     },
                     "variables": {
-                      "description": "The app variables. See [About Application Variables](https://help.quickbase.com/user-assistance/variables.html)",
+                      "description": "The app variables. See [About Application Variables](https://help.quickbase.com/docs/creating-and-using-application-variables)",
                       "type": "array",
                       "items": {
                         "type": "object",
@@ -709,11 +709,11 @@
                       "type": "string"
                     },
                     "dateFormat": {
-                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app’s date format.",
+                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app's date format.",
                       "type": "string"
                     },
                     "timeZone": {
-                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application’s time zone.",
+                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application's time zone.",
                       "type": "string"
                     },
                     "memoryInfo": {
@@ -1145,11 +1145,11 @@
                       "type": "string"
                     },
                     "dateFormat": {
-                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app’s date format.",
+                      "description": "A description of the format used when displaying date values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the API Guide for how time values are returned in API calls. See [About Localizing Dates](https://help.quickbase.com/user-assistance/about_localizing_dates_numbers.html) to set the app's date format.",
                       "type": "string"
                     },
                     "timeZone": {
-                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application’s time zone.",
+                      "description": "A description of the time zone used when displaying time values in this app. Note that this is a browser-only parameter - see the [Field type details](../fieldInfo) page in the portal for how time values are returned in API calls. See [Set the Time Zone for Both the Application and the Account](https://help.quickbase.com/user-assistance/application_local_timezone.html) to set the application's time zone.",
                       "type": "string"
                     },
                     "id": {
@@ -1185,6 +1185,93 @@
                     "dataClassification": {
                       "description": "The Data Classification label assigned to the application. If Data Classification is not turned on, this will not be returned. If Data Classification is turned on, but application is not labeled, we return “None\".  Data Classification labels can be added in the Admin Console by a Realm Administrator for Platform+ plans.",
                       "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/apps/{appId}/roles": {
+      "get": {
+        "operationId": "getRoles",
+        "summary": "Get app roles",
+        "description": "Retrieves all of the roles for an application. Requires admin access to an app.",
+        "tags": [
+          "Apps"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "The unique identifier of an app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": [
+                    {
+                      "access": {
+                        "id": 3,
+                        "type": "Basic Access"
+                      },
+                      "id": 10,
+                      "name": "Viewer"
+                    },
+                    {
+                      "access": {
+                        "id": 2,
+                        "type": "Basic Access with Share"
+                      },
+                      "id": 11,
+                      "name": "Participant"
+                    }
+                  ],
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": true,
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "The role id."
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "The role name."
+                      },
+                      "access": {
+                        "type": "object",
+                        "description": "The role access properties.",
+                        "additionalProperties": true,
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "description": "The ID of the access type the role is given. (0 = None, 1 = Administrator, 2 = Basic Access with Share, 3 = Basic Access, 4 = Partial Administrator)."
+                          },
+                          "type": {
+                            "type": "string",
+                            "description": "The type of access the role is given.",
+                            "enum": [
+                              "None",
+                              "Administrator",
+                              "Basic Access with Share",
+                              "Basic Access",
+                              "Partial Administrator"
+                            ]
+                          }
+                        }
+                      }
                     }
                   }
                 }
@@ -2179,7 +2266,7 @@
                     }
                   },
                   "lookupFieldIds": {
-                    "description": "Array of field ids in the parent table that will become lookup fields in the child table.",
+                    "description": "Array of field IDs in the parent table that will become lookup fields in the child table.",
                     "type": "array",
                     "items": {
                       "type": "integer"
@@ -2190,7 +2277,7 @@
                     "type": "string"
                   },
                   "foreignKeyField": {
-                    "description": "This property is optional.  If it is not provided, the foreign key field will be created with the label ‘Related <record>’, where <record> is the name of a record in the parent table.",
+                    "description": "This property is optional.  If it is not provided, the foreign key field will be created with the label ‘Related <record>', where <record> is the name of a record in the parent table.",
                     "type": "object",
                     "additionalProperties": true,
                     "properties": {
@@ -2424,7 +2511,7 @@
                     }
                   },
                   "lookupFieldIds": {
-                    "description": "An array of field ids on the parent table that will become lookup fields on the child table.",
+                    "description": "An array of field IDs on the parent table that will become lookup fields on the child table.",
                     "type": "array",
                     "items": {
                       "type": "integer"
@@ -3452,7 +3539,7 @@
                             "type": "boolean"
                           },
                           "summaryTargetFieldId": {
-                            "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn’t require a field selection (like count).",
+                            "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn't require a field selection (like count).",
                             "type": "integer"
                           },
                           "allowNewChoices": {
@@ -3708,6 +3795,10 @@
                             "description": "Indicates if the URL should open a new window when a user clicks it within the product.",
                             "type": "boolean"
                           },
+                          "postTempToken": {
+                            "type": "boolean",
+                            "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
+                          },
                           "appendOnly": {
                             "description": "Whether this field is append only.",
                             "type": "boolean"
@@ -3820,7 +3911,7 @@
                 ],
                 "properties": {
                   "audited": {
-                    "description": "Indicates if the field is being tracked as part of Quickbase Audit Logs. You can only set this property to \"true\" if the app has audit logs enabled. See Enable data change logs under [Quickbase Audit Logs](https://help.quickbase.com/user-assistance/audit_logs.html). Defaults to false.",
+                    "description": "Indicates if the field is being tracked as part of Quickbase Audit Logs. You can only set this property to \"true\" if the app has audit logs enabled. See Enable data change logs under [Quickbase Audit Logs](https://help.quickbase.com/docs/audit-logs). Defaults to false.",
                     "type": "boolean"
                   },
                   "fieldHelp": {
@@ -4089,6 +4180,10 @@
                         "description": "Indicates if the file should open a new window when a user clicks it within the product.",
                         "type": "boolean"
                       },
+                      "postTempToken": {
+                        "type": "boolean",
+                        "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
+                      },
                       "appendOnly": {
                         "description": "Whether this field is append only.",
                         "type": "boolean"
@@ -4104,7 +4199,7 @@
                     "type": "boolean"
                   },
                   "fieldType": {
-                    "description": "The [field types](https://help.quickbase.com/user-assistance/field_types.html), click on any of the field type links for more info.",
+                    "description": "The [field types](https://help.quickbase.com/docs/field-types), click on any of the field type links for more info.",
                     "enum": [
                       "text",
                       "text-multiple-choice",
@@ -4343,7 +4438,7 @@
                           "type": "boolean"
                         },
                         "summaryTargetFieldId": {
-                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn’t require a field selection (like count).",
+                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn't require a field selection (like count).",
                           "type": "integer"
                         },
                         "allowNewChoices": {
@@ -4599,6 +4694,10 @@
                           "description": "Indicates if the URL should open a new window when a user clicks it within the product.",
                           "type": "boolean"
                         },
+                        "postTempToken": {
+                          "type": "boolean",
+                          "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
+                        },
                         "appendOnly": {
                           "description": "Whether this field is append only.",
                           "type": "boolean"
@@ -4683,7 +4782,7 @@
                 ],
                 "properties": {
                   "fieldIds": {
-                    "description": "List of field ids to be deleted.",
+                    "description": "List of field IDs to be deleted.",
                     "type": "array",
                     "items": {
                       "type": "integer"
@@ -4717,7 +4816,7 @@
                   ],
                   "properties": {
                     "deletedFieldIds": {
-                      "description": "List of field ids to were deleted.",
+                      "description": "List of field IDs to were deleted.",
                       "type": "array",
                       "items": {
                         "type": "integer"
@@ -4945,7 +5044,7 @@
                           "type": "boolean"
                         },
                         "summaryTargetFieldId": {
-                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn’t require a field selection (like count).",
+                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn't require a field selection (like count).",
                           "type": "integer"
                         },
                         "allowNewChoices": {
@@ -5201,6 +5300,10 @@
                           "description": "Indicates if the URL should open a new window when a user clicks it within the product.",
                           "type": "boolean"
                         },
+                        "postTempToken": {
+                          "type": "boolean",
+                          "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
+                        },
                         "appendOnly": {
                           "description": "Whether this field is append only.",
                           "type": "boolean"
@@ -5251,7 +5354,7 @@
       "post": {
         "operationId": "updateField",
         "summary": "Update a field",
-        "description": "Updates the properties and custom permissions of a field. The attempt to update certain properties might cause existing data to no longer obey the field’s new properties and may be rejected. See the descriptions of required, unique, and choices, below, for specific situations. Any properties of the field that you do not specify in the request body will remain unchanged.",
+        "description": "Updates the properties and custom permissions of a field. The attempt to update certain properties might cause existing data to no longer obey the field's new properties and may be rejected. See the descriptions of required, unique, and choices, below, for specific situations. Any properties of the field that you do not specify in the request body will remain unchanged.",
         "tags": [
           "Fields"
         ],
@@ -5394,7 +5497,7 @@
                         "type": "boolean"
                       },
                       "summaryTargetFieldId": {
-                        "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn’t require a field selection (like count).",
+                        "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn't require a field selection (like count).",
                         "type": "integer"
                       },
                       "allowNewChoices": {
@@ -5626,6 +5729,10 @@
                       "useNewWindow": {
                         "description": "Indicates if the file should open a new window when a user clicks it within the product.",
                         "type": "boolean"
+                      },
+                      "postTempToken": {
+                        "type": "boolean",
+                        "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
                       },
                       "appendOnly": {
                         "description": "Whether this field is append only.",
@@ -5861,7 +5968,7 @@
                           "type": "boolean"
                         },
                         "summaryTargetFieldId": {
-                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn’t require a field selection (like count).",
+                          "description": "The id of the field that is used to aggregate values from the child, when applicable. This displays 0 if the summary function doesn't require a field selection (like count).",
                           "type": "integer"
                         },
                         "allowNewChoices": {
@@ -6116,6 +6223,10 @@
                         "useNewWindow": {
                           "description": "Indicates if the URL should open a new window when a user clicks it within the product.",
                           "type": "boolean"
+                        },
+                        "postTempToken": {
+                          "type": "boolean",
+                          "description": "POSTs a temporary token to the first URL when clicked by a user. [Learn more](https://help.quickbase.com/docs/post-temporary-token-from-a-quickbase-field)"
                         },
                         "appendOnly": {
                           "description": "Whether this field is append only.",
@@ -7176,7 +7287,7 @@
                     "type": "integer"
                   },
                   "fieldsToReturn": {
-                    "description": "Specify an array of field ids that will return data for any updates or added record. Record ID (FID 3) is always returned if any field ID is requested.",
+                    "description": "Specify an array of field IDs that will return data for any updates or added record. Record ID (FID 3) is always returned if any field ID is requested.",
                     "type": "array",
                     "items": {
                       "type": "integer"
@@ -7448,10 +7559,22 @@
                     "minLength": 1
                   },
                   "where": {
-                    "description": "The filter to delete records. To delete all records specify a filter that will include all records, for example {3.GT.0} where 3 is the ID of the Record ID field.",
-                    "example": "{6.EX.'hello'}",
-                    "type": "string",
-                    "minLength": 1
+                    "description": "The filter to delete records. To delete all records specify a filter that will include all records, for example {3.GT.0} where 3 is the ID of the Record ID field. Or supply a JSON array of Record IDs.",
+                    "x-amf-union": [
+                      {
+                        "type": "string",
+                        "description": "The filter to delete records. To delete all records specify a filter that will include all records, for example {3.GT.0} where 3 is the ID of the Record ID field."
+                      },
+                      {
+                        "type": "array",
+                        "description": "An array of Record IDs",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "minItems": 1,
+                        "maxItems": 50000
+                      }
+                    ]
                   }
                 }
               }
@@ -7556,9 +7679,23 @@
                     }
                   },
                   "where": {
-                    "description": "The filter, using the Quickbase query language, which determines the records to return. If this parameter is omitted, the query will return all records.",
-                    "example": "{6.EX.'hello'}",
-                    "type": "string"
+                    "description": "The filter, using the Quickbase query language, which determines the records to return. Or supply a JSON array of Record IDs. If this parameter is omitted, the query will return all records.",
+                    "x-amf-union": [
+                      {
+                        "description": "The filter, using the Quickbase query language, which determines the records to return. If this parameter is omitted, the query will return all records.",
+                        "example": "{6.EX.'hello'}",
+                        "type": "string"
+                      },
+                      {
+                        "type": "array",
+                        "description": "An array of Record IDs",
+                        "items": {
+                          "type": "integer"
+                        },
+                        "minItems": 1,
+                        "maxItems": 50000
+                      }
+                    ]
                   },
                   "groupBy": {
                     "description": "An array that contains the fields to group the records by.",
@@ -7585,7 +7722,7 @@
                     "$ref": "#/components/schemas/SortByUnion"
                   },
                   "select": {
-                    "description": "An array of field ids for the fields that should be returned in the response. If empty, the default columns on the table will be returned.",
+                    "description": "An array of field IDs for the fields that should be returned in the response. If empty, the default columns on the table will be returned.",
                     "type": "array",
                     "items": {
                       "type": "integer"
@@ -7712,6 +7849,138 @@
                         }
                       }
                     }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/records/modifiedSince": {
+      "post": {
+        "operationId": "recordsModifiedSince",
+        "summary": "Get records modified since",
+        "description": "Checks for record changes on the current table and crawls the record dependency graph based on a provided field list. This determines if records on the table changed after the provided timestamp, when factoring in their dependencies. This API requires app admin permissions and only reviews lookup and summary fields in supported relationships.\nTo return deleted records for the current table, 'Index record changes' must be enabled.\nDependent tables only evaluate current records, and deleted records are not supported.",
+        "tags": [
+          "Records"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "after",
+                  "from"
+                ],
+                "properties": {
+                  "after": {
+                    "description": "A timestamp, formatted in ISO-8601 UTC, representing the date and time to search.",
+                    "example": "2025-09-04T20:05:22Z",
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "fieldList": {
+                    "description": "List of field IDs. Each field is crawled across the entire record dependency graph to find its source record's date modified. If one is not provided, only the current table will be referenced.",
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "includeDetails": {
+                    "description": "When true, the individual record IDs and timestamps will be returned. If false, only the count of changes will be returned.",
+                    "type": "boolean"
+                  },
+                  "from": {
+                    "description": "The table identifier.",
+                    "example": "bck7gp3q2",
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "example": {
+                  "value": {
+                    "after": "2025-09-04T20:05:22Z",
+                    "fieldList": [
+                      1,
+                      2,
+                      3
+                    ],
+                    "includeDetails": true,
+                    "from": "bck7gp3q2"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "required": [
+                    "count"
+                  ],
+                  "properties": {
+                    "count": {
+                      "description": "The count of changes found.",
+                      "type": "integer"
+                    },
+                    "changes": {
+                      "description": "When includeDetails is true, this array contains the individual record changes. If includeDetails is false, this array will not be returned.",
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": true,
+                        "properties": {
+                          "recordId": {
+                            "description": "A record whose dependencies were found to have been updated after the time provided.",
+                            "type": "integer"
+                          },
+                          "timestamp": {
+                            "description": "The timestamp that Quickbase found that exceeded the after time. This does not represent the latest date modified in the record graph.",
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "changeType": {
+                            "description": "The type of change that was detected.",
+                            "enum": [
+                              "CREATE",
+                              "MODIFY",
+                              "DELETE"
+                            ],
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "deletesTruncated": {
+                      "description": "When true, this indicates that the number of deletes detected exceeded the limit and details could not be returned.",
+                      "type": "boolean"
+                    }
+                  },
+                  "example": {
+                    "count": 2,
+                    "changes": [
+                      {
+                        "recordId": 1,
+                        "timestamp": "2025-09-04T20:10:22Z",
+                        "changeType": "MODIFY"
+                      },
+                      {
+                        "recordId": 2,
+                        "timestamp": "2025-09-04T20:11:22Z",
+                        "changeType": "DELETE"
+                      }
+                    ]
                   }
                 }
               }
@@ -8818,7 +9087,7 @@
         "summary": "Add members",
         "description": "Adds a list of users to a given group as members.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -8877,7 +9146,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of users that couldn’t be added to the group. This includes a list of IDs that represent invalid users and users who have already been added to the group.",
+                      "description": "A list of users that couldn't be added to the group. This includes a list of IDs that represent invalid users and users who have already been added to the group.",
                       "example": [
                         "423123.b3x5",
                         "123456.ryyw"
@@ -8909,7 +9178,7 @@
         "summary": "Remove members",
         "description": "Removes a list of members from a given group.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -8968,7 +9237,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of users that couldn’t be removed from the group. This includes a list of IDs that represent invalid users.",
+                      "description": "A list of users that couldn't be removed from the group. This includes a list of IDs that represent invalid users.",
                       "example": [
                         "423123.b3x5",
                         "123456.ryyw"
@@ -9002,7 +9271,7 @@
         "summary": "Add managers",
         "description": "Adds a list of users to a given group as managers.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -9061,7 +9330,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of users that couldn’t be added to the group. This includes a list of IDs that represent invalid users and users who have already been added to the group.",
+                      "description": "A list of users that couldn't be added to the group. This includes a list of IDs that represent invalid users and users who have already been added to the group.",
                       "example": [
                         "423123.b3x5",
                         "123456.ryyw"
@@ -9093,7 +9362,7 @@
         "summary": "Remove managers",
         "description": "Removes a list of managers from a given group.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -9152,7 +9421,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of users that couldn’t be removed from the group. This includes a list of IDs that represent invalid users.",
+                      "description": "A list of users that couldn't be removed from the group. This includes a list of IDs that represent invalid users.",
                       "example": [
                         "423123.b3x5",
                         "123456.ryyw"
@@ -9186,7 +9455,7 @@
         "summary": "Add child groups",
         "description": "Adds a list of groups to a given group.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -9243,7 +9512,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of child groups that couldn’t be added to the group. This includes a list of IDs that represent invalid groups and groups that have already been added to the group.",
+                      "description": "A list of child groups that couldn't be added to the group. This includes a list of IDs that represent invalid groups and groups that have already been added to the group.",
                       "example": [
                         "1002.czm8"
                       ],
@@ -9274,7 +9543,7 @@
         "summary": "Remove child groups",
         "description": "Removes a list of groups from a given group.",
         "tags": [
-          "Users"
+          "Groups"
         ],
         "parameters": [
           {
@@ -9331,7 +9600,7 @@
                   ],
                   "properties": {
                     "failure": {
-                      "description": "A list of child groups that couldn’t be removed from the group. This includes a list of IDs that represent invalid groups.",
+                      "description": "A list of child groups that couldn't be removed from the group. This includes a list of IDs that represent invalid groups.",
                       "example": [
                         "1002.czm8"
                       ],
@@ -9625,62 +9894,86 @@
               "application/json": {
                 "schema": {
                   "example": {
-                    "date": "2022-01-01",
-                    "reads": {
-                      "integrations": {
-                        "api": 456,
-                        "eoti": 789,
-                        "pipelines": 432
-                      },
-                      "user": 123
+                    "data": {
+                      "dailyDetailedReads": {
+                        "date": "2022-01-01",
+                        "reads": {
+                          "integrations": {
+                            "api": 456,
+                            "eoti": 789,
+                            "pipelines": 432
+                          },
+                          "user": 123
+                        }
+                      }
                     }
                   },
                   "type": "object",
                   "additionalProperties": true,
                   "required": [
-                    "date",
-                    "reads"
+                    "data"
                   ],
                   "properties": {
-                    "date": {
-                      "description": "The date of the requested summary.",
-                      "type": "string",
-                      "format": "date"
-                    },
-                    "reads": {
-                      "description": "Total reads for the specified date.",
+                    "data": {
+                      "description": "The data object containing the read summaries.",
                       "type": "object",
                       "additionalProperties": true,
                       "required": [
-                        "user",
-                        "integrations"
+                        "dailyDetailedReads"
                       ],
                       "properties": {
-                        "user": {
-                          "description": "Total user reads for the realm on the specified date.",
-                          "type": "integer"
-                        },
-                        "integrations": {
-                          "description": "Total integration reads for the realm on the specified date.",
+                        "dailyDetailedReads": {
+                          "description": "Detailed read summaries for a specific date.",
                           "type": "object",
                           "additionalProperties": true,
                           "required": [
-                            "eoti",
-                            "api",
-                            "pipelines"
+                            "date",
+                            "reads"
                           ],
                           "properties": {
-                            "eoti": {
-                              "description": "Total reads by anonymous users for the realm on the specified date.",
-                              "type": "integer"
+                            "date": {
+                              "description": "The date of the requested summary.",
+                              "type": "string",
+                              "format": "date"
                             },
-                            "api": {
-                              "description": "Total API reads for the realm on the specified date.",
-                              "type": "integer"
-                            },
-                            "pipelines": {
-                              "description": "Total pipeline reads for the realm on the specified date.",
-                              "type": "integer"
+                            "reads": {
+                              "description": "Total reads for the specified date.",
+                              "type": "object",
+                              "additionalProperties": true,
+                              "required": [
+                                "user",
+                                "integrations"
+                              ],
+                              "properties": {
+                                "user": {
+                                  "description": "Total user reads for the realm on the specified date.",
+                                  "type": "integer"
+                                },
+                                "integrations": {
+                                  "description": "Total integration reads for the realm on the specified date.",
+                                  "type": "object",
+                                  "additionalProperties": true,
+                                  "required": [
+                                    "eoti",
+                                    "api",
+                                    "pipelines"
+                                  ],
+                                  "properties": {
+                                    "eoti": {
+                                      "description": "Total reads by anonymous users for the realm on the specified date.",
+                                      "type": "integer"
+                                    },
+                                    "api": {
+                                      "description": "Total API reads for the realm on the specified date.",
+                                      "type": "integer"
+                                    },
+                                    "pipelines": {
+                                      "description": "Total pipeline reads for the realm on the specified date.",
+                                      "type": "integer"
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
@@ -9698,7 +9991,7 @@
       "post": {
         "operationId": "platformAnalyticEventSummaries",
         "summary": "Get event summaries",
-        "description": "Get event summaries for any span of days up to one year and excluding future dates.  \n**Note:** This API is available for enterprise users only. Data is updated hourly; to ensure accuracy, query dates should be at least one hour in the past. Transactional rate limits are 100 per hour.",
+        "description": "Get event summaries for any span of days up to one year and excluding future dates.\n**Note:** This API is available for enterprise users only. Data is updated hourly; to ensure accuracy, query dates should be at least one hour in the past. Transactional rate limits are 100 per hour.",
         "tags": [
           "Platform Analytics"
         ],
@@ -9714,15 +10007,72 @@
           }
         ],
         "requestBody": {
-          "required": false,
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
+                "type": "object",
+                "description": "Date, GroupBy, and Filter options for Event Summaries.",
+                "required": [
+                  "start",
+                  "end",
+                  "groupBy"
+                ],
+                "properties": {
+                  "start": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The start date and time of the requested summaries in ISO 8601 time format."
+                  },
+                  "end": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The end date and time of the requested summaries in ISO 8601 time format."
+                  },
+                  "nextToken": {
+                    "type": "string",
+                    "description": "A pagination token from a previous response made using the same parameters. Used to fetch the next page."
+                  },
+                  "groupBy": {
+                    "type": "string",
+                    "enum": [
+                      "app",
+                      "user"
+                    ],
+                    "description": "How the events should be grouped."
+                  },
+                  "where": {
+                    "type": "array",
+                    "maxItems": 10,
+                    "description": "A list of items to filter events by. Only events which match ALL criteria will be included in the results.",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "id",
+                        "type"
+                      ],
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "description": "Id of the item to filter by - the hash uid if filtering a user, or the app id if filtering an app."
+                        },
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "app",
+                            "user"
+                          ],
+                          "description": "The type of item to filter by."
+                        }
+                      }
+                    }
+                  }
+                },
                 "example": {
                   "start": "2023-12-01T12:00:00.000-05:00",
                   "end": "2023-12-31T12:00:00.000-05:00",
+                  "nextToken": "6a.f12x",
                   "groupBy": "user",
-                  "nextToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZzZXQiOjEwMCwiaWF0IjoxNzA2NzE1OTI3LCJleHAiOjE3MDY4MDIzMjd9.aWGZCv5vJIai0Dw6sVcQ9FT70PHcqWcqP9sGdKBJeco",
                   "where": [
                     {
                       "id": "58351651.xc1",
@@ -9733,63 +10083,7 @@
                       "type": "app"
                     }
                   ]
-                },
-                "properties": {
-                  "start": {
-                    "description": "The start date and time of the requested summaries in ISO 8601 time format.",
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  "end": {
-                    "description": "The end date and time of the requested summaries in ISO 8601 time format.",
-                    "format": "date-time",
-                    "type": "string"
-                  },
-                  "groupBy": {
-                    "description": "How the events should be grouped.",
-                    "enum": [
-                      "app",
-                      "user"
-                    ],
-                    "type": "string"
-                  },
-                  "nextToken": {
-                    "description": "A pagination token from a previous response. Used to fetch the next page.",
-                    "type": "string"
-                  },
-                  "where": {
-                    "description": "A list of items to filter events by. Only events which match ALL criteria will be included in the results.",
-                    "items": {
-                      "properties": {
-                        "id": {
-                          "description": "Id of the item to filter by - the hash uid if filtering a user, or the app id if filtering an app.",
-                          "type": "string"
-                        },
-                        "type": {
-                          "description": "The type of item to filter by.",
-                          "enum": [
-                            "app",
-                            "user"
-                          ],
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "id",
-                        "type"
-                      ],
-                      "type": "object"
-                    },
-                    "maxItems": 10,
-                    "type": "array"
-                  }
-                },
-                "required": [
-                  "start",
-                  "end",
-                  "groupBy"
-                ],
-                "type": "object"
+                }
               }
             }
           }
@@ -9800,225 +10094,253 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "example": {
-                    "accountId": "1234",
-                    "start": "2023-12-01T05:00:00Z",
-                    "end": "2023-12-31T05:00:00Z",
-                    "groupBy": "user",
-                    "where": [
-                      {
-                        "id": "58351651.xc1",
-                        "type": "user"
-                      },
-                      {
-                        "id": "bpqe82s1",
-                        "type": "app"
-                      }
-                    ],
-                    "results": [
-                      {
-                        "id": "58351651.xc1",
-                        "name": "Jon Doe",
-                        "eventTypes": [
-                          {
-                            "billingCategory": "integration",
-                            "count": 794,
-                            "eventType": "api"
-                          },
-                          {
-                            "billingCategory": "integration",
-                            "count": 0,
-                            "eventType": "eoti"
-                          },
-                          {
-                            "billingCategory": "integration",
-                            "count": 203,
-                            "eventType": "stepruns"
-                          },
-                          {
-                            "billingCategory": "user",
-                            "count": 0,
-                            "eventType": "plugin"
-                          },
-                          {
-                            "billingCategory": "user",
-                            "count": 36,
-                            "eventType": "appDashboard"
-                          },
-                          {
-                            "billingCategory": "user",
-                            "count": 0,
-                            "eventType": "tableDashboard"
-                          },
-                          {
-                            "billingCategory": "user",
-                            "count": 419,
-                            "eventType": "form"
-                          },
-                          {
-                            "billingCategory": "user",
-                            "count": 0,
-                            "eventType": "report"
-                          }
-                        ]
-                      }
-                    ],
-                    "metadata": {
-                      "nextToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvZmZzZXQiOjEwMCwiaWF0IjoxNzA2NzE1OTI3LCJleHAiOjE3MDY4MDIzMjd9.aWGZCv5vJIai0Dw6sVcQ9FT70PHcqWcqP9sGdKBJeco"
-                    },
-                    "totals": {
-                      "all": 1452,
-                      "integration": 997,
-                      "user": 455
-                    }
-                  },
+                  "type": "object",
+                  "required": [
+                    "data"
+                  ],
                   "properties": {
-                    "accountId": {
-                      "description": "The ID of the account the events are associated with.",
-                      "type": "string"
-                    },
-                    "start": {
-                      "description": "The start date and time of the requested summaries in ISO 8601 time format.",
-                      "format": "date-time",
-                      "type": "string"
-                    },
-                    "end": {
-                      "description": "The end date and time of the requested summaries in ISO 8601 time format.",
-                      "format": "date-time",
-                      "type": "string"
-                    },
-                    "groupBy": {
-                      "description": "How the events should be grouped.",
-                      "enum": [
-                        "app",
-                        "user"
+                    "data": {
+                      "type": "object",
+                      "required": [
+                        "eventsSummaries"
                       ],
-                      "type": "string"
-                    },
-                    "where": {
-                      "items": {
-                        "properties": {
-                          "id": {
-                            "description": "Id of the item to filter by.",
-                            "type": "string"
-                          },
-                          "type": {
-                            "description": "The type of item to filter by.",
-                            "enum": [
-                              "app",
-                              "user"
-                            ],
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "id",
-                          "type"
-                        ],
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "results": {
-                      "description": "An array of objects that contains Application/User information and an events object with summaries by event type.",
-                      "items": {
-                        "properties": {
-                          "eventTypes": {
-                            "description": "An array of events that contains specific information associated with an Application/User broken down by event type.",
-                            "items": {
-                              "properties": {
-                                "billingCategory": {
-                                  "description": "Billing category of the event type.",
-                                  "enum": [
-                                    "user",
-                                    "integration"
-                                  ],
-                                  "type": "string"
-                                },
-                                "count": {
-                                  "description": "Count of events associated with that event type and Application/User.",
-                                  "type": "integer"
-                                },
-                                "eventType": {
-                                  "description": "Event type",
-                                  "type": "string"
-                                }
-                              },
-                              "type": "object"
+                      "properties": {
+                        "eventsSummaries": {
+                          "type": "object",
+                          "required": [
+                            "accountId",
+                            "start",
+                            "end",
+                            "groupBy",
+                            "where",
+                            "results",
+                            "metadata",
+                            "totals"
+                          ],
+                          "properties": {
+                            "accountId": {
+                              "type": "string",
+                              "description": "The ID of the account the events are associated with."
                             },
-                            "type": "array"
-                          },
-                          "id": {
-                            "description": "Id of the Application/User.",
-                            "type": "string"
-                          },
-                          "name": {
-                            "description": "Name of the Application/User.",
-                            "type": "string"
-                          },
-                          "totals": {
-                            "description": "Totals by billing category for the event grouping.",
-                            "properties": {
-                              "all": {
-                                "type": "number"
-                              },
-                              "integration": {
-                                "type": "number"
-                              },
-                              "user": {
-                                "type": "number"
+                            "start": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "The start date and time of the requested summaries in ISO 8601 time format."
+                            },
+                            "end": {
+                              "type": "string",
+                              "format": "date-time",
+                              "description": "The end date and time of the requested summaries in ISO 8601 time format."
+                            },
+                            "groupBy": {
+                              "type": "string",
+                              "enum": [
+                                "app",
+                                "user"
+                              ],
+                              "description": "How the events should be grouped."
+                            },
+                            "where": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "type"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "description": "Id of the item to filter by."
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "enum": [
+                                      "app",
+                                      "user"
+                                    ],
+                                    "description": "The type of item to filter by."
+                                  }
+                                }
                               }
                             },
-                            "type": "object"
+                            "results": {
+                              "type": "array",
+                              "description": "An array of objects that contains Application/User information and an events object with summaries by event type.",
+                              "items": {
+                                "type": "object",
+                                "required": [
+                                  "id",
+                                  "name",
+                                  "totals",
+                                  "eventTypes"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "description": "Id of the Application/User."
+                                  },
+                                  "name": {
+                                    "type": "string",
+                                    "description": "Name of the Application/User."
+                                  },
+                                  "totals": {
+                                    "type": "object",
+                                    "description": "Totals by billing category for the event grouping.",
+                                    "properties": {
+                                      "integration": {
+                                        "type": "number"
+                                      },
+                                      "user": {
+                                        "type": "number"
+                                      },
+                                      "all": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "eventTypes": {
+                                    "type": "array",
+                                    "description": "An array of events that contains specific information associated with an Application/User broken down by event type.",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "eventType": {
+                                          "type": "string",
+                                          "description": "Event type"
+                                        },
+                                        "count": {
+                                          "type": "integer",
+                                          "description": "Count of events associated with that event type and Application/User."
+                                        },
+                                        "billingCategory": {
+                                          "type": "string",
+                                          "enum": [
+                                            "user",
+                                            "integration"
+                                          ],
+                                          "description": "Billing category of the event type."
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "metadata": {
+                              "type": "object",
+                              "required": [
+                                "nextToken"
+                              ],
+                              "description": "Additional information about the results that may be helpful.",
+                              "properties": {
+                                "nextToken": {
+                                  "type": "string",
+                                  "description": "Supply this token in a subsequent request to fetch the next page of results."
+                                }
+                              }
+                            },
+                            "totals": {
+                              "type": "object",
+                              "description": "Totals by billing category for all queried events.",
+                              "properties": {
+                                "integration": {
+                                  "type": "number"
+                                },
+                                "user": {
+                                  "type": "number"
+                                },
+                                "all": {
+                                  "type": "number"
+                                }
+                              }
+                            }
                           }
-                        },
-                        "required": [
-                          "id",
-                          "name",
-                          "eventTypes"
-                        ],
-                        "type": "object"
-                      },
-                      "type": "array"
-                    },
-                    "metadata": {
-                      "description": "Additional information about the results that may be helpful.",
-                      "properties": {
-                        "nextToken": {
-                          "description": "Supply this token in a subsequent request to fetch the next page of results.",
-                          "type": "string"
                         }
-                      },
-                      "required": [
-                        "nextToken"
-                      ],
-                      "type": "object"
-                    },
-                    "totals": {
-                      "description": "Totals by billing category for all queried events.",
-                      "properties": {
-                        "all": {
-                          "type": "number"
-                        },
-                        "integration": {
-                          "type": "number"
-                        },
-                        "user": {
-                          "type": "number"
-                        }
-                      },
-                      "type": "object"
+                      }
                     }
                   },
-                  "required": [
-                    "accountId",
-                    "start",
-                    "end",
-                    "groupBy",
-                    "where",
-                    "results"
-                  ],
-                  "type": "object"
+                  "example": {
+                    "data": {
+                      "eventsSummaries": {
+                        "accountId": "1234",
+                        "start": "2023-12-01T05:00:00Z",
+                        "end": "2023-12-31T05:00:00Z",
+                        "groupBy": "user",
+                        "where": [
+                          {
+                            "id": "58351651.xc1",
+                            "type": "user"
+                          },
+                          {
+                            "id": "bpqe82s1",
+                            "type": "app"
+                          }
+                        ],
+                        "results": [
+                          {
+                            "id": "58351651.xc1",
+                            "name": "Jon Doe",
+                            "totals": {
+                              "integration": 997,
+                              "user": 455,
+                              "all": 1452
+                            },
+                            "eventTypes": [
+                              {
+                                "eventType": "api",
+                                "count": 794,
+                                "billingCategory": "integration"
+                              },
+                              {
+                                "eventType": "eoti",
+                                "count": 0,
+                                "billingCategory": "integration"
+                              },
+                              {
+                                "eventType": "stepruns",
+                                "count": 203,
+                                "billingCategory": "integration"
+                              },
+                              {
+                                "eventType": "plugin",
+                                "count": 0,
+                                "billingCategory": "user"
+                              },
+                              {
+                                "eventType": "appDashboard",
+                                "count": 36,
+                                "billingCategory": "user"
+                              },
+                              {
+                                "eventType": "tableDashboard",
+                                "count": 0,
+                                "billingCategory": "user"
+                              },
+                              {
+                                "eventType": "form",
+                                "count": 419,
+                                "billingCategory": "user"
+                              },
+                              {
+                                "eventType": "report",
+                                "count": 0,
+                                "billingCategory": "user"
+                              }
+                            ]
+                          }
+                        ],
+                        "totals": {
+                          "integration": 997,
+                          "user": 455,
+                          "all": 1452
+                        },
+                        "metadata": {
+                          "nextToken": "6a.f12x"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -10030,7 +10352,7 @@
       "get": {
         "operationId": "exportSolution",
         "summary": "Export a solution",
-        "description": "Returns the QBL for the specified solution. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Returns the QBL for the specified solution. Learn more about [QBL syntax](https://help.quickbase.com/docs/qbl-definition-structure-and-syntax).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://help.quickbase.com/docs/qbl-versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10038,7 +10360,7 @@
           {
             "name": "solutionId",
             "in": "path",
-            "description": "The unique identifier of a solution",
+            "description": "The unique identifier (UUID) or the alias of the solution.",
             "required": true,
             "schema": {
               "type": "string"
@@ -10066,7 +10388,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10079,7 +10401,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10105,7 +10427,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10122,7 +10444,7 @@
       "put": {
         "operationId": "updateSolution",
         "summary": "Update a solution",
-        "description": "Updates the solution using the provided QBL. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Updates the solution using the provided QBL. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10130,7 +10452,7 @@
           {
             "name": "solutionId",
             "in": "path",
-            "description": "The unique identifier of a solution",
+            "description": "The unique identifier (UUID) or the alias of the solution.",
             "required": true,
             "schema": {
               "type": "string"
@@ -10139,7 +10461,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10176,7 +10498,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10189,7 +10511,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10202,7 +10524,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10221,7 +10543,7 @@
       "post": {
         "operationId": "createSolution",
         "summary": "Create a solution",
-        "description": "Creates a solution using the provided QBL. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Creates a solution using the provided QBL. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10229,7 +10551,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10266,7 +10588,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10279,7 +10601,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10292,7 +10614,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10311,7 +10633,7 @@
       "get": {
         "operationId": "exportSolutionToRecord",
         "summary": "Export solution to record",
-        "description": "Exports the solution and outputs the resulting QBL in a new record in the specified table. The QBL will be saved to a file in the file attachment field that is specified. The table cannot have any required fields besides the file attachment field.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Exports the solution and outputs the resulting QBL in a new record in the specified table. The QBL will be saved to a file in the file attachment field that is specified. The table cannot have any required fields besides the file attachment field.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10346,7 +10668,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10377,7 +10699,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10390,7 +10712,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10416,7 +10738,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10435,7 +10757,7 @@
       "get": {
         "operationId": "createSolutionFromRecord",
         "summary": "Create solution from record",
-        "description": "Creates a solution using the QBL from the specified record.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Creates a solution using the QBL from the specified record.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10470,7 +10792,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10499,7 +10821,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10512,7 +10834,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10538,7 +10860,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10557,7 +10879,7 @@
       "get": {
         "operationId": "updateSolutionToRecord",
         "summary": "Update solution from record",
-        "description": "Updates a solution using the QBL from the specified record.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Updates a solution using the QBL from the specified record.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10601,7 +10923,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10630,7 +10952,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10643,7 +10965,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10669,7 +10991,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10688,7 +11010,7 @@
       "put": {
         "operationId": "changesetSolution",
         "summary": "List solution changes",
-        "description": "Returns a list of changes that would occur if the provided QBL were to be applied. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Returns a list of changes that would occur if the provided QBL were to be applied. Learn more about [QBL syntax](https://help.quickbase.com/hc/en-us/articles/24845511223828-What-is-QBL).  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10705,7 +11027,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10755,7 +11077,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10768,7 +11090,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10794,7 +11116,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10813,7 +11135,7 @@
       "get": {
         "operationId": "changesetSolutionFromRecord",
         "summary": "List solution changes from record",
-        "description": "Returns a list of changes that would occur if the QBL from the provided record were to be applied.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/articles/30119680754068-QBL-version-0-4-overview) in our QBL documentation.",
+        "description": "Returns a list of changes that would occur if the QBL from the provided record were to be applied.  \n We are releasing schema coverage for QBL in stages. See [what's supported today](https://helpv2.quickbase.com/hc/en-us/sections/26699387198228-QBL-Versions) in our QBL documentation.",
         "tags": [
           "Solutions"
         ],
@@ -10857,7 +11179,7 @@
           {
             "name": "X-QBL-Errors-As-Success",
             "in": "header",
-            "description": "If this header is set to true, the API will return a 207 status code even if there are errors. The errors will be returned in the response body.",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-ORIGINAL-STATUS header with the original error code, and the response body will include the error details.",
             "required": false,
             "schema": {
               "type": "boolean"
@@ -10907,7 +11229,7 @@
             }
           },
           "400": {
-            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there’s lack of clarity.",
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Malformed QBL and others. Message should provide more information, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10920,7 +11242,7 @@
             }
           },
           "401": {
-            "description": "Insufficient access. This could be for many reasons such as: User doesn’t have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot create apps and others.  Message should provide more information.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10946,7 +11268,7 @@
             }
           },
           "default": {
-            "description": "Non-common error, reach out to support if there’s lack of clarity.",
+            "description": "Non-common error, reach out to support if there's lack of clarity.",
             "content": {
               "application/json": {
                 "schema": {
@@ -10965,7 +11287,7 @@
       "get": {
         "operationId": "generateDocument",
         "summary": "Generate a document",
-        "description": "Generates a document from a template. This feature is only available on business or enterprise plans.",
+        "description": "Generates a document from a template. After changing a template, allow up to 15 minutes for documents generated via the API to reflect the changes. This feature is only available on business or enterprise plans.",
         "tags": [
           "Document Templates"
         ],
@@ -11126,6 +11448,1206 @@
                       "type": "string"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/solutions/{solutionId}/resources": {
+      "get": {
+        "operationId": "getSolutionPublic",
+        "summary": "Get solution information",
+        "description": "Returns the metadata and resource information for a solution, including both real and logical IDs of apps and pipelines contained within the solution. This endpoint provides programmatic access to solution structure information.",
+        "tags": [
+          "Solutions"
+        ],
+        "parameters": [
+          {
+            "name": "solutionId",
+            "in": "path",
+            "description": "The unique identifier (UUID) or the alias of the solution.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-QBL-Errors-As-Success",
+            "in": "header",
+            "description": "If this header is set to true, the API will return a 207 status code even if errors occur. The response will contain X-QBL-Original-Status header with the original error code, and the response body will include the error details.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "uuid": "f53acd36-1e75-47ed-910c-0ca4fd165a84",
+                    "alias": "my-solution-alias",
+                    "name": "My Example Solution",
+                    "description": "A solution containing example applications and pipelines",
+                    "createdAt": "2024-01-15T10:30:00Z",
+                    "updatedAt": "2024-03-22T14:45:00Z",
+                    "resources": {
+                      "apps": [
+                        {
+                          "id": "bskapa2x3",
+                          "logicalId": "$App_Example_app"
+                        },
+                        {
+                          "id": "bskbqm7y4",
+                          "logicalId": "$App_Project_Manager"
+                        }
+                      ],
+                      "pipelines": [
+                        {
+                          "id": "123456789",
+                          "logicalId": "$Pipeline_Data_Sync"
+                        },
+                        {
+                          "id": "987654321",
+                          "logicalId": "$Pipeline_Notification_Flow"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. For example: Missing required headers, Missing required parameters, Invalid solution ID format and others. Message should provide more information, reach out to support if there's lack of clarity.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Bad request.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Insufficient access. This could be for many reasons such as: User doesn't have SolutionHub access, User is not the owner or a contributor for the solution, User cannot access the solution and others. Message should provide more information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Forbidden.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Solution does not exist. The supplied solution ID was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Not found.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error. An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "message": "Internal server error.",
+                    "description": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/app/{appId}/trustees": {
+      "get": {
+        "operationId": "getTrustees",
+        "summary": "Get trustees for an app",
+        "description": "Returns the list of trustees for a specific application. Trustees include users, groups and email domain groups.",
+        "tags": [
+          "Trustees"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "The unique identifier of an app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "A list of trustees. Each trustee is represented by an object containing the trustee's ID, type, and role ID.",
+                  "example": [
+                    {
+                      "id": "123456.ab1s",
+                      "roleId": 10,
+                      "type": "user"
+                    },
+                    {
+                      "id": "1002.czm8",
+                      "roleId": 11,
+                      "type": "group"
+                    }
+                  ],
+                  "items": {
+                    "description": "Object used for operations to read, create, or update trustees in an app.",
+                    "example": {
+                      "id": "123456.ab1s",
+                      "roleId": 10,
+                      "type": "user"
+                    },
+                    "properties": {
+                      "id": {
+                        "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                        "example": "123456.ab1s",
+                        "type": "string"
+                      },
+                      "roleId": {
+                        "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                        "example": 10,
+                        "type": "integer"
+                      },
+                      "type": {
+                        "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                        "enum": [
+                          "user",
+                          "group",
+                          "dom-group"
+                        ],
+                        "example": "user",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "type",
+                      "roleId"
+                    ],
+                    "type": "object"
+                  },
+                  "maxItems": 1000,
+                  "minItems": 1,
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "addTrustees",
+        "summary": "Add trustees to an app",
+        "description": "Add trustees to the specified application. Trustees include users, groups and email domain groups.",
+        "tags": [
+          "Trustees"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "The unique identifier of an app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "A list of trustees. Each trustee is represented by an object containing the trustee's ID, type, and role ID.",
+                "example": [
+                  {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "type": "user"
+                  },
+                  {
+                    "id": "1002.czm8",
+                    "roleId": 11,
+                    "type": "group"
+                  }
+                ],
+                "items": {
+                  "description": "Object used for operations to read, create, or update trustees in an app.",
+                  "example": {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "type": "user"
+                  },
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                      "example": "123456.ab1s",
+                      "type": "string"
+                    },
+                    "roleId": {
+                      "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                      "example": 10,
+                      "type": "integer"
+                    },
+                    "type": {
+                      "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                      "enum": [
+                        "user",
+                        "group",
+                        "dom-group"
+                      ],
+                      "example": "user",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "roleId"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "minItems": 1,
+                "type": "array"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "207": {
+            "description": "Partial success. Some trustees were added successfully, while others failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [
+                      {
+                        "error": "Invalid user ID",
+                        "trustee": {
+                          "id": "78910.ba1s",
+                          "roleId": 12,
+                          "type": "user"
+                        }
+                      }
+                    ],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "removeTrustees",
+        "summary": "Remove trustees from an app",
+        "description": "Remove trustees from the specified application. Trustees include users, groups and email domain groups.",
+        "tags": [
+          "Trustees"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "The unique identifier of an app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "A list of trustees. Each trustee is represented by an object containing the trustee's ID, type, and role ID.",
+                "example": [
+                  {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "type": "user"
+                  },
+                  {
+                    "id": "1002.czm8",
+                    "roleId": 11,
+                    "type": "group"
+                  }
+                ],
+                "items": {
+                  "description": "Object used for operations to read, create, or update trustees in an app.",
+                  "example": {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "type": "user"
+                  },
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                      "example": "123456.ab1s",
+                      "type": "string"
+                    },
+                    "roleId": {
+                      "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                      "example": 10,
+                      "type": "integer"
+                    },
+                    "type": {
+                      "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                      "enum": [
+                        "user",
+                        "group",
+                        "dom-group"
+                      ],
+                      "example": "user",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "roleId"
+                  ],
+                  "type": "object"
+                },
+                "maxItems": 1000,
+                "minItems": 1,
+                "type": "array"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "207": {
+            "description": "Partial success. Some trustees were added successfully, while others failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [
+                      {
+                        "error": "Invalid user ID",
+                        "trustee": {
+                          "id": "78910.ba1s",
+                          "roleId": 12,
+                          "type": "user"
+                        }
+                      }
+                    ],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "operationId": "updateTrustees",
+        "summary": "Update trustees of an app",
+        "description": "Update trustees for the specified application. Trustees include users, groups and email domain groups.",
+        "tags": [
+          "Trustees"
+        ],
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "path",
+            "description": "The unique identifier of an app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "A list of trustees to be updated in an app. Each trustee is represented by an object containing the trustee's ID, type, and role ID.",
+                "items": {
+                  "description": "Object used for operations to read, create, or update trustees in an app.",
+                  "example": {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "type": "user"
+                  },
+                  "properties": {
+                    "id": {
+                      "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                      "example": "123456.ab1s",
+                      "type": "string"
+                    },
+                    "roleId": {
+                      "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                      "example": 10,
+                      "type": "integer"
+                    },
+                    "oldRoleId": {
+                      "description": "The ID of the role to be changed for the trustee. This is used to identify the current role before updating it.",
+                      "type": "integer"
+                    },
+                    "type": {
+                      "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                      "enum": [
+                        "user",
+                        "group",
+                        "dom-group"
+                      ],
+                      "example": "user",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "type",
+                    "roleId",
+                    "oldRoleId"
+                  ],
+                  "type": "object"
+                },
+                "example": [
+                  {
+                    "id": "123456.ab1s",
+                    "roleId": 10,
+                    "oldRoleId": 15,
+                    "type": "user"
+                  },
+                  {
+                    "id": "1002.czm8",
+                    "roleId": 11,
+                    "oldRoleId": 16,
+                    "type": "group"
+                  }
+                ],
+                "maxItems": 1000,
+                "minItems": 1,
+                "type": "array"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "oldRoleId": 15,
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "oldRoleId": {
+                                "description": "The ID of the role to be changed for the trustee. This is used to identify the current role before updating it.",
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId",
+                              "oldRoleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "oldRoleId": {
+                            "description": "The ID of the role to be changed for the trustee. This is used to identify the current role before updating it.",
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId",
+                          "oldRoleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "207": {
+            "description": "Partial success. Some trustees were added successfully, while others failed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "example": {
+                    "failure": [
+                      {
+                        "error": "Invalid user ID",
+                        "trustee": {
+                          "id": "78910.ba1s",
+                          "oldRoleId": 15,
+                          "roleId": 12,
+                          "type": "user"
+                        }
+                      }
+                    ],
+                    "success": [
+                      {
+                        "id": "123456.ab1s",
+                        "oldRoleId": 15,
+                        "roleId": 10,
+                        "type": "user"
+                      }
+                    ]
+                  },
+                  "properties": {
+                    "failure": {
+                      "description": "A list of trustees that were not updated. This includes invalid IDs or IDs that could not be processed.",
+                      "items": {
+                        "properties": {
+                          "error": {
+                            "description": "The error message associated with the trustee that could not be updated.",
+                            "type": "string"
+                          },
+                          "trustee": {
+                            "description": "Object used for operations to read, create, or update trustees in an app.",
+                            "example": {
+                              "id": "123456.ab1s",
+                              "roleId": 10,
+                              "type": "user"
+                            },
+                            "properties": {
+                              "id": {
+                                "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                                "example": "123456.ab1s",
+                                "type": "string"
+                              },
+                              "roleId": {
+                                "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                                "example": 10,
+                                "type": "integer"
+                              },
+                              "oldRoleId": {
+                                "description": "The ID of the role to be changed for the trustee. This is used to identify the current role before updating it.",
+                                "type": "integer"
+                              },
+                              "type": {
+                                "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                                "enum": [
+                                  "user",
+                                  "group",
+                                  "dom-group"
+                                ],
+                                "example": "user",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type",
+                              "roleId",
+                              "oldRoleId"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "success": {
+                      "description": "A list of trustees that have been successfully updated.",
+                      "items": {
+                        "description": "Object used for operations to read, create, or update trustees in an app.",
+                        "example": {
+                          "id": "123456.ab1s",
+                          "roleId": 10,
+                          "type": "user"
+                        },
+                        "properties": {
+                          "id": {
+                            "description": "The ID of the user, group, or email domain group to be added as a trustee. For users and groups, this is the user's or group's ID in Quickbase. For email domain groups, this is the email domain.",
+                            "example": "123456.ab1s",
+                            "type": "string"
+                          },
+                          "roleId": {
+                            "description": "The ID of the role to be assigned or currently assigned to the trustee.",
+                            "example": 10,
+                            "type": "integer"
+                          },
+                          "oldRoleId": {
+                            "description": "The ID of the role to be changed for the trustee. This is used to identify the current role before updating it.",
+                            "type": "integer"
+                          },
+                          "type": {
+                            "description": "The type of trustee being added. This can be a user, group, or email domain group.",
+                            "enum": [
+                              "user",
+                              "group",
+                              "dom-group"
+                            ],
+                            "example": "user",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "type",
+                          "roleId",
+                          "oldRoleId"
+                        ],
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "required": [
+                    "failure",
+                    "success"
+                  ],
+                  "type": "object"
                 }
               }
             }
