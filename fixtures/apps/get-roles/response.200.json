@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": [
+    {
+      "access": {
+        "id": 3,
+        "type": "Basic Access"
+      },
+      "id": 10,
+      "name": "Viewer"
+    },
+    {
+      "access": {
+        "id": 2,
+        "type": "Basic Access with Share"
+      },
+      "id": 11,
+      "name": "Participant"
+    }
+  ]
+}

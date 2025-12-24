@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "description": "Request body for addTrustees"
+  },
+  "body": [
+    {
+      "id": "123456.ab1s",
+      "roleId": 10,
+      "type": "user"
+    },
+    {
+      "id": "1002.czm8",
+      "roleId": 11,
+      "type": "group"
+    }
+  ]
+}

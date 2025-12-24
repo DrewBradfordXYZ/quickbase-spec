@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "uuid": "f53acd36-1e75-47ed-910c-0ca4fd165a84",
+    "alias": "my-solution-alias",
+    "name": "My Example Solution",
+    "description": "A solution containing example applications and pipelines",
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-03-22T14:45:00Z",
+    "resources": {
+      "apps": [
+        {
+          "id": "bskapa2x3",
+          "logicalId": "$App_Example_app"
+        },
+        {
+          "id": "bskbqm7y4",
+          "logicalId": "$App_Project_Manager"
+        }
+      ],
+      "pipelines": [
+        {
+          "id": "123456789",
+          "logicalId": "$Pipeline_Data_Sync"
+        },
+        {
+          "id": "987654321",
+          "logicalId": "$Pipeline_Notification_Flow"
+        }
+      ]
+    }
+  }
+}

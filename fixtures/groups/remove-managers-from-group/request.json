@@ -1,0 +1,10 @@
+{
+  "_meta": {
+    "description": "Request body for removeManagersFromGroup"
+  },
+  "body": [
+    "123456.ryyw",
+    "423123.b3x5",
+    "100000.be8s"
+  ]
+}

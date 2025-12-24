@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failure": [
+      "1002.czm8"
+    ],
+    "success": [
+      "1003.bar3"
+    ]
+  }
+}

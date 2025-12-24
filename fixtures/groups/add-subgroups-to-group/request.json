@@ -1,0 +1,9 @@
+{
+  "_meta": {
+    "description": "Request body for addSubgroupsToGroup"
+  },
+  "body": [
+    "1002.czm8",
+    "1003.bar3"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "description": "Partial success. Some trustees were added successfully, while others failed.",
+    "status": 207,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failure": [
+      {
+        "error": "Invalid user ID",
+        "trustee": {
+          "id": "78910.ba1s",
+          "roleId": 12,
+          "type": "user"
+        }
+      }
+    ],
+    "success": [
+      {
+        "id": "123456.ab1s",
+        "roleId": 10,
+        "type": "user"
+      }
+    ]
+  }
+}
