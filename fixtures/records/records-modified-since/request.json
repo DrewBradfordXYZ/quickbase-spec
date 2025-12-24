@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "description": "Request body for recordsModifiedSince"
+  },
+  "body": {
+    "after": "2025-09-04T20:05:22Z",
+    "fieldList": [
+      1,
+      2,
+      3
+    ],
+    "includeDetails": true,
+    "from": "bck7gp3q2"
+  }
+}

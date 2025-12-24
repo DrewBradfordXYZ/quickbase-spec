@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "Bad request. For example: Missing required headers, Missing required parameters, Invalid solution ID format and others. Message should provide more information, reach out to support if there's lack of clarity.",
+    "status": 400,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "message": "Bad request.",
+    "description": ""
+  }
+}

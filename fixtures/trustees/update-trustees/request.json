@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "description": "Request body for updateTrustees"
+  },
+  "body": [
+    {
+      "id": "123456.ab1s",
+      "roleId": 10,
+      "oldRoleId": 15,
+      "type": "user"
+    },
+    {
+      "id": "1002.czm8",
+      "roleId": 11,
+      "oldRoleId": 16,
+      "type": "group"
+    }
+  ]
+}

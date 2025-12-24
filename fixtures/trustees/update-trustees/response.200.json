@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "description": "Success",
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "body": {
+    "failure": [],
+    "success": [
+      {
+        "id": "123456.ab1s",
+        "oldRoleId": 15,
+        "roleId": 10,
+        "type": "user"
+      }
+    ]
+  }
+}
