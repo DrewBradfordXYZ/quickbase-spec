@@ -1,12 +1,12 @@
 # QuickBase API Operations
 
-Auto-generated summary of 59 API operations.
+Auto-generated summary of 66 API operations.
 
 **Spec Version:** 1.0.0
 
 ## Operations by Category
 
-### Apps (6)
+### Apps (7)
 
 | Operation | Method | Path | Summary |
 |-----------|--------|------|---------|
@@ -15,6 +15,7 @@ Auto-generated summary of 59 API operations.
 | `deleteApp` | DELETE | `/apps/{appId}` | Delete an app |
 | `getApp` | GET | `/apps/{appId}` | Get an app |
 | `getAppEvents` | GET | `/apps/{appId}/events` | Get app events |
+| `getRoles` | GET | `/apps/{appId}/roles` | Get app roles |
 | `updateApp` | POST | `/apps/{appId}` | Update an app |
 
 ### Audit (1)
@@ -61,6 +62,17 @@ Auto-generated summary of 59 API operations.
 |-----------|--------|------|---------|
 | `runFormula` | POST | `/formula/run` | Run a formula |
 
+### Groups (6)
+
+| Operation | Method | Path | Summary |
+|-----------|--------|------|---------|
+| `addManagersToGroup` | POST | `/groups/{gid}/managers` | Add managers |
+| `addMembersToGroup` | POST | `/groups/{gid}/members` | Add members |
+| `addSubgroupsToGroup` | POST | `/groups/{gid}/subgroups` | Add child groups |
+| `removeManagersFromGroup` | DELETE | `/groups/{gid}/managers` | Remove managers |
+| `removeMembersFromGroup` | DELETE | `/groups/{gid}/members` | Remove members |
+| `removeSubgroupsFromGroup` | DELETE | `/groups/{gid}/subgroups` | Remove child groups |
+
 ### Platform Analytics (2)
 
 | Operation | Method | Path | Summary |
@@ -68,11 +80,12 @@ Auto-generated summary of 59 API operations.
 | `platformAnalyticEventSummaries` | POST | `/analytics/events/summaries` | Get event summaries |
 | `platformAnalyticReads` | GET | `/analytics/reads` | Get read summaries |
 
-### Records (3)
+### Records (4)
 
 | Operation | Method | Path | Summary |
 |-----------|--------|------|---------|
 | `deleteRecords` | DELETE | `/records` | Delete record(s) |
+| `recordsModifiedSince` | POST | `/records/modifiedSince` | Get records modified since |
 | `runQuery` | POST | `/records/query` | Query for data |
 | `upsert` | POST | `/records` | Insert/Update record(s) |
 
@@ -84,7 +97,7 @@ Auto-generated summary of 59 API operations.
 | `getTableReports` | GET | `/reports` | Get reports for a table |
 | `runReport` | POST | `/reports/{reportId}/run` | Run a report |
 
-### Solutions (8)
+### Solutions (9)
 
 | Operation | Method | Path | Summary |
 |-----------|--------|------|---------|
@@ -94,6 +107,7 @@ Auto-generated summary of 59 API operations.
 | `createSolutionFromRecord` | GET | `/solutions/fromrecord` | Create solution from record |
 | `exportSolution` | GET | `/solutions/{solutionId}` | Export a solution |
 | `exportSolutionToRecord` | GET | `/solutions/{solutionId}/torecord` | Export solution to record |
+| `getSolutionPublic` | GET | `/solutions/{solutionId}/resources` | Get solution information |
 | `updateSolution` | PUT | `/solutions/{solutionId}` | Update a solution |
 | `updateSolutionToRecord` | GET | `/solutions/{solutionId}/fromrecord` | Update solution from record |
 
@@ -111,6 +125,15 @@ Auto-generated summary of 59 API operations.
 | `updateRelationship` | POST | `/tables/{tableId}/relationship/{relationshipId}` | Update a relationship |
 | `updateTable` | POST | `/tables/{tableId}` | Update a table |
 
+### Trustees (4)
+
+| Operation | Method | Path | Summary |
+|-----------|--------|------|---------|
+| `addTrustees` | POST | `/app/{appId}/trustees` | Add trustees to an app |
+| `getTrustees` | GET | `/app/{appId}/trustees` | Get trustees for an app |
+| `removeTrustees` | DELETE | `/app/{appId}/trustees` | Remove trustees from an app |
+| `updateTrustees` | PATCH | `/app/{appId}/trustees` | Update trustees of an app |
+
 ### UserToken (4)
 
 | Operation | Method | Path | Summary |
@@ -120,19 +143,13 @@ Auto-generated summary of 59 API operations.
 | `deleteUserToken` | DELETE | `/usertoken` | Delete a user token |
 | `transferUserToken` | POST | `/usertoken/transfer` | Transfer a user token |
 
-### Users (10)
+### Users (4)
 
 | Operation | Method | Path | Summary |
 |-----------|--------|------|---------|
-| `addManagersToGroup` | POST | `/groups/{gid}/managers` | Add managers |
-| `addMembersToGroup` | POST | `/groups/{gid}/members` | Add members |
-| `addSubgroupsToGroup` | POST | `/groups/{gid}/subgroups` | Add child groups |
 | `denyUsers` | PUT | `/users/deny` | Deny users |
 | `denyUsersAndGroups` | PUT | `/users/deny/{shouldDeleteFromGroups}` | Deny and remove users from groups |
 | `getUsers` | POST | `/users` | Get users |
-| `removeManagersFromGroup` | DELETE | `/groups/{gid}/managers` | Remove managers |
-| `removeMembersFromGroup` | DELETE | `/groups/{gid}/members` | Remove members |
-| `removeSubgroupsFromGroup` | DELETE | `/groups/{gid}/subgroups` | Remove child groups |
 | `undenyUsers` | PUT | `/users/undeny` | Undeny users |
 
 ---
@@ -170,6 +187,18 @@ Add members
 Add child groups
 
 **Path Parameters:** `gid`
+
+**Response:** 200 → `object`
+
+---
+
+### addTrustees
+
+**POST** `/app/{appId}/trustees`
+
+Add trustees to an app
+
+**Path Parameters:** `appId`
 
 **Response:** 200 → `object`
 
@@ -439,7 +468,7 @@ Delete record(s)
 
 Required fields:
 - `from` (string)
-- `where` (string)
+- `where` (object)
 
 **Response:** 200 → `object`
 
@@ -693,6 +722,30 @@ Get a report
 
 ---
 
+### getRoles
+
+**GET** `/apps/{appId}/roles`
+
+Get app roles
+
+**Path Parameters:** `appId`
+
+**Response:** 200 → `[]object`
+
+---
+
+### getSolutionPublic
+
+**GET** `/solutions/{solutionId}/resources`
+
+Get solution information
+
+**Path Parameters:** `solutionId`
+
+**Response:** 200 → `object`
+
+---
+
 ### getTable
 
 **GET** `/tables/{tableId}`
@@ -731,6 +784,18 @@ Get a temporary token for a dbid
 
 ---
 
+### getTrustees
+
+**GET** `/app/{appId}/trustees`
+
+Get trustees for an app
+
+**Path Parameters:** `appId`
+
+**Response:** 200 → `[]object`
+
+---
+
 ### getUsers
 
 **POST** `/users`
@@ -758,7 +823,7 @@ Get event summaries
 
 **Query Parameters:** `accountId`
 
-**Request Body:** (optional)
+**Request Body:** (required)
 
 Required fields:
 - `start` (string)
@@ -780,6 +845,26 @@ Optional fields:
 Get read summaries
 
 **Query Parameters:** `day`
+
+**Response:** 200 → `object`
+
+---
+
+### recordsModifiedSince
+
+**POST** `/records/modifiedSince`
+
+Get records modified since
+
+**Request Body:** (optional)
+
+Required fields:
+- `after` (string)
+- `from` (string)
+
+Optional fields:
+- `fieldList` ([]integer)
+- `includeDetails` (boolean)
 
 **Response:** 200 → `object`
 
@@ -821,6 +906,18 @@ Remove child groups
 
 ---
 
+### removeTrustees
+
+**DELETE** `/app/{appId}/trustees`
+
+Remove trustees from an app
+
+**Path Parameters:** `appId`
+
+**Response:** 200 → `object`
+
+---
+
 ### runFormula
 
 **POST** `/formula/run`
@@ -853,7 +950,7 @@ Required fields:
 
 Optional fields:
 - `options` (object)
-- `where` (string)
+- `where` (object)
 - `groupBy` ([]object)
 - `sortBy` (SortByUnion)
 - `select` ([]integer)
@@ -1004,6 +1101,18 @@ Optional fields:
 - `pluralRecordName` (string)
 - `singleRecordName` (string)
 - `description` (string)
+
+**Response:** 200 → `object`
+
+---
+
+### updateTrustees
+
+**PATCH** `/app/{appId}/trustees`
+
+Update trustees of an app
+
+**Path Parameters:** `appId`
 
 **Response:** 200 → `object`
 
