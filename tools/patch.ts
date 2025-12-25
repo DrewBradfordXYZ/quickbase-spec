@@ -591,6 +591,126 @@ async function loadOverrides(): Promise<{
 }
 
 /**
+ * Extract inline anonymous schemas and create named component schemas.
+ * This allows oapi-codegen to generate proper named types instead of inline structs.
+ *
+ * For example, transforms:
+ *   permissions: { type: array, items: { type: object, properties: {...} } }
+ * Into:
+ *   permissions: { type: array, items: { $ref: '#/components/schemas/FieldPermission' } }
+ * And adds FieldPermission to components/schemas.
+ */
+function extractInlineSchemas(spec: OpenAPISpec): void {
+  if (!spec.components.schemas) {
+    spec.components.schemas = {};
+  }
+
+  const extractedSchemas: Record<string, Schema> = {};
+
+  // Helper to generate a schema name from context
+  function generateSchemaName(parentName: string, fieldName: string): string {
+    // Convert camelCase to PascalCase
+    const pascalField = fieldName.charAt(0).toUpperCase() + fieldName.slice(1);
+    const pascalParent = parentName.charAt(0).toUpperCase() + parentName.slice(1);
+    return `${pascalParent}${pascalField}`;
+  }
+
+  // Helper to check if a schema is an inline object that should be extracted
+  function isInlineObject(schema: Schema): boolean {
+    return schema.type === 'object' &&
+           schema.properties !== undefined &&
+           !schema.$ref;
+  }
+
+  // Helper to extract inline schemas from array items
+  function processArrayItems(schema: Schema, parentName: string, fieldName: string): void {
+    if (schema.type === 'array' && schema.items && isInlineObject(schema.items)) {
+      const itemSchemaName = generateSchemaName(parentName, fieldName + 'Item');
+      // Only extract if we haven't already
+      if (!extractedSchemas[itemSchemaName] && !spec.components.schemas![itemSchemaName]) {
+        extractedSchemas[itemSchemaName] = { ...schema.items };
+        schema.items = { $ref: `#/components/schemas/${itemSchemaName}` };
+        log('info', `Extracted inline schema: ${itemSchemaName}`);
+      }
+    }
+  }
+
+  // Process properties recursively
+  function processProperties(properties: Record<string, Schema> | undefined, parentName: string): void {
+    if (!properties) return;
+
+    for (const [fieldName, fieldSchema] of Object.entries(properties)) {
+      // Handle array with inline object items
+      if (fieldSchema.type === 'array' && fieldSchema.items) {
+        processArrayItems(fieldSchema, parentName, fieldName);
+      }
+
+      // Handle direct inline object (not in array)
+      if (isInlineObject(fieldSchema)) {
+        const schemaName = generateSchemaName(parentName, fieldName);
+        if (!extractedSchemas[schemaName] && !spec.components.schemas![schemaName]) {
+          extractedSchemas[schemaName] = { ...fieldSchema };
+          // Replace inline with $ref
+          for (const key of Object.keys(fieldSchema)) {
+            delete (fieldSchema as Record<string, unknown>)[key];
+          }
+          fieldSchema.$ref = `#/components/schemas/${schemaName}`;
+          log('info', `Extracted inline schema: ${schemaName}`);
+        }
+      }
+
+      // Recurse into nested properties
+      if (fieldSchema.properties) {
+        processProperties(fieldSchema.properties, generateSchemaName(parentName, fieldName));
+      }
+    }
+  }
+
+  // Process response schemas in all paths
+  for (const [path, pathItem] of Object.entries(spec.paths)) {
+    for (const method of ['get', 'post', 'put', 'delete', 'patch'] as const) {
+      const operation = pathItem[method];
+      if (!operation) continue;
+
+      const opName = operation.operationId || '';
+
+      // Process 200 response schema
+      const response = operation.responses?.['200'];
+      if (response?.content?.['application/json']?.schema) {
+        const schema = response.content['application/json'].schema;
+
+        // Handle array response with inline items
+        if (schema.type === 'array' && schema.items && isInlineObject(schema.items)) {
+          // For array responses, extract the item type
+          const itemSchemaName = `${opName.charAt(0).toUpperCase() + opName.slice(1)}Item`;
+          if (!extractedSchemas[itemSchemaName] && !spec.components.schemas![itemSchemaName]) {
+            extractedSchemas[itemSchemaName] = { ...schema.items };
+
+            // Process nested properties of the item
+            processProperties(schema.items.properties, itemSchemaName);
+
+            schema.items = { $ref: `#/components/schemas/${itemSchemaName}` };
+            log('info', `Extracted response item schema: ${itemSchemaName}`);
+          }
+        }
+
+        // Handle object response with inline properties
+        if (schema.properties) {
+          processProperties(schema.properties, opName.charAt(0).toUpperCase() + opName.slice(1));
+        }
+      }
+    }
+  }
+
+  // Add all extracted schemas to components
+  for (const [name, schema] of Object.entries(extractedSchemas)) {
+    spec.components.schemas![name] = schema;
+  }
+
+  log('info', `Extracted ${Object.keys(extractedSchemas).length} inline schemas to named components`);
+}
+
+/**
  * Merge overrides into spec
  */
 function mergeOverrides(
@@ -666,6 +786,10 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Apply endpoint-specific patches
     applyEndpointPatches(spec);
+
+    // Extract inline anonymous schemas to named component schemas
+    // This must run BEFORE mergeOverrides so overrides can reference extracted schemas
+    extractInlineSchemas(spec);
 
     // Merge overrides
     mergeOverrides(spec, overrides);
