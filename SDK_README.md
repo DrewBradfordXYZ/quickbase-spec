@@ -42,17 +42,6 @@ The `operations.json` file contains a compact summary of all 59 API operations:
 | `optionalFields` | string[] | Optional request body fields |
 | `responseType` | string | Response schema type (e.g., `object`, `[]object`) |
 | `responseIsArray` | boolean | Whether response is an array |
-| `responseFields` | FieldInfo[] | Fields in the response |
-
-### FieldInfo Structure
-
-```json
-{
-  "name": "id",
-  "type": "string",
-  "required": true
-}
-```
 
 ## SDK Generation Patterns
 

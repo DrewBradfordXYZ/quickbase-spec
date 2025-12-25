@@ -89,15 +89,7 @@ interface OperationSummary {
   requestBodyFields: FieldInfo[];
   responseType: string;
   responseIsArray: boolean;
-  responseFields: FieldInfo[];
   successCode: string;
-}
-
-// Compact field info for JSON output
-interface CompactFieldInfo {
-  name: string;
-  type: string;
-  required: boolean;
 }
 
 // Compact version for JSON output (no descriptions to save space)
@@ -115,7 +107,6 @@ interface CompactOperationSummary {
   optionalFields: string[];
   responseType: string;
   responseIsArray: boolean;
-  responseFields: CompactFieldInfo[];
 }
 
 interface FieldInfo {
@@ -153,11 +144,6 @@ function toCompact(op: OperationSummary): CompactOperationSummary {
     optionalFields: op.requestBodyFields.filter((f) => !f.required).map((f) => f.name),
     responseType: op.responseType,
     responseIsArray: op.responseIsArray,
-    responseFields: op.responseFields.map((f) => ({
-      name: f.name,
-      type: f.type,
-      required: f.required,
-    })),
   };
 }
 
@@ -230,10 +216,8 @@ function extractOperations(spec: OpenAPISpec): OperationSummary[] {
       const successCode = successCodes.find((code) => op.responses?.[code]) || '200';
       const responseSchema = op.responses?.[successCode]?.content?.['application/json']?.schema;
 
-      // Determine if response is an array and extract response fields
+      // Determine if response is an array
       const responseIsArray = responseSchema?.type === 'array';
-      const responseFieldsSchema = responseIsArray ? responseSchema?.items : responseSchema;
-      const responseFields = extractFields(responseFieldsSchema, spec);
 
       operations.push({
         operationId: op.operationId,
@@ -249,7 +233,6 @@ function extractOperations(spec: OpenAPISpec): OperationSummary[] {
         requestBodyFields,
         responseType: getSchemaName(responseSchema),
         responseIsArray,
-        responseFields,
         successCode,
       });
     }
