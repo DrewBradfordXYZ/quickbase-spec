@@ -489,6 +489,30 @@ function patchSchemas(spec: OpenAPISpec): void {
 }
 
 /**
+ * Add summaryQuery to a field response's properties.
+ *
+ * The spec documents summaryQuery only as an updateField input, but getFields
+ * and getField return it on every summary field that has a filter (its
+ * matching criteria, in query language, e.g. {'7'.EX.'Open'}). It is omitted
+ * when the summary has no filter.
+ */
+function addSummaryQueryToFieldResponse(op: Operation): void {
+  let schema = op.responses?.['200']?.content?.['application/json']?.schema;
+  if (schema?.type === 'array') {
+    schema = schema.items;
+  }
+  const props = schema?.properties?.properties?.properties;
+  if (props && !props.summaryQuery) {
+    props.summaryQuery = {
+      type: 'string',
+      description:
+        "The summary field's filter (matching criteria) in Quickbase query language, when it has one.",
+    };
+    log('info', `Added summaryQuery to ${op.operationId} response properties`);
+  }
+}
+
+/**
  * Apply endpoint-specific patches
  */
 function applyEndpointPatches(spec: OpenAPISpec): void {
@@ -503,7 +527,10 @@ function applyEndpointPatches(spec: OpenAPISpec): void {
           log('info', 'Patching getFields response to array');
         }
       }
+      addSummaryQueryToFieldResponse(op);
     },
+
+    getField: addSummaryQueryToFieldResponse,
 
     // getAppTables returns an array
     getAppTables: (op) => {

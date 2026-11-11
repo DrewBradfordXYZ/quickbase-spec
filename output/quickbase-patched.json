@@ -10421,6 +10421,10 @@
           "lookupReferenceFieldId": {
             "description": "The id of the field that is the reference in the relationship for this lookup.",
             "type": "integer"
+          },
+          "summaryQuery": {
+            "type": "string",
+            "description": "The summary field's filter (matching criteria) in Quickbase query language, when it has one."
           }
         }
       },
@@ -11129,6 +11133,10 @@
           "lookupReferenceFieldId": {
             "description": "The id of the field that is the reference in the relationship for this lookup.",
             "type": "integer"
+          },
+          "summaryQuery": {
+            "type": "string",
+            "description": "The summary field's filter (matching criteria) in Quickbase query language, when it has one."
           }
         }
       },

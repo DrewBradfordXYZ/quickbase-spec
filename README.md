@@ -388,6 +388,24 @@ The QuickBase API has some inconsistencies between the spec and actual responses
 - Go: `ReportInfo.OwnerID` is `interface{}` - use type assertion
 - TypeScript: `ownerId` is `string | number` - check type before use
 
+### summaryQuery (Fields)
+
+**Issue**: The spec lists `summaryQuery` only as an `updateField` input, but `GET /fields` and `GET /fields/{fieldId}` return it in `properties` on every summary field that has a filter (its matching criteria). Summaries without a filter omit it.
+
+```json
+{
+  "id": 2230,
+  "mode": "summary",
+  "properties": {
+    "summaryFunction": "Count",
+    "summaryReferenceFieldId": 8,
+    "summaryQuery": "{'893'.EX.'1'}AND{'522'.EX.'1'}"
+  }
+}
+```
+
+**Fix**: `summaryQuery` (string, optional) is added to both responses' field properties.
+
 ### Other Patches
 
 See `tools/patch.ts` for the complete list of patches applied:
