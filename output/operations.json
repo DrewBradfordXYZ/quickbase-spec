@@ -275,7 +275,9 @@
         "Solutions"
       ],
       "pathParams": [],
-      "queryParams": [],
+      "queryParams": [
+        "alias"
+      ],
       "hasRequestBody": true,
       "requestBodyRequired": true,
       "requiredFields": [],
@@ -295,7 +297,8 @@
       "queryParams": [
         "tableId",
         "fieldId",
-        "recordId"
+        "recordId",
+        "alias"
       ],
       "hasRequestBody": false,
       "requestBodyRequired": false,
@@ -677,7 +680,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetAppEventsItem",
       "responseIsArray": true
     },
     {
@@ -696,7 +699,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetAppTablesItem",
       "responseIsArray": true
     },
     {
@@ -738,7 +741,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetFieldsItem",
       "responseIsArray": true
     },
     {
@@ -759,7 +762,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetFieldsUsageItem",
       "responseIsArray": true
     },
     {
@@ -780,7 +783,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetFieldUsageItem",
       "responseIsArray": true
     },
     {
@@ -841,7 +844,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetRolesItem",
       "responseIsArray": true
     },
     {
@@ -900,7 +903,7 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetTableReportsItem",
       "responseIsArray": true
     },
     {
@@ -938,8 +941,29 @@
       "requestBodyRequired": false,
       "requiredFields": [],
       "optionalFields": [],
-      "responseType": "[]object",
+      "responseType": "[]GetTrusteesItem",
       "responseIsArray": true
+    },
+    {
+      "operationId": "getUserApps",
+      "method": "GET",
+      "path": "/users/{userId}/apps",
+      "summary": "Get apps for a user",
+      "tags": [
+        "Users"
+      ],
+      "pathParams": [
+        "userId"
+      ],
+      "queryParams": [
+        "accountId"
+      ],
+      "hasRequestBody": false,
+      "requestBodyRequired": false,
+      "requiredFields": [],
+      "optionalFields": [],
+      "responseType": "object",
+      "responseIsArray": false
     },
     {
       "operationId": "getUsers",
@@ -1516,7 +1540,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetAppEventsItem",
         "responseIsArray": true
       },
       {
@@ -1535,7 +1559,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetRolesItem",
         "responseIsArray": true
       },
       {
@@ -1755,7 +1779,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetFieldsItem",
         "responseIsArray": true
       },
       {
@@ -1776,7 +1800,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetFieldsUsageItem",
         "responseIsArray": true
       },
       {
@@ -1797,7 +1821,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetFieldUsageItem",
         "responseIsArray": true
       },
       {
@@ -2199,7 +2223,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetTableReportsItem",
         "responseIsArray": true
       },
       {
@@ -2278,7 +2302,9 @@
           "Solutions"
         ],
         "pathParams": [],
-        "queryParams": [],
+        "queryParams": [
+          "alias"
+        ],
         "hasRequestBody": true,
         "requestBodyRequired": true,
         "requiredFields": [],
@@ -2298,7 +2324,8 @@
         "queryParams": [
           "tableId",
           "fieldId",
-          "recordId"
+          "recordId",
+          "alias"
         ],
         "hasRequestBody": false,
         "requestBodyRequired": false,
@@ -2518,7 +2545,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetAppTablesItem",
         "responseIsArray": true
       },
       {
@@ -2649,7 +2676,7 @@
         "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
-        "responseType": "[]object",
+        "responseType": "[]GetTrusteesItem",
         "responseIsArray": true
       },
       {
@@ -2804,6 +2831,27 @@
         ],
         "hasRequestBody": true,
         "requestBodyRequired": true,
+        "requiredFields": [],
+        "optionalFields": [],
+        "responseType": "object",
+        "responseIsArray": false
+      },
+      {
+        "operationId": "getUserApps",
+        "method": "GET",
+        "path": "/users/{userId}/apps",
+        "summary": "Get apps for a user",
+        "tags": [
+          "Users"
+        ],
+        "pathParams": [
+          "userId"
+        ],
+        "queryParams": [
+          "accountId"
+        ],
+        "hasRequestBody": false,
+        "requestBodyRequired": false,
         "requiredFields": [],
         "optionalFields": [],
         "responseType": "object",

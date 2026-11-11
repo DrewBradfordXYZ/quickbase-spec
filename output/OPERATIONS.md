@@ -1,6 +1,6 @@
 # QuickBase API Operations
 
-Auto-generated summary of 66 API operations.
+Auto-generated summary of 67 API operations.
 
 **Spec Version:** 1.0.0
 
@@ -143,12 +143,13 @@ Auto-generated summary of 66 API operations.
 | `deleteUserToken` | DELETE | `/usertoken` | Delete a user token |
 | `transferUserToken` | POST | `/usertoken/transfer` | Transfer a user token |
 
-### Users (4)
+### Users (5)
 
 | Operation | Method | Path | Summary |
 |-----------|--------|------|---------|
 | `denyUsers` | PUT | `/users/deny` | Deny users |
 | `denyUsersAndGroups` | PUT | `/users/deny/{shouldDeleteFromGroups}` | Deny and remove users from groups |
+| `getUserApps` | GET | `/users/{userId}/apps` | Get apps for a user |
 | `getUsers` | POST | `/users` | Get users |
 | `undenyUsers` | PUT | `/users/undeny` | Undeny users |
 
@@ -364,6 +365,8 @@ Optional fields:
 
 Create a solution
 
+**Query Parameters:** `alias`
+
 **Response:** 200 → `object`
 
 ---
@@ -374,7 +377,7 @@ Create a solution
 
 Create solution from record
 
-**Query Parameters:** `tableId`, `fieldId`, `recordId`
+**Query Parameters:** `tableId`, `fieldId`, `recordId`, `alias`
 
 **Response:** 200 → `object`
 
@@ -626,7 +629,7 @@ Get app events
 
 **Path Parameters:** `appId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetAppEventsItem`
 
 ---
 
@@ -638,7 +641,7 @@ Get tables for an app
 
 **Query Parameters:** `appId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetAppTablesItem`
 
 ---
 
@@ -664,7 +667,7 @@ Get fields for a table
 
 **Query Parameters:** `tableId`, `includeFieldPerms`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetFieldsItem`
 
 ---
 
@@ -676,7 +679,7 @@ Get usage for all fields
 
 **Query Parameters:** `tableId`, `skip`, `top`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetFieldsUsageItem`
 
 ---
 
@@ -690,7 +693,7 @@ Get usage for a field
 
 **Query Parameters:** `tableId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetFieldUsageItem`
 
 ---
 
@@ -730,7 +733,7 @@ Get app roles
 
 **Path Parameters:** `appId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetRolesItem`
 
 ---
 
@@ -768,7 +771,7 @@ Get reports for a table
 
 **Query Parameters:** `tableId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetTableReportsItem`
 
 ---
 
@@ -792,7 +795,21 @@ Get trustees for an app
 
 **Path Parameters:** `appId`
 
-**Response:** 200 → `[]object`
+**Response:** 200 → `[]GetTrusteesItem`
+
+---
+
+### getUserApps
+
+**GET** `/users/{userId}/apps`
+
+Get apps for a user
+
+**Path Parameters:** `userId`
+
+**Query Parameters:** `accountId`
+
+**Response:** 200 → `object`
 
 ---
 
