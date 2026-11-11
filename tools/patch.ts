@@ -493,30 +493,11 @@ function patchSchemas(spec: OpenAPISpec): void {
  */
 function applyEndpointPatches(spec: OpenAPISpec): void {
   const patches: Record<string, (op: Operation) => void> = {
-    // getFields returns an array, not wrapped in an object
-    getFields: (op) => {
-      // This should be an array of Field objects
-      if (op.responses?.['200']?.content?.['application/json']?.schema) {
-        const schema = op.responses['200'].content['application/json'].schema;
-        // If it's not already an array, wrap it
-        if (schema.type !== 'array' && !schema.$ref?.includes('Array')) {
-          log('info', 'Patching getFields response to array');
-        }
-      }
-    },
-
-    // getAppTables returns an array
-    getAppTables: (op) => {
-      // Similar fix
-    },
-
-    // runQuery data field should be an array of record objects, not strings
-    runQuery: (op) => {
-      // The data field in the response is often incorrectly typed
-    },
-
     // platformAnalyticEventSummaries has 'totals' incorrectly required in results items
-    // The example shows totals at root level, not inside each result item
+    // The example shows totals at root level, not inside each result item.
+    // Matches nothing today: the spec (ours and QuickBase's) wraps the response
+    // in "data", while the fixtures and this patch expect results at the top.
+    // Settle the real shape with a realm-admin call before retargeting it.
     platformAnalyticEventSummaries: (op) => {
       const schema = op.responses?.['200']?.content?.['application/json']?.schema;
       if (schema?.properties?.results?.items?.required) {
