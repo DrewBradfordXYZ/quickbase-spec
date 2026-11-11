@@ -12,6 +12,7 @@
  *   split     - Split spec by tag for easier editing
  *   build     - Run full pipeline: convert -> patch -> validate
  *   audit-live - Compare a realm's real responses with the spec (read-only)
+ *   fetch-upstream - Get QuickBase's current spec from its API portal and diff it
  */
 
 import { log } from './common.js';
@@ -73,6 +74,12 @@ async function main(): Promise<void> {
       case 'audit-live': {
         const { auditLive } = await import('./audit-live.js');
         await auditLive(args[1]);
+        break;
+      }
+
+      case 'fetch-upstream': {
+        const { fetchUpstream } = await import('./fetch-upstream.js');
+        process.exitCode = await fetchUpstream(args.slice(1));
         break;
       }
 
@@ -138,6 +145,10 @@ Commands:
                     Needs QB_REALM, QB_USER_TOKEN, QB_APP_ID (QB_APP_TOKEN optional).
                     QB_MAX_CALLS caps the calls (default 150), QB_MAX_TABLES
                     the tables sampled (default 15).
+  fetch-upstream [--write]
+                    Get QuickBase's current spec from developer.quickbase.com and
+                    list operations added, removed, renamed or changed. Exits 2
+                    when it changed. --write saves it to source/.
                     Writes the JSON report to [out] if given.
 
 Examples:
