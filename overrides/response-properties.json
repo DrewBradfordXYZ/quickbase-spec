@@ -1,5 +1,5 @@
 {
-  "_comment": "Properties the API returns that the official spec omits, found with audit-live. Keyed by operationId, then by the path of the object to add them to: '' is the response (each item, for an array response), 'a.b' descends through properties, 'a[]' into array items. Existing properties are never replaced. Report 'properties' is left a free-form map: its keys depend on the report type, and typing it would change the SDKs' map to a struct.",
+  "_comment": "Properties the API returns that the official spec omits, found with audit-live. Keyed by operationId, then by the path of the object to add them to: '' is the response (each item, for an array response), 'a.b' descends through properties, 'a[]' into array items. Existing properties are never replaced. Report 'properties' holds the union of every report type's settings, all optional; keys a type adds that aren't listed stay in AdditionalProperties.",
   "getFields": {
     "properties": {
       "primaryKey": {
@@ -145,6 +145,146 @@
         },
         "description": "Fields the report groups by."
       }
+    },
+    "properties": {
+      "displayOnlyNewOrChangedRecords": {
+        "type": "boolean"
+      },
+      "showRowNumbers": {
+        "type": "boolean"
+      },
+      "columnProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "labelOverride": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "justification": {
+              "type": "number"
+            }
+          }
+        },
+        "description": "Table reports: per-column settings."
+      },
+      "chartType": {
+        "type": "string",
+        "description": "Chart reports: the chart type."
+      },
+      "categories": {
+        "type": "object",
+        "properties": {
+          "fieldId": {
+            "type": "integer"
+          },
+          "grouping": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "order": {
+            "type": "string"
+          }
+        },
+        "description": "Chart reports: the category axis."
+      },
+      "dataSources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "fieldId": {
+              "type": "integer"
+            },
+            "aggregation": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Chart reports: the plotted values."
+      },
+      "dataLabel": {
+        "type": "string"
+      },
+      "dataSourceLabel": {
+        "type": "string"
+      },
+      "goal": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "sortBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": {
+              "type": "string"
+            },
+            "order": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Chart reports: how categories are ordered."
+      },
+      "summarize": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "fieldId": {
+              "type": "integer"
+            },
+            "aggregation": {
+              "type": "string"
+            },
+            "showAs": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": "Summary reports: the summarized columns."
+      },
+      "summaryFormulas": {
+        "type": "array",
+        "items": {},
+        "description": "Summary reports: summary formula columns."
+      },
+      "summaryVariables": {
+        "type": "array",
+        "items": {},
+        "description": "Summary reports: summary variables."
+      },
+      "addressFieldId": {
+        "type": "integer",
+        "description": "Map reports: the address field."
+      },
+      "mapViewType": {
+        "type": "string",
+        "description": "Map reports: the map view."
+      }
     }
   },
   "getTableReports": {
@@ -191,6 +331,146 @@
           }
         },
         "description": "Fields the report groups by."
+      }
+    },
+    "properties": {
+      "displayOnlyNewOrChangedRecords": {
+        "type": "boolean"
+      },
+      "showRowNumbers": {
+        "type": "boolean"
+      },
+      "columnProperties": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "labelOverride": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "justification": {
+              "type": "number"
+            }
+          }
+        },
+        "description": "Table reports: per-column settings."
+      },
+      "chartType": {
+        "type": "string",
+        "description": "Chart reports: the chart type."
+      },
+      "categories": {
+        "type": "object",
+        "properties": {
+          "fieldId": {
+            "type": "integer"
+          },
+          "grouping": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "order": {
+            "type": "string"
+          }
+        },
+        "description": "Chart reports: the category axis."
+      },
+      "dataSources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "fieldId": {
+              "type": "integer"
+            },
+            "aggregation": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Chart reports: the plotted values."
+      },
+      "dataLabel": {
+        "type": "string"
+      },
+      "dataSourceLabel": {
+        "type": "string"
+      },
+      "goal": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number"
+          }
+        }
+      },
+      "sortBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": {
+              "type": "string"
+            },
+            "order": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Chart reports: how categories are ordered."
+      },
+      "summarize": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "fieldId": {
+              "type": "integer"
+            },
+            "aggregation": {
+              "type": "string"
+            },
+            "showAs": {
+              "type": "integer"
+            }
+          }
+        },
+        "description": "Summary reports: the summarized columns."
+      },
+      "summaryFormulas": {
+        "type": "array",
+        "items": {},
+        "description": "Summary reports: summary formula columns."
+      },
+      "summaryVariables": {
+        "type": "array",
+        "items": {},
+        "description": "Summary reports: summary variables."
+      },
+      "addressFieldId": {
+        "type": "integer",
+        "description": "Map reports: the address field."
+      },
+      "mapViewType": {
+        "type": "string",
+        "description": "Map reports: the map view."
       }
     }
   }

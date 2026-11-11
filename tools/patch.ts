@@ -540,6 +540,20 @@ function applyEndpointPatches(spec: OpenAPISpec): void {
   }
 }
 
+/**
+ * Mark every object in an added schema as open to unlisted keys, so the
+ * generated types keep them (Go: AdditionalProperties) instead of dropping
+ * whatever audit-live hasn't seen yet.
+ */
+function keepUnknownKeys(schema: Schema): Schema {
+  if (schema.type === 'object' && schema.additionalProperties === undefined) {
+    schema.additionalProperties = true;
+  }
+  for (const p of Object.values(schema.properties ?? {})) keepUnknownKeys(p);
+  if (schema.items) keepUnknownKeys(schema.items);
+  return schema;
+}
+
 /** operationId -> object path -> properties to add (overrides/response-properties.json) */
 type ResponseProperties = Record<string, Record<string, Record<string, Schema>>>;
 
@@ -589,7 +603,7 @@ function applyResponseProperties(spec: OpenAPISpec, additions: ResponsePropertie
       target.properties ??= {};
       for (const [name, schema] of Object.entries(props)) {
         if (target.properties[name]) continue;
-        target.properties[name] = schema;
+        target.properties[name] = keepUnknownKeys(schema);
         log('info', `Added ${operationId} ${path ? path + '.' : ''}${name}`);
       }
     }

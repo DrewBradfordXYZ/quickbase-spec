@@ -2289,9 +2289,7 @@
                       "$ref": "#/components/schemas/GetReportQuery"
                     },
                     "properties": {
-                      "description": "A list of properties specific to the report type. To see a detailed description of the properties for each report type, See [Report Types.](../reportTypes)",
-                      "type": "object",
-                      "additionalProperties": true
+                      "$ref": "#/components/schemas/GetReportProperties"
                     },
                     "usedLast": {
                       "description": "The instant at which a report was last used.",
@@ -9780,9 +9778,7 @@
             "$ref": "#/components/schemas/GetTableReportsItemQuery"
           },
           "properties": {
-            "description": "A list of properties specific to the report type. To see a detailed description of the properties for each report type, See [Report Types.](../reportTypes)",
-            "type": "object",
-            "additionalProperties": true
+            "$ref": "#/components/schemas/GetTableReportsItemProperties"
           },
           "usedLast": {
             "description": "The instant at which a report was last used.",
@@ -9877,7 +9873,8 @@
                 "order": {
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": true
             },
             "description": "Fields the report sorts by."
           },
@@ -9892,9 +9889,161 @@
                 "grouping": {
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": true
             },
             "description": "Fields the report groups by."
+          }
+        }
+      },
+      "GetTableReportsItemProperties": {
+        "description": "A list of properties specific to the report type. To see a detailed description of the properties for each report type, See [Report Types.](../reportTypes)",
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "displayOnlyNewOrChangedRecords": {
+            "type": "boolean"
+          },
+          "showRowNumbers": {
+            "type": "boolean"
+          },
+          "columnProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fieldId": {
+                  "type": "integer"
+                },
+                "labelOverride": {
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "justification": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Table reports: per-column settings."
+          },
+          "chartType": {
+            "type": "string",
+            "description": "Chart reports: the chart type."
+          },
+          "categories": {
+            "type": "object",
+            "properties": {
+              "fieldId": {
+                "type": "integer"
+              },
+              "grouping": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "order": {
+                "type": "string"
+              }
+            },
+            "description": "Chart reports: the category axis.",
+            "additionalProperties": true
+          },
+          "dataSources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "fieldId": {
+                  "type": "integer"
+                },
+                "aggregation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Chart reports: the plotted values."
+          },
+          "dataLabel": {
+            "type": "string"
+          },
+          "dataSourceLabel": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": true
+          },
+          "sortBy": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "by": {
+                  "type": "string"
+                },
+                "order": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Chart reports: how categories are ordered."
+          },
+          "summarize": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "fieldId": {
+                  "type": "integer"
+                },
+                "aggregation": {
+                  "type": "string"
+                },
+                "showAs": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Summary reports: the summarized columns."
+          },
+          "summaryFormulas": {
+            "type": "array",
+            "items": {},
+            "description": "Summary reports: summary formula columns."
+          },
+          "summaryVariables": {
+            "type": "array",
+            "items": {},
+            "description": "Summary reports: summary variables."
+          },
+          "addressFieldId": {
+            "type": "integer",
+            "description": "Map reports: the address field."
+          },
+          "mapViewType": {
+            "type": "string",
+            "description": "Map reports: the map view."
           }
         }
       },
@@ -9977,7 +10126,8 @@
                 "order": {
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": true
             },
             "description": "Fields the report sorts by."
           },
@@ -9992,9 +10142,161 @@
                 "grouping": {
                   "type": "string"
                 }
-              }
+              },
+              "additionalProperties": true
             },
             "description": "Fields the report groups by."
+          }
+        }
+      },
+      "GetReportProperties": {
+        "description": "A list of properties specific to the report type. To see a detailed description of the properties for each report type, See [Report Types.](../reportTypes)",
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "displayOnlyNewOrChangedRecords": {
+            "type": "boolean"
+          },
+          "showRowNumbers": {
+            "type": "boolean"
+          },
+          "columnProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fieldId": {
+                  "type": "integer"
+                },
+                "labelOverride": {
+                  "type": "string"
+                },
+                "required": {
+                  "type": "boolean"
+                },
+                "justification": {
+                  "type": "number"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Table reports: per-column settings."
+          },
+          "chartType": {
+            "type": "string",
+            "description": "Chart reports: the chart type."
+          },
+          "categories": {
+            "type": "object",
+            "properties": {
+              "fieldId": {
+                "type": "integer"
+              },
+              "grouping": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              },
+              "order": {
+                "type": "string"
+              }
+            },
+            "description": "Chart reports: the category axis.",
+            "additionalProperties": true
+          },
+          "dataSources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "fieldId": {
+                  "type": "integer"
+                },
+                "aggregation": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Chart reports: the plotted values."
+          },
+          "dataLabel": {
+            "type": "string"
+          },
+          "dataSourceLabel": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": true
+          },
+          "sortBy": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "by": {
+                  "type": "string"
+                },
+                "order": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Chart reports: how categories are ordered."
+          },
+          "summarize": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string"
+                },
+                "fieldId": {
+                  "type": "integer"
+                },
+                "aggregation": {
+                  "type": "string"
+                },
+                "showAs": {
+                  "type": "integer"
+                }
+              },
+              "additionalProperties": true
+            },
+            "description": "Summary reports: the summarized columns."
+          },
+          "summaryFormulas": {
+            "type": "array",
+            "items": {},
+            "description": "Summary reports: summary formula columns."
+          },
+          "summaryVariables": {
+            "type": "array",
+            "items": {},
+            "description": "Summary reports: summary variables."
+          },
+          "addressFieldId": {
+            "type": "integer",
+            "description": "Map reports: the address field."
+          },
+          "mapViewType": {
+            "type": "string",
+            "description": "Map reports: the map view."
           }
         }
       },
@@ -11940,7 +12242,8 @@
                 "type": "integer"
               }
             },
-            "description": "Custom emails that use the field."
+            "description": "Custom emails that use the field.",
+            "additionalProperties": true
           },
           "documentTemplates": {
             "type": "object",
@@ -11949,7 +12252,8 @@
                 "type": "integer"
               }
             },
-            "description": "Document templates that use the field."
+            "description": "Document templates that use the field.",
+            "additionalProperties": true
           }
         }
       },
@@ -12259,7 +12563,8 @@
                 "type": "integer"
               }
             },
-            "description": "Custom emails that use the field."
+            "description": "Custom emails that use the field.",
+            "additionalProperties": true
           },
           "documentTemplates": {
             "type": "object",
@@ -12268,7 +12573,8 @@
                 "type": "integer"
               }
             },
-            "description": "Document templates that use the field."
+            "description": "Document templates that use the field.",
+            "additionalProperties": true
           }
         }
       },
