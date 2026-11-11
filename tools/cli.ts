@@ -11,6 +11,7 @@
  *   validate  - Validate spec structure and references
  *   split     - Split spec by tag for easier editing
  *   build     - Run full pipeline: convert -> patch -> validate
+ *   audit-live - Compare a realm's real responses with the spec (read-only)
  */
 
 import { log } from './common.js';
@@ -66,6 +67,12 @@ async function main(): Promise<void> {
         if (!result.valid) {
           process.exit(1);
         }
+        break;
+      }
+
+      case 'audit-live': {
+        const { auditLive } = await import('./audit-live.js');
+        await auditLive(args[1]);
         break;
       }
 
@@ -127,6 +134,9 @@ Commands:
   generate [input]  Generate fixtures from spec examples
   build [input]     Run full pipeline (convert -> patch -> validate)
   health            Validate fixtures against spec (alias: check)
+  audit-live [out]  Compare a realm's real responses with the spec; read-only.
+                    Needs QB_REALM, QB_USER_TOKEN, QB_APP_ID (QB_APP_TOKEN optional).
+                    Writes the JSON report to [out] if given.
 
 Examples:
   npx tsx tools/cli.ts build
