@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "description": "getRoles: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": [
+    {
+      "access": {
+        "id": 1,
+        "type": "x"
+      },
+      "id": 1,
+      "name": "x"
+    },
+    {
+      "access": {
+        "id": 1,
+        "type": "x"
+      },
+      "id": 1,
+      "name": "x"
+    },
+    {
+      "access": {
+        "id": 1,
+        "type": "x"
+      },
+      "id": 1,
+      "name": "x"
+    }
+  ]
+}

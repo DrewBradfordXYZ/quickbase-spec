@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "description": "getRelationships: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": {
+    "metadata": {
+      "numRelationships": 1,
+      "skip": 1,
+      "totalRelationships": 1
+    },
+    "relationships": []
+  }
+}

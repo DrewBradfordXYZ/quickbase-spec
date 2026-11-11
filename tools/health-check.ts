@@ -7,7 +7,6 @@
  * 2. Fixture request bodies match spec schemas
  * 3. Required fields are present
  * 4. Field types are correct
- * 5. All operations have fixture coverage
  */
 
 import { readFileSync, readdirSync, existsSync } from 'fs';
@@ -22,11 +21,7 @@ interface ValidationResult {
   valid: boolean;
   errors: string[];
   warnings: string[];
-  coverage: {
-    total: number;
-    covered: number;
-    missing: string[];
-  };
+  operations: number;
   validated: number;
 }
 
@@ -138,7 +133,8 @@ function parseFixturePath(fixturePath: string): {
 
   if (parts.length < 3) return null;
 
-  const isManual = parts[0] === '_manual';
+  // _manual/ (hand-written) and _live/ (captured by audit-live) prefix {tag}/{operation}/
+  const isManual = parts[0].startsWith('_');
   const tagIndex = isManual ? 1 : 0;
   const opIndex = isManual ? 2 : 1;
   const fileIndex = isManual ? 3 : 2;
@@ -375,26 +371,6 @@ function validateFixture(
   return true;
 }
 
-function checkCoverage(
-  operationMap: Map<string, { tag: string; operation: Operation }>,
-  coveredOperations: Set<string>
-): { total: number; covered: number; missing: string[] } {
-  const missing: string[] = [];
-
-  for (const [opId, { tag }] of operationMap) {
-    if (!coveredOperations.has(opId)) {
-      const expectedPath = `${tag.toLowerCase()}/${toKebabCase(opId)}`;
-      missing.push(`${opId} (expected at ${expectedPath}/response.200.json)`);
-    }
-  }
-
-  return {
-    total: operationMap.size,
-    covered: coveredOperations.size,
-    missing,
-  };
-}
-
 export async function healthCheck(): Promise<ValidationResult> {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -445,12 +421,7 @@ export async function healthCheck(): Promise<ValidationResult> {
     }
   }
 
-  // Check coverage
-  console.log('\n📊 Checking fixture coverage...');
-  const coverage = checkCoverage(operationMap, coveredOperations);
-  const coveragePercent = Math.round((coverage.covered / coverage.total) * 100);
-  console.log(`   Operations: ${coverage.covered}/${coverage.total} covered (${coveragePercent}%)`);
-  console.log(`   Fixtures validated: ${validated}`);
+  console.log(`\n   Fixtures validated: ${validated} (${coveredOperations.size} operations)`);
 
   // Print results
   console.log('\n' + '='.repeat(50));
@@ -471,13 +442,6 @@ export async function healthCheck(): Promise<ValidationResult> {
     }
   }
 
-  if (coverage.missing.length > 0 && coverage.missing.length <= 20) {
-    console.log(`\n📝 Missing fixtures (${coverage.missing.length}):`);
-    coverage.missing.forEach(m => console.log(`   • ${m}`));
-  } else if (coverage.missing.length > 20) {
-    console.log(`\n📝 Missing fixtures: ${coverage.missing.length} operations without fixtures`);
-  }
-
   const valid = errors.length === 0;
   console.log('\n' + '='.repeat(50));
   console.log(valid ? '\n✅ Health check passed!\n' : '\n❌ Health check failed!\n');
@@ -486,7 +450,7 @@ export async function healthCheck(): Promise<ValidationResult> {
     valid,
     errors,
     warnings,
-    coverage,
+    operations: coveredOperations.size,
     validated,
   };
 }

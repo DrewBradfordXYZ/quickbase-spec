@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "description": "getField: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": {
+    "appearsByDefault": true,
+    "audited": false,
+    "bold": false,
+    "doesDataCopy": true,
+    "fieldHelp": "x",
+    "fieldType": "x",
+    "findEnabled": true,
+    "id": 1,
+    "label": "x",
+    "mode": "x",
+    "noWrap": false,
+    "properties": {
+      "allowHTML": false,
+      "allowMentions": false,
+      "allowNewChoices": false,
+      "appendOnly": false,
+      "carryChoices": true,
+      "defaultValue": "x",
+      "foreignKey": false,
+      "formula": "x",
+      "maxLength": 1,
+      "numLines": 1,
+      "primaryKey": false,
+      "sortAsGiven": true
+    },
+    "required": false,
+    "unique": false
+  }
+}

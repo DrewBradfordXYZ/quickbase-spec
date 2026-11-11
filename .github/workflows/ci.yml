@@ -22,9 +22,7 @@ jobs:
       - name: Committed output matches a fresh build
         run: git diff --exit-code -- output
 
-      # Informational until the platform analytics fixtures are checked
-      # against a live realm-admin response: both QuickBase's spec and ours
-      # wrap those responses in "data", the fixtures don't.
+      # Fixtures include real responses (fixtures/_live, scrubbed), so this
+      # fails when the spec stops matching what QuickBase returns.
       - name: Health check (fixtures against the spec)
         run: npx tsx tools/cli.ts health
-        continue-on-error: true

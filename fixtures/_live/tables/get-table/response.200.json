@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "description": "getTable: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": {
+    "alias": "x",
+    "created": "x",
+    "defaultSortFieldId": 1,
+    "defaultSortOrder": "x",
+    "description": "x",
+    "id": "x",
+    "keyFieldId": 1,
+    "name": "x",
+    "nextFieldId": 1,
+    "nextRecordId": 1,
+    "pluralRecordName": "x",
+    "singleRecordName": "x",
+    "sizeLimit": "x",
+    "spaceRemaining": "x",
+    "spaceUsed": "x",
+    "updated": "x"
+  }
+}

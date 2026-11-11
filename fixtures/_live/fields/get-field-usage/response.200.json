@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "description": "getFieldUsage: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": [
+    {
+      "field": {
+        "id": 1,
+        "name": "x",
+        "type": "x"
+      },
+      "usage": {
+        "actions": {
+          "count": 1
+        },
+        "appHomePages": {
+          "count": 1
+        },
+        "customEmails": {
+          "count": 1
+        },
+        "defaultReports": {
+          "count": 1
+        },
+        "documentTemplates": {
+          "count": 1
+        },
+        "exactForms": {
+          "count": 1
+        },
+        "fields": {
+          "count": 1
+        },
+        "forms": {
+          "count": 1
+        },
+        "notifications": {
+          "count": 1
+        },
+        "personalReports": {
+          "count": 1
+        },
+        "relationships": {
+          "count": 1
+        },
+        "reminders": {
+          "count": 1
+        },
+        "reports": {
+          "count": 1
+        },
+        "roles": {
+          "count": 1
+        },
+        "tableImports": {
+          "count": 1
+        },
+        "tableRules": {
+          "count": 1
+        },
+        "webhooks": {
+          "count": 1
+        },
+        "dashboards": {
+          "count": 1
+        },
+        "pipelines": {
+          "count": 1
+        }
+      }
+    }
+  ]
+}

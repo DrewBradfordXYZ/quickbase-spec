@@ -21,6 +21,9 @@
  *   QB_MAX_CALLS    call budget, default 150; the walk stops there and
  *                   reports what it saw
  *   QB_MAX_TABLES   tables to read fields and reports from, default 15
+ *   QB_CAPTURE      set to 1 to also save each operation's first response,
+ *                   every value scrubbed, as fixtures/_live/{tag}/{operation}/
+ *                   response.200.json; the health check validates them
  *
  * The budget matters on client realms: walking every table and report of a
  * large app is thousands of calls. The walk spends it on breadth of shapes
@@ -30,6 +33,7 @@
  */
 
 import { readJson, writeJson, PATHS, log } from './common.js';
+import { mkdirSync } from 'fs';
 import { join } from 'path';
 
 interface Schema {
@@ -44,7 +48,7 @@ interface Schema {
 }
 
 interface OpenAPISpec {
-  paths: Record<string, Record<string, { operationId?: string; responses?: Record<string, { content?: Record<string, { schema: Schema }> }> }>>;
+  paths: Record<string, Record<string, { operationId?: string; tags?: string[]; responses?: Record<string, { content?: Record<string, { schema: Schema }> }> }>>;
   components?: { schemas?: Record<string, Schema> };
 }
 
@@ -112,6 +116,8 @@ function typeMatches(want: string | undefined, got: string): boolean {
 
 class Auditor {
   private findings = new Map<string, Finding>();
+  /** First response per operation, when capturing fixtures */
+  readonly captured = new Map<string, unknown>();
 
   constructor(private spec: OpenAPISpec) {}
 
@@ -135,6 +141,15 @@ class Auditor {
     return merged;
   }
 
+  tagOf(operationId: string): string {
+    for (const item of Object.values(this.spec.paths)) {
+      for (const op of Object.values(item)) {
+        if (op.operationId === operationId) return (op.tags?.[0] ?? 'misc').toLowerCase();
+      }
+    }
+    return 'misc';
+  }
+
   responseSchema(operationId: string): Schema | undefined {
     for (const item of Object.values(this.spec.paths)) {
       for (const op of Object.values(item)) {
@@ -156,6 +171,7 @@ class Auditor {
   }
 
   record(op: string, body: unknown): void {
+    if (!this.captured.has(op)) this.captured.set(op, body);
     const f = this.finding(op);
     f.responses++;
     this.walk(f, this.resolve(this.responseSchema(op)), body, '$');
@@ -340,6 +356,44 @@ async function walkApp(client: Client, auditor: Auditor, appId: string, maxTable
   }
 }
 
+/**
+ * Replace every value with a placeholder of the same JSON type, so a
+ * captured response keeps its shape and types and none of the realm's data.
+ * Arrays keep at most 3 items. Keys stay, except digit keys (field and
+ * record IDs), which are renumbered.
+ */
+function scrub(value: unknown): unknown {
+  if (Array.isArray(value)) return value.slice(0, 3).map(scrub);
+  if (value !== null && typeof value === 'object') {
+    const out: Record<string, unknown> = {};
+    let n = 0;
+    for (const [k, v] of Object.entries(value as Record<string, unknown>)) {
+      out[/^\d+$/.test(k) ? String(++n) : k] = scrub(v);
+    }
+    return out;
+  }
+  if (typeof value === 'string') return 'x';
+  if (typeof value === 'number') return Number.isInteger(value) ? 1 : 1.5;
+  return value; // booleans and null
+}
+
+const kebab = (s: string): string => s.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+
+function saveCaptured(auditor: Auditor): void {
+  for (const [op, body] of auditor.captured) {
+    const dir = join(PATHS.fixtures, '_live', auditor.tagOf(op), kebab(op));
+    mkdirSync(dir, { recursive: true });
+    writeJson(join(dir, 'response.200.json'), {
+      _meta: {
+        description: `${op}: a live response captured by audit-live, every value scrubbed`,
+        status: 200,
+      },
+      body: scrub(body),
+    });
+  }
+  log('info', `Captured ${auditor.captured.size} responses into fixtures/_live`);
+}
+
 function printReport(report: AuditReport, calls: number): void {
   const lines: string[] = [`Live audit: ${calls} calls`, ''];
   for (const [op, r] of Object.entries(report.operations)) {
@@ -375,6 +429,7 @@ export async function auditLive(outPath?: string): Promise<AuditReport> {
   const finish = (): AuditReport => {
     const report = auditor.report();
     printReport(report, client.calls);
+    if (process.env.QB_CAPTURE) saveCaptured(auditor);
     if (outPath) {
       writeJson(outPath, report);
       log('info', `Wrote ${outPath}`);

@@ -18,16 +18,12 @@ output/
 
 fixtures/
 ├── _meta.json                # Fixture format documentation
-├── _manual/                  # Hand-crafted fixtures (not regenerated)
+├── _live/                    # Real responses captured by audit-live, every value scrubbed
+├── _manual/                  # Hand-crafted fixtures
 │   ├── errors/               # Common error responses (400, 401, 403, etc.)
 │   └── records/run-query/    # Pagination sequences, edge cases
-├── apps/                     # App endpoint fixtures (generated)
-├── tables/                   # Table endpoint fixtures (generated)
-├── fields/                   # Field endpoint fixtures (generated)
-├── records/                  # Record endpoint fixtures (generated)
-├── reports/                  # Report endpoint fixtures (generated)
-├── users/                    # User endpoint fixtures (generated)
-└── auth/                     # Auth endpoint fixtures (generated)
+├── apps/get-app/             # Used by quickbase-js tests
+└── records/upsert/           # Used by quickbase-js tests
 ```
 
 ### Tooling (for maintaining the spec)
@@ -174,11 +170,13 @@ Fixtures are most valuable for dynamically-typed languages where JSON is native.
 
 **All languages** should use `output/quickbase-patched.json` for type/client generation.
 
-### Generated vs Manual
+### Live, Manual and Test Fixtures
 
-Fixtures in the root directories (`apps/`, `records/`, etc.) are **generated** from examples in the OpenAPI spec using `npm run generate`. These can be safely deleted and regenerated.
+Fixtures in `_live/` are **real responses** that `audit-live` captured (`QB_CAPTURE=1`) with every value replaced by a placeholder of the same type (`"x"`, `1`, booleans kept; arrays cut to 3 items), so they carry the API's actual shapes and none of a realm's data. The health check validates them against the spec, so CI fails when the spec stops matching what QuickBase returns. Refresh them by rerunning the audit with capture on.
 
-Fixtures in `_manual/` are **hand-crafted** for scenarios not covered by the spec:
+The fixtures under `apps/` and `records/` are the ones quickbase-js's tests load. (Fixtures used to be generated from the spec's own examples; checking those against the spec proved nothing, so they're gone.)
+
+Fixtures in `_manual/` are **hand-crafted** for scenarios a single response doesn't show:
 - `_manual/errors/` - Common error responses (400, 401, 403, 404, 429, 500, 502, 503)
 - `_manual/records/run-query/` - Pagination sequences (page1, page2, page3)
 - `_manual/records/upsert/` - Partial success scenarios
@@ -212,6 +210,7 @@ fixtures/{tag}/{operationId}/response.{status}.{variant}.json  # Multiple exampl
 fixtures/{tag}/{operationId}/request.json                # Request body fixtures
 fixtures/_manual/errors/response.{status}.json           # Common errors
 fixtures/_manual/{tag}/{operationId}/                    # Edge cases
+fixtures/_live/{tag}/{operationId}/response.200.json     # Captured by audit-live
 ```
 
 ### Testing with Fixtures
@@ -307,8 +306,7 @@ npm run build
 npx tsx tools/cli.ts normalize   # portal spec → output/quickbase-openapi3.json
 npm run patch      # Apply fixes from overrides/
 npm run validate   # Validate the spec
-npm run generate   # Generate fixtures from spec examples
-npm run health     # Validate fixtures against spec
+npm run health     # Validate fixtures (hand-written and live-captured) against the spec
 ```
 
 ## Known API Inconsistencies
@@ -395,12 +393,11 @@ These are applied during the `patch` step to fix issues in the original spec.
 
 ## Contributing
 
-1. If the original spec has an error, add a fix to `overrides/`
+1. If QuickBase's spec is wrong, check it against a live response with `audit-live`, then add a fix to `overrides/` (or `tools/patch.ts`)
 2. Run `npm run build` to regenerate the spec
-3. Run `npm run generate` to regenerate fixtures from spec examples
-4. Add edge case fixtures to `fixtures/_manual/` (these won't be overwritten)
-5. Run `npm run health` to validate all fixtures
-6. Submit a PR
+3. Refresh live fixtures with `QB_CAPTURE=1` on an `audit-live` run, or add edge cases to `fixtures/_manual/`
+4. Run `npm run health` to validate all fixtures
+5. Submit a PR
 
 ## Links
 

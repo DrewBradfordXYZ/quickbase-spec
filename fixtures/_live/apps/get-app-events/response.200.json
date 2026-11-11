@@ -1,0 +1,7 @@
+{
+  "_meta": {
+    "description": "getAppEvents: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": []
+}

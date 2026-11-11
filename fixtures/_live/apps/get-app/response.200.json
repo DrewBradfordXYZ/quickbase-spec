@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "description": "getApp: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": {
+    "created": "x",
+    "dateFormat": "x",
+    "description": "x",
+    "hasEveryoneOnTheInternet": false,
+    "id": "x",
+    "memoryInfo": {
+      "estMemory": 1,
+      "estMemoryInclDependentApps": 1
+    },
+    "name": "x",
+    "securityProperties": {
+      "allowClone": false,
+      "allowExport": true,
+      "enableAppTokens": true,
+      "hideFromPublic": false,
+      "mustBeRealmApproved": false,
+      "useIPFilter": false
+    },
+    "timeZone": "x",
+    "updated": "x",
+    "variables": [
+      {
+        "name": "x",
+        "value": "x"
+      }
+    ]
+  }
+}

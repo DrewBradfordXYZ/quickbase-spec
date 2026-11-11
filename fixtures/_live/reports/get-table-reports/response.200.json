@@ -1,0 +1,109 @@
+{
+  "_meta": {
+    "description": "getTableReports: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": [
+    {
+      "description": "x",
+      "id": "x",
+      "incomplete": false,
+      "name": "x",
+      "properties": {
+        "displayOnlyNewOrChangedRecords": false,
+        "showRowNumbers": true
+      },
+      "query": {
+        "fields": [],
+        "filter": "x",
+        "formulaFields": [],
+        "groupBy": [
+          {
+            "fieldId": 1,
+            "grouping": "x"
+          }
+        ],
+        "sortBy": [
+          {
+            "fieldId": 1,
+            "order": "x"
+          }
+        ],
+        "tableId": "x"
+      },
+      "type": "x",
+      "usedCount": 1,
+      "usedLast": "x"
+    },
+    {
+      "description": "x",
+      "id": "x",
+      "incomplete": false,
+      "name": "x",
+      "properties": {
+        "categories": {
+          "fieldId": 1,
+          "grouping": "x",
+          "label": "x"
+        },
+        "chartType": "x",
+        "dataLabel": "x",
+        "dataSources": [
+          {
+            "type": "x"
+          }
+        ],
+        "goal": {
+          "label": "x",
+          "value": 1
+        },
+        "sortBy": [
+          {
+            "by": "x",
+            "order": "x"
+          }
+        ]
+      },
+      "query": {
+        "filter": "x",
+        "formulaFields": [],
+        "tableId": "x"
+      },
+      "type": "x",
+      "usedCount": 1,
+      "usedLast": "x"
+    },
+    {
+      "description": "x",
+      "id": "x",
+      "incomplete": false,
+      "name": "x",
+      "properties": {
+        "categories": {
+          "fieldId": 1,
+          "grouping": "x"
+        },
+        "chartType": "x",
+        "dataSources": [
+          {
+            "type": "x"
+          }
+        ],
+        "sortBy": [
+          {
+            "by": "x",
+            "order": "x"
+          }
+        ]
+      },
+      "query": {
+        "filter": "x",
+        "formulaFields": [],
+        "tableId": "x"
+      },
+      "type": "x",
+      "usedCount": 1,
+      "usedLast": "x"
+    }
+  ]
+}

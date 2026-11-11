@@ -1,0 +1,13 @@
+{
+  "_meta": {
+    "description": "getTrustees: a live response captured by audit-live, every value scrubbed",
+    "status": 200
+  },
+  "body": [
+    {
+      "id": "x",
+      "roleId": 1,
+      "type": "x"
+    }
+  ]
+}

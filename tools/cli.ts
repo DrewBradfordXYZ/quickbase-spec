@@ -48,11 +48,6 @@ async function main(): Promise<void> {
         break;
       }
 
-      case 'generate': {
-        const { generate } = await import('./generate.js');
-        await generate(args[1]);
-        break;
-      }
 
       case 'health':
       case 'check': {
@@ -130,9 +125,8 @@ Commands:
   normalize [input] Normalize QuickBase's portal spec (default source/quickbase-portal-openapi3.json)
   patch [input]     Apply fixes and overrides to spec
   validate [input]  Validate spec structure and references
-  generate [input]  Generate fixtures from spec examples
   build [input]     Run full pipeline (normalize -> patch -> validate)
-  health            Validate fixtures against spec (alias: check)
+  health            Validate fixtures (hand-written and captured live) against the spec (alias: check)
   audit-live [out]  Compare a realm's real responses with the spec; read-only.
                     Needs QB_REALM, QB_USER_TOKEN, QB_APP_ID (QB_APP_TOKEN optional).
                     QB_MAX_CALLS caps the calls (default 150), QB_MAX_TABLES
@@ -145,7 +139,6 @@ Commands:
 
 Examples:
   npx tsx tools/cli.ts build
-  npx tsx tools/cli.ts generate
   npx tsx tools/cli.ts validate ./my-spec.json
   npx tsx tools/cli.ts health
 `);
