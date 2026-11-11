@@ -480,39 +480,6 @@ function patchSchemas(spec: OpenAPISpec): void {
 }
 
 /**
- * Apply endpoint-specific patches
- */
-function applyEndpointPatches(spec: OpenAPISpec): void {
-  const patches: Record<string, (op: Operation) => void> = {
-    // platformAnalyticEventSummaries has 'totals' incorrectly required in results items
-    // The example shows totals at root level, not inside each result item.
-    // Matches nothing today: the spec (ours and QuickBase's) wraps the response
-    // in "data", while the fixtures and this patch expect results at the top.
-    // Settle the real shape with a realm-admin call before retargeting it.
-    platformAnalyticEventSummaries: (op) => {
-      const schema = op.responses?.['200']?.content?.['application/json']?.schema;
-      if (schema?.properties?.results?.items?.required) {
-        const required = schema.properties.results.items.required as string[];
-        const idx = required.indexOf('totals');
-        if (idx !== -1) {
-          required.splice(idx, 1);
-          log('info', 'Removed totals from platformAnalyticEventSummaries results[].required');
-        }
-      }
-    },
-  };
-
-  for (const [path, pathItem] of Object.entries(spec.paths)) {
-    for (const method of ['get', 'post', 'put', 'delete', 'patch'] as const) {
-      const operation = pathItem[method];
-      if (operation && operation.operationId && patches[operation.operationId]) {
-        patches[operation.operationId](operation);
-      }
-    }
-  }
-}
-
-/**
  * Mark every object in an added schema as open to unlisted keys, so the
  * generated types keep them (Go: AdditionalProperties) instead of dropping
  * whatever audit-live hasn't seen yet.
@@ -829,9 +796,6 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Patch schemas
     patchSchemas(spec);
-
-    // Apply endpoint-specific patches
-    applyEndpointPatches(spec);
 
     // Add response properties the official spec omits (found by audit-live)
     applyResponseProperties(spec, overrides.responseProperties);
