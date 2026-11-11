@@ -16,7 +16,7 @@ jobs:
           cache: npm
       - run: npm ci
 
-      - name: Build (convert, patch, validate, summarize)
+      - name: Build (convert, patch, validate)
         run: npm run build
 
       - name: Committed output matches a fresh build

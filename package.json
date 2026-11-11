@@ -21,10 +21,8 @@
     "convert": "tsx tools/cli.ts convert",
     "patch": "tsx tools/cli.ts patch",
     "validate": "tsx tools/cli.ts validate",
-    "split": "tsx tools/cli.ts split",
     "generate": "tsx tools/cli.ts generate",
-    "summarize": "tsx tools/summarize.ts",
-    "build": "tsx tools/cli.ts build && npm run summarize",
+    "build": "tsx tools/cli.ts build",
     "health": "tsx tools/cli.ts health",
     "check": "tsx tools/cli.ts health",
     "prepublishOnly": "npm run build"
