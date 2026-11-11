@@ -1,408 +1,99 @@
 # QuickBase API Specification
 
-OpenAPI 3.0 specification and test fixtures for the QuickBase JSON RESTful API.
+An OpenAPI 3 spec for the [QuickBase JSON API](https://developer.quickbase.com/), built from QuickBase's own published spec with corrections checked against live responses. It is the single source for two SDKs, which include it as a git submodule at `spec/`:
 
-This package is the single source of truth for QuickBase API definitions, used by:
-- [quickbase-js](https://github.com/DrewBradfordXYZ/quickbase-js) - TypeScript/JavaScript SDK
-- [quickbase-go](https://github.com/DrewBradfordXYZ/quickbase-go) - Go SDK
+- [quickbase-go](https://github.com/DrewBradfordXYZ/quickbase-go)
+- [quickbase-js](https://github.com/DrewBradfordXYZ/quickbase-js)
 
-## What's Included
+The file to use is **`output/quickbase-patched.json`**. Everything else here builds it, checks it, or tests against it.
 
-### Consumable Outputs (what SDKs use)
+## Why not QuickBase's spec as-is
 
-These are the language-agnostic files that SDK implementations consume:
+QuickBase's spec describes the API well but not exactly. The build corrects it:
 
-```
-output/
-└── quickbase-patched.json    # OpenAPI 3.0 spec (use for codegen, types, docs)
+| QuickBase's spec | Here |
+|---|---|
+| Omits properties the API returns: a summary field's filter (`summaryQuery`), a reference field's parent table (`masterTableId`), report `query.fields`/`sortBy`/`groupBy`, report settings, field-usage counts, and more | Added (`overrides/response-properties.json`), each found in a live response |
+| Report `properties` is an untyped object | Typed: table, chart, summary and map settings |
+| Marks almost no object as accepting keys it doesn't list | Every object does, so generated types keep what the API adds (Go: `AdditionalProperties`) |
+| `ownerId` is an integer | A string or an integer (personal reports return a string) |
+| `sortBy` is an untyped union | An array of sort fields, or `false` |
+| Record data, `lineErrors` and several arrays are untyped | Typed |
+| `int`, `401/403` and `4xx/5xx` (not valid OpenAPI) | `integer`, `401`, `default` |
+| `QB-Realm-Hostname`, `Authorization` and `User-Agent` are operation parameters | Removed; the SDKs set them |
+| Renamed `updateSolutionToRecord` to `updateSolutionFromRecord` | The old name is kept, since a rename changes SDK method names |
 
-fixtures/
-├── _meta.json                # Fixture format documentation
-├── _live/                    # Real responses captured by audit-live, every value scrubbed
-├── _manual/                  # Hand-crafted fixtures
-│   ├── errors/               # Common error responses (400, 401, 403, etc.)
-│   └── records/run-query/    # Pagination sequences, edge cases
-├── apps/get-app/             # Used by quickbase-js tests
-└── records/upsert/           # Used by quickbase-js tests
-```
+The rest is QuickBase's: if its spec documents something, so does this one. QBL (YAML), file content and generated documents keep their content type but no schema, so the SDKs send and return them as raw bytes or text.
 
-### Tooling (for maintaining the spec)
-
-These are used to build and maintain the spec, not consumed by SDKs:
+## How it's built
 
 ```
-source/                       # QuickBase's spec, as its API portal publishes it (fetch-upstream)
-overrides/                    # Schema fixes and patches (YAML)
-tools/                        # Build scripts (normalize, patch, validate, fetch-upstream, audit-live)
-```
-
-## Installation
-
-### For SDK Development (Recommended)
-
-Use a git submodule to keep the spec in sync across SDK repositories:
-
-```bash
-# Add as a submodule
-git submodule add https://github.com/DrewBradfordXYZ/quickbase-spec.git spec
-
-# Clone a repo with submodules
-git clone --recurse-submodules <your-sdk-repo>
-
-# Update to latest spec
-git submodule update --remote spec
-```
-
-This approach:
-- Keeps spec versioned with your SDK
-- Makes fixture paths relative (`spec/fixtures/...`)
-- Allows pinning to specific spec commits
-- Works with any language (Go, TypeScript, Python, etc.)
-
-### Why Not npm?
-
-This package is not published to npm because:
-- **Language agnostic** - Used by Go, TypeScript, Python SDKs; npm is JS-specific
-- **Static files only** - Just JSON files, no executable code to distribute
-- **Git versioning is sufficient** - Pin to commits or tags; no need for semver on a package registry
-- **Submodules are simpler** - No dependency resolution, lockfiles, or registry auth needed
-
-## Updating the Spec in Your SDK
-
-When quickbase-spec is updated, SDK authors should:
-
-**1. Update the submodule:**
-```bash
-git submodule update --remote spec
-git add spec
-```
-
-**2. Check for breaking changes:**
-
-Fixture paths may change between versions:
-- Generated fixtures may gain variant suffixes (e.g., `response.200.json` → `response.200.simple-application.json`)
-- Manual fixtures live in `_manual/` (e.g., `_manual/errors/`, `_manual/records/run-query/`)
-- Operation folders use kebab-case operationId (e.g., `getApp` → `get-app`)
-
-**3. Update fixture loading code if needed:**
-
-```typescript
-// Before: assumed single fixture per status
-loadFixture(`${domain}/${op}/response.${status}.json`)
-
-// After: may need to handle variants or _manual paths
-loadFixture(`${domain}/${op}/response.${status}.${variant}.json`)
-loadFixture(`_manual/${domain}/${op}/response.${status}.${variant}.json`)
-```
-
-**4. Regenerate types** (if using codegen):
-```bash
-# Go (oapi-codegen)
-oapi-codegen -package api spec/output/quickbase-patched.json > api/types.gen.go
-
-# TypeScript (openapi-typescript)
-npx openapi-typescript spec/output/quickbase-patched.json -o src/types.gen.ts
-```
-
-**5. Run tests and commit:**
-```bash
-npm test  # or go test ./...
-git add spec
-git commit -m "chore: update quickbase-spec submodule"
-```
-
-## Usage
-
-### TypeScript/JavaScript
-
-```typescript
-// Load the OpenAPI spec
-import { readFileSync } from 'fs';
-
-const spec = JSON.parse(
-  readFileSync('spec/output/quickbase-patched.json', 'utf-8')
-);
-
-console.log(spec.info.title);  // "Quick Base API"
-console.log(spec.paths);       // All API endpoints
-```
-
-```typescript
-// Load test fixtures
-const fixture = JSON.parse(
-  readFileSync('spec/fixtures/apps/get-app/response.200.json', 'utf-8')
-);
-
-console.log(fixture._meta.status);  // 200
-console.log(fixture.body);          // Response body
-```
-
-### Go
-
-```go
-// Use oapi-codegen with the spec for type generation
-//go:generate oapi-codegen -package api spec/output/quickbase-patched.json
-
-// Go SDKs typically use inline struct literals for tests (see "Should Your SDK Use Fixtures?")
-```
-
-### Other Languages
-
-The output files are plain JSON—use your language's JSON parser to read them:
-- `output/quickbase-patched.json` - OpenAPI 3.0 spec for codegen tools
-- `fixtures/**/*.json` - Test fixtures for mocking API responses
-
-## Fixtures
-
-### Should Your SDK Use Fixtures?
-
-Fixtures are most valuable for dynamically-typed languages where JSON is native. Statically-typed languages often benefit more from inline test data with compile-time type checking.
-
-| Language | Use Fixtures? | Reason |
-|----------|---------------|--------|
-| **TypeScript/JavaScript** | Yes | JSON is native, duck typing, mocking libraries expect JSON |
-| **Python** | Yes | Dynamic typing, dicts work naturally with JSON |
-| **Ruby** | Yes | Dynamic typing, hashes map directly to JSON |
-| **Go** | No | Table-driven tests with struct literals preferred, compile-time type safety |
-| **Rust** | No | Strong typing, serde requires explicit types anyway |
-| **Java/Kotlin** | Maybe | Depends on testing style; frameworks like WireMock can use JSON files |
-| **C#** | Maybe | Similar to Java; depends on mocking approach |
-
-**All languages** should use `output/quickbase-patched.json` for type/client generation.
-
-### Live, Manual and Test Fixtures
-
-Fixtures in `_live/` are **real responses** that `audit-live` captured (`QB_CAPTURE=1`) with every value replaced by a placeholder of the same type (`"x"`, `1`, booleans kept; arrays cut to 3 items), so they carry the API's actual shapes and none of a realm's data. The health check validates them against the spec, so CI fails when the spec stops matching what QuickBase returns. Refresh them by rerunning the audit with capture on.
-
-The fixtures under `apps/` and `records/` are the ones quickbase-js's tests load. (Fixtures used to be generated from the spec's own examples; checking those against the spec proved nothing, so they're gone.)
-
-Fixtures in `_manual/` are **hand-crafted** for scenarios a single response doesn't show:
-- `_manual/errors/` - Common error responses (400, 401, 403, 404, 429, 500, 502, 503)
-- `_manual/records/run-query/` - Pagination sequences (page1, page2, page3)
-- `_manual/records/upsert/` - Partial success scenarios
-
-### Format
-
-All fixtures follow a consistent format:
-
-```json
-{
-  "_meta": {
-    "description": "Successful app retrieval",
-    "status": 200,
-    "headers": {
-      "Content-Type": "application/json"
-    }
-  },
-  "body": {
-    "id": "bpqe82s1",
-    "name": "Test App",
-    "created": "2024-01-01T00:00:00.000Z"
-  }
-}
-```
-
-### File Naming Convention
-
-```
-fixtures/{tag}/{operationId}/response.{status}.json      # Response fixtures
-fixtures/{tag}/{operationId}/response.{status}.{variant}.json  # Multiple examples
-fixtures/{tag}/{operationId}/request.json                # Request body fixtures
-fixtures/_manual/errors/response.{status}.json           # Common errors
-fixtures/_manual/{tag}/{operationId}/                    # Edge cases
-fixtures/_live/{tag}/{operationId}/response.200.json     # Captured by audit-live
-```
-
-### Testing with Fixtures
-
-Use fixtures to mock API responses in your SDK tests.
-
-**TypeScript (with msw or nock):**
-
-```typescript
-import { readFileSync } from 'fs';
-import { http, HttpResponse } from 'msw';
-
-// Helper to load fixtures
-function loadFixture(path: string) {
-  return JSON.parse(readFileSync(`spec/fixtures/${path}`, 'utf-8'));
-}
-
-// Mock a successful response
-const getAppFixture = loadFixture('apps/get-app/response.200.simple-application.json');
-
-const handlers = [
-  http.get('https://api.quickbase.com/v1/apps/:appId', () => {
-    return HttpResponse.json(getAppFixture.body, {
-      status: getAppFixture._meta.status,
-    });
-  }),
-];
-
-// Mock an error response
-const errorFixture = loadFixture('_manual/errors/response.401.json');
-
-http.get('https://api.quickbase.com/v1/apps/:appId', () => {
-  return HttpResponse.json(errorFixture.body, {
-    status: errorFixture._meta.status,
-  });
-});
-```
-
-**Go (preferred approach - inline structs):**
-
-```go
-func TestGetApp(t *testing.T) {
-    // Go prefers inline struct literals for compile-time type safety
-    want := App{
-        ID:   "bpqe82s1",
-        Name: "Test App",
-    }
-
-    server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        w.Header().Set("Content-Type", "application/json")
-        json.NewEncoder(w).Encode(want)
-    }))
-    defer server.Close()
-
-    // Test your SDK against server.URL
-}
-```
-
-**Testing Pagination:**
-
-```typescript
-// Use _manual fixtures for pagination sequences
-const page1 = loadFixture('_manual/records/run-query/response.200.page1.json');
-const page2 = loadFixture('_manual/records/run-query/response.200.page2.json');
-const page3 = loadFixture('_manual/records/run-query/response.200.page3.json');
-
-// Mock sequential responses for pagination tests
-let callCount = 0;
-http.post('https://api.quickbase.com/v1/records/query', () => {
-  const fixtures = [page1, page2, page3];
-  const fixture = fixtures[callCount++];
-  return HttpResponse.json(fixture.body, { status: fixture._meta.status });
-});
-```
-
-## Building the Spec
-
-The source is QuickBase's own OpenAPI 3 spec, which `fetch-upstream` extracts from developer.quickbase.com into `source/quickbase-portal-openapi3.json`. The build turns it into `output/quickbase-patched.json`:
-
-```
-source/quickbase-portal-openapi3.json  (QuickBase's spec; fetch-upstream --write)
-  → normalize   inline $refs, keep renamed operations' names, merge allOf, open every object to unlisted keys
-  → patch       our corrections: tools/patch.ts and overrides/ (verified against live responses with audit-live)
+source/quickbase-portal-openapi3.json   QuickBase's spec, from its API portal (fetch-upstream)
+  → normalize   inline $refs, keep renamed operations' names, merge allOf, open objects
+  → patch       tools/patch.ts and overrides/
   → validate
-  → output/quickbase-patched.json  (what quickbase-go and quickbase-js generate from)
+  → output/quickbase-patched.json
 ```
 
 ```bash
-# Full build pipeline
-npm run build
-
-# Individual steps
-npx tsx tools/cli.ts normalize   # portal spec → output/quickbase-openapi3.json
-npm run patch      # Apply fixes from overrides/
-npm run validate   # Validate the spec
-npm run health     # Validate fixtures (hand-written and live-captured) against the spec
+npm ci
+npm run build    # normalize, patch, validate
+npm run health   # check fixtures (including real responses) against the spec
 ```
 
-## Known API Inconsistencies
+`normalize` inlines the portal's shared schemas so generated type names come from each operation, as they always have.
 
-The QuickBase API has some inconsistencies between the spec and actual responses. These are automatically patched during the build process via `tools/patch.ts`.
+## Keeping up with QuickBase
 
-### ownerId Type (Reports)
-
-**Issue**: The spec defines `ownerId` as `integer`, but the API returns it as a `string` for personal reports.
-
-**Fix**: The `OwnerId` component schema accepts any type (`interface{}` in Go, `unknown` in TypeScript).
-
-```json
-// API response for personal report
-{
-  "id": "123",
-  "name": "My Report",
-  "ownerId": "12345678"  // String, not integer!
-}
-
-// API response for shared report
-{
-  "id": "456",
-  "name": "Shared Report",
-  "ownerId": 12345678    // Integer
-}
-```
-
-**Affected endpoints**: `GET /reports`, `GET /reports/{reportId}`
-
-**SDK handling**:
-- Go: `ReportInfo.OwnerID` is `interface{}` - use type assertion
-- TypeScript: `ownerId` is `string | number` - check type before use
-
-### Keeping up with QuickBase's spec
-
-QuickBase publishes no spec file; its API portal embeds one. `fetch-upstream` extracts it and lists what changed:
+QuickBase publishes no spec file; its [API portal](https://developer.quickbase.com/) embeds one in its JavaScript. `fetch-upstream` extracts it as data (nothing from the portal runs) and lists what changed:
 
 ```bash
-npx tsx tools/cli.ts fetch-upstream          # compare only; exits 2 when upstream changed
-npx tsx tools/cli.ts fetch-upstream --write  # save it to source/quickbase-portal-openapi3.json
+npx tsx tools/cli.ts fetch-upstream          # compare with source/; exits 2 when QuickBase changed it
+npx tsx tools/cli.ts fetch-upstream --write  # save it to source/, with the portal version and time
 ```
 
-To take an upstream change: `fetch-upstream --write`, `npm run build`, regenerate both SDKs, and review the generated diff (CI's weekly check opens an issue when there is one).
+A weekly CI job runs it and opens an issue when QuickBase's spec changes. To take a change: `fetch-upstream --write`, `npm run build`, regenerate both SDKs, and review their generated diffs. `fetch-upstream` fails rather than saves when the portal changes how it ships the spec.
 
-`normalize` keeps the SDKs stable across QuickBase's choices: it inlines the portal's shared schemas so generated type names come from the operation; it marks every object open to unlisted keys (the portal marks almost none, and generated types only keep extra keys when the schema allows them); and an operation QuickBase renamed keeps our name, since a rename changes SDK method names: `updateSolutionToRecord` is `updateSolutionFromRecord` upstream (same `GET /solutions/{solutionId}/fromrecord`). Content that isn't JSON (QBL YAML, file content, documents) keeps its content type but no schema: the SDKs send and return it as raw bytes or text.
+## Checking against live responses
 
-### Undocumented response properties
-
-**Issue**: The API returns properties the official spec omits, e.g. `summaryQuery` (a summary field's filter) and `masterTableId` (a reference field's parent table) in `getFields`, and `query.fields`, `query.sortBy` and `query.groupBy` in reports. Without them the SDKs can't decode those values.
-
-**Fix**: `overrides/response-properties.json` lists them by operation and object path, and the patch step adds each as an optional property (it never replaces one the spec defines). They are found with the live audit:
+`audit-live` calls read-only endpoints on an app you choose and compares every response with the spec. Per operation, it reports properties the spec doesn't define, properties returned with another type, and documented properties no response carried.
 
 ```bash
 QB_REALM=example.quickbase.com QB_USER_TOKEN=... QB_APP_ID=... \
   npx tsx tools/cli.ts audit-live [report.json]
 ```
 
-It walks one app through read-only endpoints (an explicit allowlist; several GET endpoints write) and reports undocumented properties, type mismatches, and documented properties no response carried. The report holds property names, JSON types and counts, never values or IDs.
+- **Read-only by allowlist**, not by HTTP method: several QuickBase GET endpoints write (`createSolutionFromRecord`, `generateDocument`, ...).
+- **A call budget**: `QB_MAX_CALLS` (default 150) and `QB_MAX_TABLES` (default 15). It samples breadth (fields and reports per table, then one of each field type and report type) instead of walking everything, stops at the budget, and still reports. Use a small budget on a production realm.
+- **No data in the report**: property names, JSON types and counts, never values or IDs.
+- **`QB_CAPTURE=1`** also saves each operation's first response as a fixture, with every value replaced (see below).
 
-Not patched: `compositeFields` items (`id`, `isHidden`, `key`), whose spec type is a union of integer and object; and report `properties` (chart, summary and map settings), which stays a free-form map because its keys depend on the report type.
+Findings become entries in `overrides/response-properties.json`.
 
-### Other Patches
+## Fixtures
 
-See `tools/patch.ts` for the complete list of patches applied:
-- Response code normalization (`401/403` → `401`, `4xx/5xx` → `default`)
-- Invalid type fixes (`int` → `integer`)
-- Missing array item types
-- `sortBy` union type handling
-
-## Override System
-
-Schema fixes live in `overrides/` as YAML files:
-
-```yaml
-# overrides/schemas.yaml
-GetFields200Response:
-  type: array
-  items:
-    $ref: '#/components/schemas/Field'
+```
+fixtures/
+├── _live/      real responses captured by audit-live, every value scrubbed
+├── _manual/    hand-written: errors, pagination sequences, partial upserts
+├── apps/get-app/response.200.json      used by quickbase-js's tests
+└── records/upsert/response.200.json    used by quickbase-js's tests
 ```
 
-These are applied during the `patch` step to fix issues in the original spec.
+Each fixture is `{ "_meta": { "description", "status" }, "body": ... }`, at `{tag}/{operation}/response.{status}[.variant].json`.
+
+`_live/` fixtures keep a real response's shape and types and none of its data: strings become `"x"`, numbers `1`, arrays at most 3 items. `npm run health` validates every fixture against the spec, so CI fails when the spec stops matching what QuickBase returns.
+
+## CI
+
+On every push and pull request: build, require the committed `output/` to match a fresh build, and run the health check. Weekly: the upstream check above.
 
 ## Contributing
 
-1. If QuickBase's spec is wrong, check it against a live response with `audit-live`, then add a fix to `overrides/` (or `tools/patch.ts`)
-2. Run `npm run build` to regenerate the spec
-3. Refresh live fixtures with `QB_CAPTURE=1` on an `audit-live` run, or add edge cases to `fixtures/_manual/`
-4. Run `npm run health` to validate all fixtures
-5. Submit a PR
-
-## Links
-
-- [QuickBase API Portal](https://developer.quickbase.com/)
-- [QuickBase API Reference](https://developer.quickbase.com/operation/getApp)
+1. When QuickBase's spec looks wrong, confirm it against a live response with `audit-live`.
+2. Fix it in `overrides/response-properties.json` (a missing property) or `tools/patch.ts` (anything else).
+3. `npm run build`, then refresh `_live/` fixtures (`QB_CAPTURE=1`) if responses changed.
+4. `npm run health`, and regenerate both SDKs to see the effect.
 
 ## License
 
