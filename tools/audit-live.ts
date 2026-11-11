@@ -18,6 +18,15 @@
  *   QB_USER_TOKEN   user token with access to the app
  *   QB_APP_ID       app to walk
  *   QB_APP_TOKEN    optional, for apps that require one
+ *   QB_MAX_CALLS    call budget, default 150; the walk stops there and
+ *                   reports what it saw
+ *   QB_MAX_TABLES   tables to read fields and reports from, default 15
+ *
+ * The budget matters on client realms: walking every table and report of a
+ * large app is thousands of calls. The walk spends it on breadth of shapes
+ * first (fields and reports per table), then one getField per field
+ * type/mode and one getReport per report type across the app, then the
+ * per-table calls whose shape doesn't vary, on a few tables.
  */
 
 import { readJson, writeJson, PATHS, log } from './common.js';
@@ -57,7 +66,14 @@ const READ_ONLY = new Set([
 ]);
 
 /** Pause between calls: QuickBase allows 100 requests per 10 seconds per user token. */
-const PAUSE_MS = 120;
+const PAUSE_MS = 250;
+
+const DEFAULT_MAX_CALLS = 150;
+const DEFAULT_MAX_TABLES = 15;
+/** Tables that get the per-table calls whose response shape doesn't vary */
+const DETAIL_TABLES = 3;
+
+class BudgetExhausted extends Error {}
 
 /** Per property path, per operation */
 interface Finding {
@@ -225,12 +241,16 @@ class Client {
   constructor(
     private realm: string,
     private userToken: string,
+    private maxCalls: number,
     private appToken?: string
   ) {}
 
   async get(operationId: string, path: string, query: Record<string, string> = {}): Promise<unknown> {
     if (!READ_ONLY.has(operationId)) {
       throw new Error(`${operationId} is not on the read-only allowlist`);
+    }
+    if (this.calls >= this.maxCalls) {
+      throw new BudgetExhausted(`call budget of ${this.maxCalls} reached`);
     }
     await new Promise((r) => setTimeout(r, PAUSE_MS));
     const url = new URL(`https://api.quickbase.com/v1${path}`);
@@ -242,6 +262,7 @@ class Client {
     };
     if (this.appToken) headers['QB-App-Token'] = this.appToken;
     this.calls++;
+    if (this.calls % 25 === 0) log('info', `${this.calls} calls`);
     const resp = await fetch(url, { method: 'GET', headers });
     if (!resp.ok) {
       throw new Error(`${operationId}: HTTP ${resp.status}`);
@@ -253,50 +274,69 @@ class Client {
 type Row = Record<string, unknown>;
 
 /**
- * Walk one app: the app, its roles, events and trustees; every table with
- * its fields, field usage, relationships and reports; one getField per
- * field type and mode, and every report.
+ * Walk one app within the client's call budget. Returns normally when the
+ * budget runs out; the auditor keeps everything seen so far.
  */
-async function walkApp(client: Client, auditor: Auditor, appId: string): Promise<void> {
+async function walkApp(client: Client, auditor: Auditor, appId: string, maxTables: number): Promise<void> {
   const call = async (op: string, path: string, query: Record<string, string> = {}): Promise<unknown> => {
     try {
       const body = await client.get(op, path, query);
       auditor.record(op, body);
       return body;
     } catch (error) {
+      if (error instanceof BudgetExhausted) throw error;
       log('warn', `${error}`);
       return undefined;
     }
   };
 
-  await call('getApp', `/apps/${appId}`);
-  await call('getRoles', `/apps/${appId}/roles`);
-  await call('getAppEvents', `/apps/${appId}/events`);
-  await call('getTrustees', `/app/${appId}/trustees`);
+  try {
+    await call('getApp', `/apps/${appId}`);
+    await call('getRoles', `/apps/${appId}/roles`);
+    await call('getAppEvents', `/apps/${appId}/events`);
+    await call('getTrustees', `/app/${appId}/trustees`);
+    const tables = (((await call('getAppTables', '/tables', { appId })) as Row[] | undefined) ?? []).slice(0, maxTables);
 
-  const tables = ((await call('getAppTables', '/tables', { appId })) as Row[] | undefined) ?? [];
-  for (const table of tables) {
-    const tableId = String(table.id);
-    await call('getTable', `/tables/${tableId}`, { appId });
-    await call('getRelationships', `/tables/${tableId}/relationships`);
-    await call('getFieldsUsage', '/fields/usage', { tableId });
+    // Breadth: every sampled table's fields and reports
+    const fieldKinds = new Map<string, { tableId: string; fieldId: unknown }>();
+    const reportTypes = new Map<string, { tableId: string; reportId: unknown }>();
+    const firstField = new Map<string, unknown>();
+    for (const table of tables) {
+      const tableId = String(table.id);
+      const fields = ((await call('getFields', '/fields', { tableId })) as Row[] | undefined) ?? [];
+      for (const f of fields) {
+        const kind = `${f.fieldType}/${f.mode ?? ''}`;
+        if (!fieldKinds.has(kind)) fieldKinds.set(kind, { tableId, fieldId: f.id });
+      }
+      if (fields.length > 0) firstField.set(tableId, fields[0].id);
+      const reports = ((await call('getTableReports', '/reports', { tableId })) as Row[] | undefined) ?? [];
+      for (const r of reports) {
+        const type = String(r.type);
+        if (!reportTypes.has(type)) reportTypes.set(type, { tableId, reportId: r.id });
+      }
+    }
 
-    const fields = ((await call('getFields', '/fields', { tableId })) as Row[] | undefined) ?? [];
-    const kinds = new Set<string>();
-    for (const field of fields) {
-      const kind = `${field.fieldType}/${field.mode ?? ''}`;
-      if (kinds.has(kind)) continue;
-      kinds.add(kind);
-      await call('getField', `/fields/${field.id}`, { tableId });
+    // One of each field kind and report type, across the app
+    for (const { tableId, fieldId } of fieldKinds.values()) {
+      await call('getField', `/fields/${fieldId}`, { tableId });
     }
-    if (fields.length > 0) {
-      await call('getFieldUsage', `/fields/usage/${fields[0].id}`, { tableId });
+    for (const { tableId, reportId } of reportTypes.values()) {
+      await call('getReport', `/reports/${reportId}`, { tableId });
     }
 
-    const reports = ((await call('getTableReports', '/reports', { tableId })) as Row[] | undefined) ?? [];
-    for (const report of reports) {
-      await call('getReport', `/reports/${report.id}`, { tableId });
+    // Calls whose shape doesn't vary by table, on a few tables
+    for (const table of tables.slice(0, DETAIL_TABLES)) {
+      const tableId = String(table.id);
+      await call('getTable', `/tables/${tableId}`, { appId });
+      await call('getRelationships', `/tables/${tableId}/relationships`);
+      await call('getFieldsUsage', '/fields/usage', { tableId });
+      if (firstField.has(tableId)) {
+        await call('getFieldUsage', `/fields/usage/${firstField.get(tableId)}`, { tableId });
+      }
     }
+  } catch (error) {
+    if (!(error instanceof BudgetExhausted)) throw error;
+    log('warn', `${error.message}; reporting what was seen`);
   }
 }
 
@@ -325,15 +365,30 @@ export async function auditLive(outPath?: string): Promise<AuditReport> {
 
   const spec = readJson<OpenAPISpec>(join(PATHS.output, 'quickbase-patched.json'));
   const auditor = new Auditor(spec);
-  const client = new Client(realm, userToken, process.env.QB_APP_TOKEN);
-
-  await walkApp(client, auditor, appId);
-
-  const report = auditor.report();
-  printReport(report, client.calls);
-  if (outPath) {
-    writeJson(outPath, report);
-    log('info', `Wrote ${outPath}`);
+  const maxCalls = Number(process.env.QB_MAX_CALLS ?? DEFAULT_MAX_CALLS);
+  const maxTables = Number(process.env.QB_MAX_TABLES ?? DEFAULT_MAX_TABLES);
+  if (!(maxCalls > 0) || !(maxTables > 0)) {
+    throw new Error('QB_MAX_CALLS and QB_MAX_TABLES must be positive numbers');
   }
-  return report;
+  const client = new Client(realm, userToken, maxCalls, process.env.QB_APP_TOKEN);
+
+  const finish = (): AuditReport => {
+    const report = auditor.report();
+    printReport(report, client.calls);
+    if (outPath) {
+      writeJson(outPath, report);
+      log('info', `Wrote ${outPath}`);
+    }
+    return report;
+  };
+  // Stopped by hand: still report what was seen and how many calls it took
+  process.once('SIGINT', () => {
+    log('warn', 'interrupted');
+    finish();
+    process.exit(130);
+  });
+
+  log('info', `Budget: ${maxCalls} calls, up to ${maxTables} tables`);
+  await walkApp(client, auditor, appId, maxTables);
+  return finish();
 }

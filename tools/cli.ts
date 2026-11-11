@@ -136,6 +136,8 @@ Commands:
   health            Validate fixtures against spec (alias: check)
   audit-live [out]  Compare a realm's real responses with the spec; read-only.
                     Needs QB_REALM, QB_USER_TOKEN, QB_APP_ID (QB_APP_TOKEN optional).
+                    QB_MAX_CALLS caps the calls (default 150), QB_MAX_TABLES
+                    the tables sampled (default 15).
                     Writes the JSON report to [out] if given.
 
 Examples:
