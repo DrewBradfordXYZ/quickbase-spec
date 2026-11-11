@@ -1,0 +1,62 @@
+name: Upstream spec
+
+# QuickBase publishes no spec file; fetch-upstream reads the one its API
+# portal embeds and compares it with source/quickbase-portal-openapi3.json.
+# When it changed, open an issue (one at a time) with what changed.
+on:
+  schedule:
+    - cron: "0 13 * * 1" # Mondays
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Fetch and compare
+        id: fetch
+        run: |
+          set +e
+          npx tsx tools/cli.ts fetch-upstream 2>&1 | sed 's/\x1b\[[0-9;]*m//g' > upstream.txt
+          code=${PIPESTATUS[0]}
+          cat upstream.txt
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      # 0: unchanged, 2: changed; anything else means fetch-upstream broke
+      # (the portal may have changed how it ships the spec).
+      - name: Fail when the fetch broke
+        if: steps.fetch.outputs.code != '0' && steps.fetch.outputs.code != '2'
+        run: exit 1
+
+      - name: Open an issue
+        if: steps.fetch.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          open=$(gh issue list --label upstream-spec --state open --json number --jq length)
+          if [ "$open" != "0" ]; then
+            echo "An upstream-spec issue is already open"
+            exit 0
+          fi
+          gh label create upstream-spec --color 1d76db --description "QuickBase changed its API spec" --force
+          {
+            echo "QuickBase's API portal spec changed. To take it:"
+            echo
+            echo "1. \`npx tsx tools/cli.ts fetch-upstream --write\`, then \`npm run build\`"
+            echo "2. Regenerate quickbase-go and quickbase-js on the new spec and review the generated diff"
+            echo
+            echo '```'
+            cat upstream.txt
+            echo '```'
+          } > body.md
+          gh issue create --title "QuickBase API spec changed upstream" --label upstream-spec --body-file body.md

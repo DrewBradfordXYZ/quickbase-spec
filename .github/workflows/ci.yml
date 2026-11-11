@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Build (convert, patch, validate, summarize)
+        run: npm run build
+
+      - name: Committed output matches a fresh build
+        run: git diff --exit-code -- output
+
+      # Informational until the platform analytics fixtures are checked
+      # against a live realm-admin response: both QuickBase's spec and ours
+      # wrap those responses in "data", the fixtures don't.
+      - name: Health check (fixtures against the spec)
+        run: npx tsx tools/cli.ts health
+        continue-on-error: true
