@@ -826,6 +826,10 @@ export async function patch(inputPath?: string): Promise<void> {
     // Load overrides
     const overrides = await loadOverrides();
 
+    // Add what QuickBase's current spec has that our source lacks (add-only)
+    const { mergeUpstream } = await import('./upstream-merge.js');
+    mergeUpstream(spec as never);
+
     // Apply patches to all operations
     for (const [path, pathItem] of Object.entries(spec.paths)) {
       for (const method of ['get', 'post', 'put', 'delete', 'patch'] as const) {

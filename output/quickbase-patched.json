@@ -245,6 +245,10 @@
                     },
                     "securityProperties": {
                       "$ref": "#/components/schemas/CreateAppSecurityProperties"
+                    },
+                    "ancestorId": {
+                      "description": "The id of the app from which this app was copied",
+                      "type": "string"
                     }
                   }
                 }
@@ -7081,6 +7085,30 @@
                       "apps": {}
                     },
                     "warnings": []
+                  },
+                  "properties": {
+                    "solutionId": {
+                      "type": "string",
+                      "description": "The unique identifier (UUID) of the updated solution",
+                      "example": "f53acd36-1e75-47ed-910c-0ca4fd165a84"
+                    },
+                    "alias": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "The optional alias for the solution"
+                    },
+                    "createdResources": {
+                      "type": "object",
+                      "description": "Information about resources created or updated in the solution",
+                      "additionalProperties": true
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "description": "Any warnings that occurred during solution update",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
                   }
                 }
               }
@@ -7145,6 +7173,16 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "alias",
+            "in": "query",
+            "description": "An optional alias to identify the solution. This can be used instead of the UUID in subsequent API calls.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-solution-alias"
           }
         ],
         "requestBody": {
@@ -7386,6 +7424,16 @@
             "schema": {
               "type": "boolean"
             }
+          },
+          {
+            "name": "alias",
+            "in": "query",
+            "description": "An optional alias to identify the solution. This can be used instead of the UUID in subsequent API calls.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "my-solution-alias"
           }
         ],
         "responses": {
@@ -8106,6 +8154,37 @@
                           "logicalId": "$Pipeline_Notification_Flow"
                         }
                       ]
+                    }
+                  },
+                  "properties": {
+                    "uuid": {
+                      "type": "string",
+                      "description": "The unique identifier (UUID) of the solution"
+                    },
+                    "alias": {
+                      "type": "string",
+                      "description": "The alias of the solution"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the solution"
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The description of the solution"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The date and time when the solution was created"
+                    },
+                    "updatedAt": {
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "The date and time when the solution was last updated"
+                    },
+                    "resources": {
+                      "$ref": "#/components/schemas/GetSolutionPublicResources"
                     }
                   }
                 }
@@ -8969,6 +9048,85 @@
                     "success"
                   ],
                   "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/apps": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get apps for a user",
+        "description": "Returns a list of applications that a specific user has access to within an account. Only account admins can use this API.",
+        "operationId": "getUserApps",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the user, including the hashed value (for example, 59913288.d772).",
+            "schema": {
+              "type": "string",
+              "example": "59913288.d772"
+            }
+          },
+          {
+            "name": "accountId",
+            "in": "query",
+            "required": true,
+            "description": "The account id used to scope the request.",
+            "schema": {
+              "type": "number",
+              "example": 1562946434000
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "apps"
+                  ],
+                  "properties": {
+                    "apps": {
+                      "description": "A list of applications the specified user has access to.",
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetUserAppsAppsItem"
+                      }
+                    }
+                  },
+                  "example": {
+                    "apps": [
+                      {
+                        "id": "bqgruir3g",
+                        "name": "Project Tracker",
+                        "lastAccess": "2024-03-15T10:23:45Z",
+                        "manager": {
+                          "id": "58351651.ab1s",
+                          "name": "Jane Doe"
+                        }
+                      },
+                      {
+                        "id": "cxhqvs7b2",
+                        "name": "HR Portal",
+                        "lastAccess": "2024-02-20T08:15:00Z",
+                        "manager": {
+                          "id": "58351648.vc2d",
+                          "name": "John Smith"
+                        }
+                      }
+                    ]
+                  },
+                  "additionalProperties": true
                 }
               }
             }
@@ -13118,6 +13276,48 @@
           }
         }
       },
+      "GetSolutionPublicResources": {
+        "type": "object",
+        "properties": {
+          "apps": {
+            "type": "array",
+            "description": "List of applications contained within the solution",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The real ID of the application"
+                },
+                "logicalId": {
+                  "type": "string",
+                  "description": "The logical ID of the application"
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "pipelines": {
+            "type": "array",
+            "description": "List of pipelines contained within the solution",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "The real ID of the pipeline"
+                },
+                "logicalId": {
+                  "type": "string",
+                  "description": "The logical ID of the pipeline"
+                }
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      },
       "GetTrusteesItem": {
         "description": "Object used for operations to read, create, or update trustees in an app.",
         "example": {
@@ -13406,6 +13606,49 @@
           "oldRoleId"
         ],
         "type": "object"
+      },
+      "GetUserAppsAppsItem": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "lastAccess",
+          "manager"
+        ],
+        "properties": {
+          "id": {
+            "description": "The unique identifier of the application.",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the application.",
+            "type": "string"
+          },
+          "lastAccess": {
+            "description": "The date and time the user last accessed this application, in ISO 8601 format.",
+            "type": "string"
+          },
+          "manager": {
+            "description": "The manager of the application.",
+            "type": "object",
+            "required": [
+              "id",
+              "name"
+            ],
+            "properties": {
+              "id": {
+                "description": "The hashed user ID of the application manager.",
+                "type": "string"
+              },
+              "name": {
+                "description": "The full name of the application manager.",
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": true
       }
     },
     "securitySchemes": {

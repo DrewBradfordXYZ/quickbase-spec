@@ -388,6 +388,19 @@ The QuickBase API has some inconsistencies between the spec and actual responses
 - Go: `ReportInfo.OwnerID` is `interface{}` - use type assertion
 - TypeScript: `ownerId` is `string | number` - check type before use
 
+### Keeping up with QuickBase's spec
+
+QuickBase publishes no spec file; its API portal embeds one. `fetch-upstream` extracts it and lists what changed:
+
+```bash
+npx tsx tools/cli.ts fetch-upstream          # compare only; exits 2 when upstream changed
+npx tsx tools/cli.ts fetch-upstream --write  # save it to source/quickbase-portal-openapi3.json
+```
+
+We still build from `source/quickbase-swagger.json`: the portal's OpenAPI 3 marks almost no objects as accepting unlisted keys and names its schemas differently, so building from it would drop the SDKs' `AdditionalProperties` and rename types. Instead the patch step merges in what the saved portal spec adds, add-only (`tools/upstream-merge.ts`): operations ours lacks (matched by method and path), parameters, and request and response properties. It never replaces or retypes what ours defines. To take an upstream change: `fetch-upstream --write`, rebuild, regenerate the SDKs, and review the generated diff.
+
+An operation upstream renamed keeps our name, since renaming changes SDK method names: `updateSolutionToRecord` is `updateSolutionFromRecord` upstream (same `GET /solutions/{solutionId}/fromrecord`).
+
 ### Undocumented response properties
 
 **Issue**: The API returns properties the official spec omits, e.g. `summaryQuery` (a summary field's filter) and `masterTableId` (a reference field's parent table) in `getFields`, and `query.fields`, `query.sortBy` and `query.groupBy` in reports. Without them the SDKs can't decode those values.
