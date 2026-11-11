@@ -1,0 +1,197 @@
+{
+  "_comment": "Properties the API returns that the official spec omits, found with audit-live. Keyed by operationId, then by the path of the object to add them to: '' is the response (each item, for an array response), 'a.b' descends through properties, 'a[]' into array items. Existing properties are never replaced. Report 'properties' is left a free-form map: its keys depend on the report type, and typing it would change the SDKs' map to a struct.",
+  "getFields": {
+    "properties": {
+      "primaryKey": {
+        "type": "boolean",
+        "description": "Whether the field is the table's key field."
+      },
+      "summaryQuery": {
+        "type": "string",
+        "description": "The summary field's filter (matching criteria) in Quickbase query language, when it has one."
+      },
+      "masterTableId": {
+        "type": "string",
+        "description": "For a reference field: the id of the parent table in its relationship."
+      },
+      "masterTableKeyFid": {
+        "type": "integer",
+        "description": "For a reference field: the parent table's key field id."
+      },
+      "fieldCaching": {
+        "type": "boolean",
+        "description": "For a reference field: whether lookup values through it are cached."
+      },
+      "openTargetIn": {
+        "type": "string",
+        "description": "For a reference field: where the parent record opens when the link is followed."
+      }
+    }
+  },
+  "getField": {
+    "properties": {
+      "primaryKey": {
+        "type": "boolean",
+        "description": "Whether the field is the table's key field."
+      },
+      "summaryQuery": {
+        "type": "string",
+        "description": "The summary field's filter (matching criteria) in Quickbase query language, when it has one."
+      },
+      "masterTableId": {
+        "type": "string",
+        "description": "For a reference field: the id of the parent table in its relationship."
+      },
+      "masterTableKeyFid": {
+        "type": "integer",
+        "description": "For a reference field: the parent table's key field id."
+      },
+      "fieldCaching": {
+        "type": "boolean",
+        "description": "For a reference field: whether lookup values through it are cached."
+      },
+      "openTargetIn": {
+        "type": "string",
+        "description": "For a reference field: where the parent record opens when the link is followed."
+      }
+    }
+  },
+  "getFieldsUsage": {
+    "usage": {
+      "customEmails": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          }
+        },
+        "description": "Custom emails that use the field."
+      },
+      "documentTemplates": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          }
+        },
+        "description": "Document templates that use the field."
+      }
+    }
+  },
+  "getFieldUsage": {
+    "usage": {
+      "customEmails": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          }
+        },
+        "description": "Custom emails that use the field."
+      },
+      "documentTemplates": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer"
+          }
+        },
+        "description": "Document templates that use the field."
+      }
+    }
+  },
+  "getReport": {
+    "": {
+      "incomplete": {
+        "type": "boolean",
+        "description": "Whether the report definition could not be fully returned."
+      }
+    },
+    "query": {
+      "fields": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "The report's columns, as field ids in display order."
+      },
+      "sortBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "order": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Fields the report sorts by."
+      },
+      "groupBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "grouping": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Fields the report groups by."
+      }
+    }
+  },
+  "getTableReports": {
+    "": {
+      "incomplete": {
+        "type": "boolean",
+        "description": "Whether the report definition could not be fully returned."
+      }
+    },
+    "query": {
+      "fields": {
+        "type": "array",
+        "items": {
+          "type": "integer"
+        },
+        "description": "The report's columns, as field ids in display order."
+      },
+      "sortBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "order": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Fields the report sorts by."
+      },
+      "groupBy": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "fieldId": {
+              "type": "integer"
+            },
+            "grouping": {
+              "type": "string"
+            }
+          }
+        },
+        "description": "Fields the report groups by."
+      }
+    }
+  }
+}

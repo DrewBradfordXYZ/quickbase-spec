@@ -489,30 +489,6 @@ function patchSchemas(spec: OpenAPISpec): void {
 }
 
 /**
- * Add summaryQuery to a field response's properties.
- *
- * The spec documents summaryQuery only as an updateField input, but getFields
- * and getField return it on every summary field that has a filter (its
- * matching criteria, in query language, e.g. {'7'.EX.'Open'}). It is omitted
- * when the summary has no filter.
- */
-function addSummaryQueryToFieldResponse(op: Operation): void {
-  let schema = op.responses?.['200']?.content?.['application/json']?.schema;
-  if (schema?.type === 'array') {
-    schema = schema.items;
-  }
-  const props = schema?.properties?.properties?.properties;
-  if (props && !props.summaryQuery) {
-    props.summaryQuery = {
-      type: 'string',
-      description:
-        "The summary field's filter (matching criteria) in Quickbase query language, when it has one.",
-    };
-    log('info', `Added summaryQuery to ${op.operationId} response properties`);
-  }
-}
-
-/**
  * Apply endpoint-specific patches
  */
 function applyEndpointPatches(spec: OpenAPISpec): void {
@@ -527,10 +503,7 @@ function applyEndpointPatches(spec: OpenAPISpec): void {
           log('info', 'Patching getFields response to array');
         }
       }
-      addSummaryQueryToFieldResponse(op);
     },
-
-    getField: addSummaryQueryToFieldResponse,
 
     // getAppTables returns an array
     getAppTables: (op) => {
@@ -567,6 +540,62 @@ function applyEndpointPatches(spec: OpenAPISpec): void {
   }
 }
 
+/** operationId -> object path -> properties to add (overrides/response-properties.json) */
+type ResponseProperties = Record<string, Record<string, Record<string, Schema>>>;
+
+/**
+ * Add properties the API returns but the official spec omits, as found by
+ * audit-live. A path of '' is the response (each item, for an array
+ * response); 'a.b' descends through properties; 'a[]' into array items.
+ * Existing properties are never replaced.
+ */
+function applyResponseProperties(spec: OpenAPISpec, additions: ResponseProperties | undefined): void {
+  if (!additions) return;
+
+  const deref = (schema: Schema | undefined): Schema | undefined => {
+    let s = schema;
+    for (let i = 0; s?.$ref && i < 10; i++) {
+      s = spec.components.schemas?.[s.$ref.replace('#/components/schemas/', '')];
+    }
+    return s;
+  };
+
+  const responses = new Map<string, Schema>();
+  for (const pathItem of Object.values(spec.paths)) {
+    for (const op of Object.values(pathItem) as Operation[]) {
+      const schema = op?.responses?.['200']?.content?.['application/json']?.schema;
+      if (op?.operationId && schema) responses.set(op.operationId, schema);
+    }
+  }
+
+  for (const [operationId, byPath] of Object.entries(additions)) {
+    if (operationId.startsWith('_')) continue;
+    let root = deref(responses.get(operationId));
+    if (!root) {
+      throw new Error(`response-properties: no 200 JSON response for ${operationId}`);
+    }
+    if (root.type === 'array') root = deref(root.items);
+
+    for (const [path, props] of Object.entries(byPath)) {
+      let target = root;
+      for (const part of path ? path.split('.') : []) {
+        const isArray = part.endsWith('[]');
+        target = deref(target?.properties?.[isArray ? part.slice(0, -2) : part]);
+        if (isArray) target = deref(target?.items);
+      }
+      if (!target) {
+        throw new Error(`response-properties: ${operationId} has no object at '${path}'`);
+      }
+      target.properties ??= {};
+      for (const [name, schema] of Object.entries(props)) {
+        if (target.properties[name]) continue;
+        target.properties[name] = schema;
+        log('info', `Added ${operationId} ${path ? path + '.' : ''}${name}`);
+      }
+    }
+  }
+}
+
 /**
  * Load and merge override files
  */
@@ -574,6 +603,7 @@ async function loadOverrides(): Promise<{
   schemas?: Record<string, Schema>;
   parameters?: Record<string, unknown>;
   patches?: Record<string, unknown>;
+  responseProperties?: ResponseProperties;
 }> {
   const overridesDir = PATHS.overrides;
   const overrides: ReturnType<typeof loadOverrides> extends Promise<infer T> ? T : never = {};
@@ -606,6 +636,8 @@ async function loadOverrides(): Promise<{
         overrides.parameters = content as Record<string, unknown>;
       } else if (name === 'patches') {
         overrides.patches = content as Record<string, unknown>;
+      } else if (name === 'response-properties') {
+        overrides.responseProperties = content as ResponseProperties;
       }
 
       log('info', `Loaded override: ${file}`);
@@ -813,6 +845,9 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Apply endpoint-specific patches
     applyEndpointPatches(spec);
+
+    // Add response properties the official spec omits (found by audit-live)
+    applyResponseProperties(spec, overrides.responseProperties);
 
     // Extract inline anonymous schemas to named component schemas
     // This must run BEFORE mergeOverrides so overrides can reference extracted schemas

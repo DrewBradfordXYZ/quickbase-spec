@@ -388,23 +388,20 @@ The QuickBase API has some inconsistencies between the spec and actual responses
 - Go: `ReportInfo.OwnerID` is `interface{}` - use type assertion
 - TypeScript: `ownerId` is `string | number` - check type before use
 
-### summaryQuery (Fields)
+### Undocumented response properties
 
-**Issue**: The spec lists `summaryQuery` only as an `updateField` input, but `GET /fields` and `GET /fields/{fieldId}` return it in `properties` on every summary field that has a filter (its matching criteria). Summaries without a filter omit it.
+**Issue**: The API returns properties the official spec omits, e.g. `summaryQuery` (a summary field's filter) and `masterTableId` (a reference field's parent table) in `getFields`, and `query.fields`, `query.sortBy` and `query.groupBy` in reports. Without them the SDKs can't decode those values.
 
-```json
-{
-  "id": 2230,
-  "mode": "summary",
-  "properties": {
-    "summaryFunction": "Count",
-    "summaryReferenceFieldId": 8,
-    "summaryQuery": "{'893'.EX.'1'}AND{'522'.EX.'1'}"
-  }
-}
+**Fix**: `overrides/response-properties.json` lists them by operation and object path, and the patch step adds each as an optional property (it never replaces one the spec defines). They are found with the live audit:
+
+```bash
+QB_REALM=example.quickbase.com QB_USER_TOKEN=... QB_APP_ID=... \
+  npx tsx tools/cli.ts audit-live [report.json]
 ```
 
-**Fix**: `summaryQuery` (string, optional) is added to both responses' field properties.
+It walks one app through read-only endpoints (an explicit allowlist; several GET endpoints write) and reports undocumented properties, type mismatches, and documented properties no response carried. The report holds property names, JSON types and counts, never values or IDs.
+
+Not patched: `compositeFields` items (`id`, `isHidden`, `key`), whose spec type is a union of integer and object; and report `properties` (chart, summary and map settings), which stays a free-form map because its keys depend on the report type.
 
 ### Other Patches
 
