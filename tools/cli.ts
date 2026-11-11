@@ -6,10 +6,10 @@
  *   npx tsx tools/cli.ts <command> [options]
  *
  * Commands:
- *   convert   - Convert Swagger 2.0 to OpenAPI 3.0
+ *   normalize - Normalize QuickBase's portal spec (source/) for patching
  *   patch     - Apply fixes and overrides to spec
  *   validate  - Validate spec structure and references
- *   build     - Run full pipeline: convert -> patch -> validate
+ *   build     - Run full pipeline: normalize -> patch -> validate
  *   audit-live - Compare a realm's real responses with the spec (read-only)
  *   fetch-upstream - Get QuickBase's current spec from its API portal and diff it
  */
@@ -27,9 +27,9 @@ async function main(): Promise<void> {
 
   try {
     switch (command) {
-      case 'convert': {
-        const { convert } = await import('./convert.js');
-        await convert(args[1]);
+      case 'normalize': {
+        const { normalize } = await import('./normalize.js');
+        await normalize(args[1]);
         break;
       }
 
@@ -80,9 +80,9 @@ async function main(): Promise<void> {
         // Run full pipeline
         log('info', 'Running full build pipeline...\n');
 
-        // Step 1: Convert Swagger 2.0 to OpenAPI 3.0
-        const { convert } = await import('./convert.js');
-        await convert(args[1]);
+        // Step 1: Normalize QuickBase's portal spec
+        const { normalize } = await import('./normalize.js');
+        await normalize(args[1]);
 
         // Step 2: Apply patches
         const { patch } = await import('./patch.js');
@@ -127,11 +127,11 @@ Usage:
   npx tsx tools/cli.ts <command> [options]
 
 Commands:
-  convert [input]   Convert Swagger 2.0 to OpenAPI 3.0
+  normalize [input] Normalize QuickBase's portal spec (default source/quickbase-portal-openapi3.json)
   patch [input]     Apply fixes and overrides to spec
   validate [input]  Validate spec structure and references
   generate [input]  Generate fixtures from spec examples
-  build [input]     Run full pipeline (convert -> patch -> validate)
+  build [input]     Run full pipeline (normalize -> patch -> validate)
   health            Validate fixtures against spec (alias: check)
   audit-live [out]  Compare a realm's real responses with the spec; read-only.
                     Needs QB_REALM, QB_USER_TOKEN, QB_APP_ID (QB_APP_TOKEN optional).

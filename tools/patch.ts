@@ -364,10 +364,9 @@ function patchArraySchemas(obj: unknown, path: string = ''): void {
     }
   }
 
-  // Handle sortBy with x-amf-union (non-standard OpenAPI extension)
-  // Use a $ref to the SortByUnion component schema so oapi-codegen generates proper helper methods
-  if (record['x-amf-union'] && path.endsWith('.sortBy')) {
-    delete record['x-amf-union'];
+  // sortBy is an array of sort fields or false (oneOf). Use a $ref to the
+  // SortByUnion component schema so oapi-codegen generates proper helper methods
+  if (record.oneOf && path.endsWith('.sortBy')) {
     // Keep description if present, but replace with $ref
     const description = record.description;
     // Clear all existing properties except description
@@ -384,14 +383,6 @@ function patchArraySchemas(obj: unknown, path: string = ''): void {
       delete record.description;
     }
     log('info', `Patched ${path} sortBy to use SortByUnion $ref`);
-  }
-
-  // Handle where with x-amf-union (can be query string OR array of record IDs)
-  if (record['x-amf-union'] && path.endsWith('.where')) {
-    const unionTypes = record['x-amf-union'] as Schema[];
-    delete record['x-amf-union'];
-    record.oneOf = unionTypes;
-    log('info', `Patched ${path} where union type`);
   }
 
   // Handle lineErrors - should be Record<string, string[]>
@@ -807,9 +798,6 @@ export async function patch(inputPath?: string): Promise<void> {
     // Load overrides
     const overrides = await loadOverrides();
 
-    // Add what QuickBase's current spec has that our source lacks (add-only)
-    const { mergeUpstream } = await import('./upstream-merge.js');
-    mergeUpstream(spec as never);
 
     // Apply patches to all operations
     for (const [path, pathItem] of Object.entries(spec.paths)) {

@@ -35,9 +35,9 @@ fixtures/
 These are used to build and maintain the spec, not consumed by SDKs:
 
 ```
-source/                       # Original QuickBase Swagger 2.0 spec
+source/                       # QuickBase's spec, as its API portal publishes it (fetch-upstream)
 overrides/                    # Schema fixes and patches (YAML)
-tools/                        # Build scripts (convert, patch, validate, etc.)
+tools/                        # Build scripts (normalize, patch, validate, fetch-upstream, audit-live)
 ```
 
 ## Installation
@@ -289,14 +289,22 @@ http.post('https://api.quickbase.com/v1/records/query', () => {
 
 ## Building the Spec
 
-The spec tools process the original QuickBase Swagger 2.0 specification:
+The source is QuickBase's own OpenAPI 3 spec, which `fetch-upstream` extracts from developer.quickbase.com into `source/quickbase-portal-openapi3.json`. The build turns it into `output/quickbase-patched.json`:
+
+```
+source/quickbase-portal-openapi3.json  (QuickBase's spec; fetch-upstream --write)
+  → normalize   inline $refs, keep renamed operations' names, merge allOf, open every object to unlisted keys
+  → patch       our corrections: tools/patch.ts and overrides/ (verified against live responses with audit-live)
+  → validate
+  → output/quickbase-patched.json  (what quickbase-go and quickbase-js generate from)
+```
 
 ```bash
 # Full build pipeline
 npm run build
 
 # Individual steps
-npm run convert    # Swagger 2.0 → OpenAPI 3.0
+npx tsx tools/cli.ts normalize   # portal spec → output/quickbase-openapi3.json
 npm run patch      # Apply fixes from overrides/
 npm run validate   # Validate the spec
 npm run generate   # Generate fixtures from spec examples
@@ -344,9 +352,9 @@ npx tsx tools/cli.ts fetch-upstream          # compare only; exits 2 when upstre
 npx tsx tools/cli.ts fetch-upstream --write  # save it to source/quickbase-portal-openapi3.json
 ```
 
-We still build from `source/quickbase-swagger.json`: the portal's OpenAPI 3 marks almost no objects as accepting unlisted keys and names its schemas differently, so building from it would drop the SDKs' `AdditionalProperties` and rename types. Instead the patch step merges in what the saved portal spec adds, add-only (`tools/upstream-merge.ts`): operations ours lacks (matched by method and path), parameters, and request and response properties. It never replaces or retypes what ours defines. To take an upstream change: `fetch-upstream --write`, rebuild, regenerate the SDKs, and review the generated diff.
+To take an upstream change: `fetch-upstream --write`, `npm run build`, regenerate both SDKs, and review the generated diff (CI's weekly check opens an issue when there is one).
 
-An operation upstream renamed keeps our name, since renaming changes SDK method names: `updateSolutionToRecord` is `updateSolutionFromRecord` upstream (same `GET /solutions/{solutionId}/fromrecord`).
+`normalize` keeps the SDKs stable across QuickBase's choices: it inlines the portal's shared schemas so generated type names come from the operation; it marks every object open to unlisted keys (the portal marks almost none, and generated types only keep extra keys when the schema allows them); and an operation QuickBase renamed keeps our name, since a rename changes SDK method names: `updateSolutionToRecord` is `updateSolutionFromRecord` upstream (same `GET /solutions/{solutionId}/fromrecord`). Content that isn't JSON (QBL YAML, file content, documents) keeps its content type but no schema: the SDKs send and return it as raw bytes or text.
 
 ### Undocumented response properties
 

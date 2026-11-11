@@ -220,8 +220,8 @@ export async function fetchUpstream(args: string[]): Promise<number> {
     }
     against = `the last fetch${prev ? ` (${prev.bundle}, ${prev.fetchedAt})` : ''}`;
   } else {
-    baseline = readJson<Spec>(join(PATHS.source, 'quickbase-swagger.json'));
-    against = 'source/quickbase-swagger.json';
+    log('info', 'No saved portal spec yet; run with --write to save this one');
+    return 2;
   }
 
   const lines = compareSpecs(baseline, spec);

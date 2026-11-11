@@ -58,33 +58,6 @@ export async function writeYaml(path: string, data: unknown): Promise<void> {
 }
 
 /**
- * Find the source Swagger spec file
- */
-export function findSourceSpec(): string | null {
-  const sourceDir = PATHS.source;
-  if (!existsSync(sourceDir)) {
-    return null;
-  }
-
-  // Look for the main swagger file
-  const swaggerPath = join(sourceDir, 'quickbase-swagger.json');
-  if (existsSync(swaggerPath)) {
-    return swaggerPath;
-  }
-
-  // Fallback: look for any QuickBase spec files
-  const { readdirSync } = require('fs');
-  const files = readdirSync(sourceDir) as string[];
-
-  const specFiles = files
-    .filter((f: string) => f.includes('QuickBase') && f.endsWith('.json'))
-    .sort()
-    .reverse();
-
-  return specFiles.length > 0 ? join(sourceDir, specFiles[0]) : null;
-}
-
-/**
  * Log with timestamp and color
  */
 export function log(level: 'info' | 'warn' | 'error' | 'success', message: string): void {
