@@ -1940,8 +1940,9 @@
                       "type": "object",
                       "properties": {
                         "summaryFid": {
-                          "type": "number",
-                          "description": "The field id to summarize."
+                          "type": "integer",
+                          "description": "The field id to summarize.",
+                          "format": "int64"
                         },
                         "label": {
                           "type": "string",
@@ -2096,7 +2097,8 @@
             "description": "The relationship id. This is the field id of the reference field on the child table.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 6
           }
@@ -2117,8 +2119,9 @@
                       "type": "object",
                       "properties": {
                         "summaryFid": {
-                          "type": "number",
-                          "description": "The field id to summarize."
+                          "type": "integer",
+                          "description": "The field id to summarize.",
+                          "format": "int64"
                         },
                         "label": {
                           "type": "string",
@@ -2282,7 +2285,8 @@
             "description": "The relationship id. This is the field id of the reference field on the child table.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 6
           }
@@ -5467,8 +5471,9 @@
                 "type": "object",
                 "properties": {
                   "id": {
-                    "type": "number",
-                    "description": "The id of the user token to transfer"
+                    "type": "integer",
+                    "description": "The id of the user token to transfer",
+                    "format": "int64"
                   },
                   "from": {
                     "type": "string",
@@ -5788,7 +5793,8 @@
             "in": "query",
             "description": "The account id being used to get users. If no value is specified, the first account associated with the requesting user token is chosen.",
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1562946434000
           }
@@ -5959,7 +5965,8 @@
             "in": "query",
             "description": "The account id being used to deny users. If no value is specified, the first account associated with the requesting user token is chosen.",
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1562946434000
           }
@@ -6051,7 +6058,8 @@
             "in": "query",
             "description": "The account id being used to deny users. If no value is specified, the first account associated with the requesting user token is chosen.",
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1562946434000
           },
@@ -6153,7 +6161,8 @@
             "in": "query",
             "description": "The account id being used to undeny users. If no value is specified, the first account associated with the requesting user token is chosen.",
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1562946434000
           }
@@ -6256,8 +6265,9 @@
             "required": true,
             "description": "The account id used to scope the request.",
             "schema": {
-              "type": "number",
-              "example": 1562946434000
+              "type": "integer",
+              "example": 1562946434000,
+              "format": "int64"
             }
           }
         ],
@@ -6325,7 +6335,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -6416,7 +6427,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -6509,7 +6521,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -6600,7 +6613,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -6693,7 +6707,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -6782,7 +6797,8 @@
             "description": "This is the ID of the group being modified.",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1011
           }
@@ -7069,7 +7085,8 @@
             "in": "query",
             "description": "The ID of the account to query. If no value is specified, the first account matching the provided domain is chosen.",
             "schema": {
-              "type": "number"
+              "type": "integer",
+              "format": "int64"
             },
             "example": 1234
           }
@@ -9683,7 +9700,8 @@
                 "type": "string"
               },
               {
-                "type": "number"
+                "type": "number",
+                "format": "double"
               },
               {
                 "type": "boolean"
@@ -9769,11 +9787,13 @@
         "properties": {
           "estMemory": {
             "type": "number",
-            "description": "The estimated memory of this application in gigabytes"
+            "description": "The estimated memory of this application in gigabytes",
+            "format": "double"
           },
           "estMemoryInclDependentApps": {
             "type": "number",
-            "description": "The estimated memory of this application and all dependent applications in gigabytes"
+            "description": "The estimated memory of this application and all dependent applications in gigabytes",
+            "format": "double"
           }
         },
         "additionalProperties": true
@@ -9833,11 +9853,13 @@
         "properties": {
           "estMemory": {
             "type": "number",
-            "description": "The estimated memory of this application in gigabytes"
+            "description": "The estimated memory of this application in gigabytes",
+            "format": "double"
           },
           "estMemoryInclDependentApps": {
             "type": "number",
-            "description": "The estimated memory of this application and all dependent applications in gigabytes"
+            "description": "The estimated memory of this application and all dependent applications in gigabytes",
+            "format": "double"
           }
         },
         "additionalProperties": true
@@ -9897,11 +9919,13 @@
         "properties": {
           "estMemory": {
             "type": "number",
-            "description": "The estimated memory of this application in gigabytes"
+            "description": "The estimated memory of this application in gigabytes",
+            "format": "double"
           },
           "estMemoryInclDependentApps": {
             "type": "number",
-            "description": "The estimated memory of this application and all dependent applications in gigabytes"
+            "description": "The estimated memory of this application and all dependent applications in gigabytes",
+            "format": "double"
           }
         },
         "additionalProperties": true
@@ -10627,7 +10651,8 @@
                   "type": "boolean"
                 },
                 "justification": {
-                  "type": "number"
+                  "type": "number",
+                  "format": "double"
                 }
               },
               "additionalProperties": true
@@ -10689,7 +10714,8 @@
                 "type": "string"
               },
               "value": {
-                "type": "number"
+                "type": "number",
+                "format": "double"
               }
             },
             "additionalProperties": true
@@ -10880,7 +10906,8 @@
                   "type": "boolean"
                 },
                 "justification": {
-                  "type": "number"
+                  "type": "number",
+                  "format": "double"
                 }
               },
               "additionalProperties": true
@@ -10942,7 +10969,8 @@
                 "type": "string"
               },
               "value": {
-                "type": "number"
+                "type": "number",
+                "format": "double"
               }
             },
             "additionalProperties": true
@@ -13868,13 +13896,16 @@
                       "type": "object",
                       "properties": {
                         "integration": {
-                          "type": "number"
+                          "type": "number",
+                          "format": "double"
                         },
                         "user": {
-                          "type": "number"
+                          "type": "number",
+                          "format": "double"
                         },
                         "all": {
-                          "type": "number"
+                          "type": "number",
+                          "format": "double"
                         }
                       },
                       "additionalProperties": true
@@ -13928,13 +13959,16 @@
                 "type": "object",
                 "properties": {
                   "integration": {
-                    "type": "number"
+                    "type": "number",
+                    "format": "double"
                   },
                   "user": {
-                    "type": "number"
+                    "type": "number",
+                    "format": "double"
                   },
                   "all": {
-                    "type": "number"
+                    "type": "number",
+                    "format": "double"
                   }
                 },
                 "additionalProperties": true

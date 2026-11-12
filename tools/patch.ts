@@ -339,6 +339,62 @@ function fixInvalidTypes(obj: unknown, path: string = ''): void {
 }
 
 /**
+ * Numbers QuickBase's spec gives no format that are IDs: whole numbers, and
+ * large ones (a 9-digit account ID).
+ */
+const INTEGER_ID_NAMES = new Set(['gid', 'accountId', 'relationshipId', 'summaryFid', 'id']);
+
+/**
+ * Give every `type: number` without a format one. Generators pick the
+ * narrowest type otherwise: oapi-codegen makes a plain number float32, which
+ * holds whole numbers exactly only up to 2^24, so a 9-digit account ID or
+ * group ID changes in transit. IDs become int64; other numbers double.
+ */
+function fixNumberFormats(spec: OpenAPISpec): void {
+  let ids = 0;
+  let doubles = 0;
+
+  // name is the property or parameter the schema belongs to
+  const visit = (obj: unknown, name: string): void => {
+    if (!obj || typeof obj !== 'object') return;
+    if (Array.isArray(obj)) {
+      for (const item of obj) visit(item, name);
+      return;
+    }
+    const record = obj as Record<string, unknown>;
+
+    if (record.type === 'number' && !record.format) {
+      if (INTEGER_ID_NAMES.has(name)) {
+        record.type = 'integer';
+        record.format = 'int64';
+        ids++;
+      } else {
+        record.format = 'double';
+        doubles++;
+      }
+    }
+
+    // A parameter's schema is named by the parameter
+    const paramName = typeof record.in === 'string' && typeof record.name === 'string' ? record.name : undefined;
+    for (const [key, value] of Object.entries(record)) {
+      if (key === 'properties' && value && typeof value === 'object') {
+        for (const [prop, propSchema] of Object.entries(value as Record<string, unknown>)) {
+          visit(propSchema, prop);
+        }
+      } else if (key === 'schema' && paramName) {
+        visit(value, paramName);
+      } else {
+        visit(value, key === 'items' || key === 'oneOf' || key === 'anyOf' ? name : key);
+      }
+    }
+  };
+
+  visit(spec.paths, '');
+  visit(spec.components, '');
+  log('info', `Typed ${ids} ID numbers as int64 and ${doubles} other numbers as double`);
+}
+
+/**
  * Recursively patch array schemas that are missing items
  */
 function patchArraySchemas(obj: unknown, path: string = ''): void {
@@ -806,6 +862,9 @@ export async function patch(inputPath?: string): Promise<void> {
 
     // Merge overrides
     mergeOverrides(spec, overrides);
+
+    // Give every untyped number a format (last, so it covers what overrides add)
+    fixNumberFormats(spec);
 
     // Write output
     const outputPath = join(PATHS.output, 'quickbase-patched.json');
