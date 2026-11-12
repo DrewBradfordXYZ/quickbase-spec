@@ -70,6 +70,19 @@ QB_REALM=example.quickbase.com QB_USER_TOKEN=... QB_APP_ID=... \
 
 Findings become entries in `overrides/response-properties.json`.
 
+## Date and time values
+
+QuickBase's spec types every record value as a string or number and doesn't say which forms it accepts. Checked by writing each form to a new table in a live realm (2026-11-12; app time zone Pacific, date format MM-DD-YYYY):
+
+| Field type (`fields[].type`) | Returned | Accepted | Rejected (`lineErrors`) |
+|---|---|---|---|
+| `date` | `"2024-01-15"`; blank `""` | `"2024-01-15"` only | timestamps (`Z` or offset), `01-15-2024` (the app's format), epoch ms |
+| `timestamp` (Date/Time; created as `datetime`) | `"2024-01-15T15:30:00Z"`, UTC, whole seconds; blank `""` | ISO 8601 with `Z` or an offset; without a zone it is read in the app's time zone | a bare date, epoch ms |
+| `timeofday` | `"15:30:00"` | `"15:30:00"`, `"15:30"`, `"3:30 PM"` | |
+| `duration` | milliseconds; blank `null` | milliseconds, `"1:30:00"` | |
+
+A rejected value doesn't fail the request: the upsert returns 207, saves the record with that field blank, and lists the line in `metadata.lineErrors`. Query and report results carry field types in `fields`; upsert responses don't.
+
 ## Fixtures
 
 ```
